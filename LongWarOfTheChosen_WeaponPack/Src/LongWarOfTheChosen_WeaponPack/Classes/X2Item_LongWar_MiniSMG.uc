@@ -81,7 +81,7 @@ static function X2DataTemplate Create_MiniSMG_Laser(name TemplateName)
 	Template.RangeAccuracy = default.SHORT_LASER_RANGE;
 
 	// Model
-	Template.GameArchetype = "WP_TemplarAutoPistol_MG.WP_TemplarAutoPistol_MG";
+	Template.GameArchetype = "LW_Autopistol.WP_TemplarAutoPistol_LS";
 
 	// Building info
 	if (BuildWeaponSchematics(Template))
@@ -108,7 +108,7 @@ static function X2DataTemplate Create_MiniSMG_Coil(name TemplateName)
 	Template.RangeAccuracy = default.SHORT_COIL_RANGE;
 	
 	// Model
-	Template.GameArchetype = "WP_TemplarAutoPistol_MG.WP_TemplarAutoPistol_MG";
+	Template.GameArchetype = "LW_Autopistol.WP_TemplarAutoPistol_CG";
 
 	// Building info
 	if (BuildWeaponSchematics(Template))

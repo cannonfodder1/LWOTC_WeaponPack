@@ -68,25 +68,6 @@ static function UpdateConventionalStorage()
 		}
 	}
 
-	//add Conventional Battle Rifle always
-	`Log("LWOTC WeaponPack : Updated Conventional BR");
-	ItemTemplate = ItemTemplateMgr.FindItemTemplate('BattleRifle_CV');
-	if(ItemTemplate != none)
-	{
-		`Log("LW SMGPack : Found BattleRifle_CV item template");
-		if (!XComHQ.HasItem(ItemTemplate))
-		{
-			`Log("LW SMGPack : BattleRifle_CV not found, adding to inventory");
-			NewItemState = ItemTemplate.CreateInstanceFromTemplate(NewGameState);
-			NewGameState.AddStateObject(NewItemState);
-			XComHQ.AddItemToHQInventory(NewItemState);
-			History.AddGameStateToHistory(NewGameState);
-		} else {
-			`Log("LW SMGPack : BattleRifle_CV found, skipping inventory add");
-			History.CleanupPendingGameState(NewGameState);
-		}
-	}
-
 	//add Conventional Marksman Rifle always
 	`Log("LWOTC WeaponPack : Updated Conventional MR");
 	ItemTemplate = ItemTemplateMgr.FindItemTemplate('MarksmanRifle_CV');
@@ -106,25 +87,6 @@ static function UpdateConventionalStorage()
 		}
 	}
 
-	//add Conventional LMG always
-	`Log("LWOTC WeaponPack : Updated Conventional LMG");
-	ItemTemplate = ItemTemplateMgr.FindItemTemplate('LMG_CV');
-	if(ItemTemplate != none)
-	{
-		`Log("LW LMGPack : Found LMG item template");
-		if (!XComHQ.HasItem(ItemTemplate))
-		{
-			`Log("LW LMGPack : LMG_CV not found, adding to inventory");
-			NewItemState = ItemTemplate.CreateInstanceFromTemplate(NewGameState);
-			NewGameState.AddStateObject(NewItemState);
-			XComHQ.AddItemToHQInventory(NewItemState);
-			History.AddGameStateToHistory(NewGameState);
-		} else {
-			`Log("LW LMGPack : LMG_CV found, skipping inventory add");
-			History.CleanupPendingGameState(NewGameState);
-		}
-	}
-
 	//add Conventional SAW always
 	`Log("LWOTC WeaponPack : Updated Conventional SAW");
 	ItemTemplate = ItemTemplateMgr.FindItemTemplate('SAW_CV');
@@ -140,25 +102,6 @@ static function UpdateConventionalStorage()
 			History.AddGameStateToHistory(NewGameState);
 		} else {
 			`Log("LW SAWPack : SAW_CV found, skipping inventory add");
-			History.CleanupPendingGameState(NewGameState);
-		}
-	}
-
-	//add Conventional Carbine always
-	`Log("LWOTC WeaponPack : Updated Conventional Carbine");
-	ItemTemplate = ItemTemplateMgr.FindItemTemplate('Carbine_CV');
-	if(ItemTemplate != none)
-	{
-		`Log("LW WeaponPack : Found Carbine item template");
-		if (!XComHQ.HasItem(ItemTemplate))
-		{
-			`Log("LW WeaponPack : Carbine_CV not found, adding to inventory");
-			NewItemState = ItemTemplate.CreateInstanceFromTemplate(NewGameState);
-			NewGameState.AddStateObject(NewItemState);
-			XComHQ.AddItemToHQInventory(NewItemState);
-			History.AddGameStateToHistory(NewGameState);
-		} else {
-			`Log("LW WeaponPack : Carbine_CV found, skipping inventory add");
 			History.CleanupPendingGameState(NewGameState);
 		}
 	}
@@ -262,14 +205,11 @@ static event OnPostTemplatesCreated()
 	class'X2Override_Attachments_SMG'.static.UpdateSMGAttachmentTemplates(ItemTemplateManager);
 	class'X2Override_Attachments_SAW'.static.UpdateSAWAttachmentTemplates(ItemTemplateManager);
 	class'X2Override_Attachments_MarksmanRifle'.static.UpdateMarksmanRifleAttachmentTemplates(ItemTemplateManager);
-	class'X2Override_Attachments_Carbine'.static.UpdateCarbineAttachmentTemplates(ItemTemplateManager);
 	class'X2Override_Attachments_Laser'.static.UpdateLaserAttachmentTemplates(ItemTemplateManager);
 	class'X2Override_Attachments_Coil'.static.UpdateCoilAttachmentTemplates(ItemTemplateManager);
-	class'X2Override_Attachments_BattleRifle'.static.UpdateBattleRifleAttachmentTemplates(ItemTemplateManager);
 		
 	class'X2Override_LongWar_Tech'.static.UpdateBaseGameLaserAndCoilTechTemplates();
-	class'X2Override_LongWar_Tech'.static.UpdateLaserWeaponTemplates(ItemTemplateManager);
-	class'X2Override_LongWar_Tech'.static.UpdateCoilWeaponTemplates(ItemTemplateManager);
+	class'X2Override_LongWar_Tech'.static.UpdateWeaponTemplates(ItemTemplateManager);
 
 	AddSchematicLoc (ItemTemplateManager);
 }
@@ -280,26 +220,11 @@ static function AddSchematicLoc (X2ItemTemplateManager ItemTemplateMgr)
 	CopySchematicLoc (ItemTemplateMgr, 'AssaultRifle_LS_Schematic', 'AssaultRifle_MG_Schematic');
 	CopySchematicLoc (ItemTemplateMgr, 'AssaultRifle_CG_Schematic', 'AssaultRifle_MG_Schematic');
 
-	CopySchematicLoc (ItemTemplateMgr, 'BattleRifle_LS_Schematic', 'AssaultRifle_MG_Schematic');
-	CopySchematicLoc (ItemTemplateMgr, 'BattleRifle_MG_Schematic', 'AssaultRifle_MG_Schematic');
-	CopySchematicLoc (ItemTemplateMgr, 'BattleRifle_CG_Schematic', 'AssaultRifle_MG_Schematic');
-	CopySchematicLoc (ItemTemplateMgr, 'BattleRifle_BM_Schematic', 'AssaultRifle_MG_Schematic');
-
 	CopySchematicLoc (ItemTemplateMgr, 'Bullpup_LS_Schematic', 'Bullpup_MG_Schematic');
 	CopySchematicLoc (ItemTemplateMgr, 'Bullpup_CG_Schematic', 'Bullpup_MG_Schematic');
 
 	CopySchematicLoc (ItemTemplateMgr, 'Cannon_LS_Schematic', 'Cannon_MG_Schematic');
 	CopySchematicLoc (ItemTemplateMgr, 'Cannon_CG_Schematic', 'Cannon_MG_Schematic');
-
-	CopySchematicLoc (ItemTemplateMgr, 'Carbine_LS_Schematic', 'AssaultRifle_MG_Schematic');
-	CopySchematicLoc (ItemTemplateMgr, 'Carbine_MG_Schematic', 'AssaultRifle_MG_Schematic');
-	CopySchematicLoc (ItemTemplateMgr, 'Carbine_CG_Schematic', 'AssaultRifle_MG_Schematic');
-	CopySchematicLoc (ItemTemplateMgr, 'Carbine_BM_Schematic', 'AssaultRifle_MG_Schematic');
-
-	CopySchematicLoc (ItemTemplateMgr, 'LMG_LS_Schematic', 'Cannon_MG_Schematic');
-	CopySchematicLoc (ItemTemplateMgr, 'LMG_MG_Schematic', 'Cannon_MG_Schematic');
-	CopySchematicLoc (ItemTemplateMgr, 'LMG_CG_Schematic', 'Cannon_MG_Schematic');
-	CopySchematicLoc (ItemTemplateMgr, 'LMG_BM_Schematic', 'Cannon_MG_Schematic');
 
 	CopySchematicLoc (ItemTemplateMgr, 'MarksmanRifle_LS_Schematic', 'SniperRifle_MG_Schematic');
 	CopySchematicLoc (ItemTemplateMgr, 'MarksmanRifle_MG_Schematic', 'SniperRifle_MG_Schematic');
@@ -350,4 +275,60 @@ static function CopySchematicLoc (X2ItemTemplateManager ItemTemplateMgr, Name Ne
 	{
 		`REDSCREEN ("Missing something from" @ NewItem @ BaseItem);
 	}
+}
+
+// Create localization variables so I don't have to copy paste this shit into XComGame.int a million times
+static function bool AbilityTagExpandHandler(string InString, out string OutString)
+{
+	local name Type;
+
+	Type = name(InString);
+
+	switch(Type)
+	{
+	case 'Basic':
+		OutString = " The troops would appreciate it if we got them better weaponry as soon as possible.";
+		return true;
+	case 'Magnetic':
+		OutString = " Magnetic weapons grant +10 crit and +1 crit damage, but have a -5 aim penalty.";
+		return true;
+	case 'Coilgun':
+		OutString = " Coil weapons grant +20 crit and +1 crit damage.";
+		return true;
+	case 'Laser':
+		OutString = " Laser weapons grant +5 aim and +1 pierce, but have a -1 mobility penalty.";
+		return true;
+	case 'Plasma':
+		OutString = " Plasma weapons grant +10 aim and +1 pierce.";
+		return true;
+
+	case 'Assault':
+		OutString = " Assault Rifles are mid-ranged, decently powerful weapons with no major drawbacks.";
+		return true;
+	case 'Shotgun':
+		OutString = " Shotguns are point blank range brutes that rapidly lose damage the farther away their target is.";
+		return true;
+	case 'SMG':
+		OutString = " Submachine Guns are close to mid range weapons that deal low base damage, but gain power the closer they are to the enemy.";
+		return true;
+	case 'SAW':
+		OutString = " Squad Automatic Weapons are mid-ranged mainstays with good damage, but they have a small aim penalty when firing after moving.";
+		return true;
+	case 'DMR':
+		OutString = " Designated Marksman Rifles are mid to long range weapons with relatively low damage, but they can hit targets beyond visual range.";
+		return true;
+	case 'LMG':
+		OutString = " Light Machine Guns are mid to long range powerhouses with immense damage, but must set up before firing or face a massive aim penalty.";
+		return true;
+	case 'Sniper':
+		OutString = " Sniper Rifles are long ranged precision removal tools that have innate armour piercing and unlimited range, but cannot fire after moving.";
+		return true;
+	case 'Autopistol':
+		OutString = " Autopistols are a pistol variant that are shorter ranged and have an even harder time piercing armour, but they deal much more damage.";
+		return true;
+	case 'Pistol':
+		OutString = " Pistols are backup short to mid range weapons that can be equipped in a utility slot, but they have trouble piercing armour.";
+		return true;
+	}
+	return false;
 }

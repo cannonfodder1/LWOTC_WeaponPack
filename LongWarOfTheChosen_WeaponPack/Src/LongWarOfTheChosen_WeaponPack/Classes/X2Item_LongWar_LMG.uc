@@ -30,7 +30,7 @@ defaultproperties
 	LMGBeam = "LMG_BM"
 	bShouldCreateDifficultyVariants = true
 }
-
+/*
 static function array<X2DataTemplate> CreateTemplates()
 {
 	local array<X2DataTemplate> Weapons;
@@ -41,7 +41,7 @@ static function array<X2DataTemplate> CreateTemplates()
 	Weapons.AddItem(Create_LMG_Beam(default.LMGBeam));
 	return Weapons;
 }
-
+*/
 static function Create_LMG_Template(out X2WeaponTemplate Template, int tier)
 {
 	//Default Settings

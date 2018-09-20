@@ -45,7 +45,7 @@ static function array<X2DataTemplate> CreateTemplates()
 static function Create_MarksmanRifle_Template(out X2WeaponTemplate Template, int tier)
 {
 	//Default Settings
-	Template.WeaponCat = 'sniper_rifle';
+	Template.WeaponCat = 'dmr';
 	Template.ItemCat = 'weapon';
 	Template.iPhysicsImpulse = 5;
 	Template.Tier = tier;

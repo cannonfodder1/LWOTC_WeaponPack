@@ -1,0 +1,469 @@
+;=======================================================
+; SMGs
+;=======================================================
+
+[SMG_CV X2WeaponTemplate]
+FriendlyName="SMG"
+FriendlyNamePlural="SMGs"
+BriefSummary="Submachine guns offer a lighter, more concealable alternative to the standard assault rifle, although they lack the same punch and are less accurate at long range."
+TacticalText="<Bullet/><Ability:SMG/>\n<Bullet/><Ability:Basic/>"
+AbilityDescName="SMG"
+
+[SMG_MG X2WeaponTemplate]
+FriendlyName="Stuttermag"
+FriendlyNamePlural="Stuttermags"
+BriefSummary="The Stuttermag is a lightweight version of the Magnetic Rifle and fills a similar role to the SMG, trading power, ammo and accuracy at range for increased soldier mobility and concealment."
+TacticalText="<Bullet/><Ability:Magnetic/>\n<Bullet/><Ability:SMG/>"
+AbilityDescName="SMG"
+
+[SMG_LS X2WeaponTemplate]
+FriendlyName="Laser Stengun"
+FriendlyNamePlural="Laser Stenguns"
+BriefSummary="A lightweight version of the Laser Rifle, this fills a similar role to the SMG, trading power, ammo and accuracy at range for increased soldier mobility and concealment."
+TacticalText="<Bullet/><Ability:Laser/>\n<Bullet/><Ability:SMG/>"
+AbilityDescName="SMG"
+
+[SMG_CG X2WeaponTemplate]
+FriendlyName="Subcoiler"
+FriendlyNamePlural="Subcoiler"
+BriefSummary="A lightweight version of the coil rifle that fills the role of SMG, less destructive but granting its user more mobility on the battlefield."
+TacticalText="<Bullet/><Ability:Coilgun/>\n<Bullet/><Ability:SMG/>"
+AbilityDescName="SMG"
+
+[SMG_BM X2WeaponTemplate]
+FriendlyName="Scramgun"
+FriendlyNamePlural="Scramguns"
+BriefSummary="The Scramgun, like the SMG and Stuttermag, is a smaller primary weapon that grants mobility and concealment bonuses, but does less damage and suffers accuracy penalties at longer ranges. Still, it is a personal weapon of significant power."
+TacticalText="<Bullet/><Ability:Plasma/>\n<Bullet/><Ability:SMG/>"
+AbilityDescName="SMG"
+
+;=======================================================
+; DMRs
+;=======================================================
+
+[MarksmanRifle_CV X2WeaponTemplate]
+FriendlyName="Marksman's Rifle"
+FriendlyNamePlural="Marksman's Rifles"
+BriefSummary="Marksman's Rifles are a lighter alternative to the Sniper Rifle - what they lack in hitting power and ammo capacity they make up for in allowing a sharpshooter to move and shoot."
+TacticalText="<Bullet/><Ability:DMR/>\n<Bullet/><Ability:Basic/>"
+AbilityDescName="marksman's rifle"
+
+[MarksmanRifle_MG X2WeaponTemplate]
+FriendlyName="Strike Rifle"
+FriendlyNamePlural="Strike Rifles"
+BriefSummary="The Strike Rifle is a lightweight version of the Gauss Rifle, lacking damage and ammo in exchange for the ability to move and shoot."
+TacticalText="<Bullet/><Ability:Magnetic/>\n<Bullet/><Ability:DMR/>"
+AbilityDescName="marksman's rifle"
+
+[MarksmanRifle_LS X2WeaponTemplate]
+FriendlyName="Laser Striker"
+FriendlyNamePlural="Laser Strikers"
+BriefSummary="The Laser Striker utilizes a slightly modified high-energy flash capacitor from the Laser Lance, reducing its impact slightly as a trade for ease-of-use, allowing a sharpshooter to act before firing."
+TacticalText="<Bullet/><Ability:Laser/>\n<Bullet/><Ability:DMR/>"
+AbilityDescName="marksman's rifle"
+
+[MarksmanRifle_CG X2WeaponTemplate]
+FriendlyName="Gauss Striker"
+FriendlyNamePlural="Gauss Strikers"
+BriefSummary="The Gauss Striker is a lightweight alternative to the Gauss Long Rifle."
+TacticalText="<Bullet/><Ability:Coilgun/>\n<Bullet/><Ability:DMR/>"
+AbilityDescName="marksman's rifle"
+
+[MarksmanRifle_BM X2WeaponTemplate]
+FriendlyName="Strike Lance"
+FriendlyNamePlural="Strike Lances"
+BriefSummary="The Strike Lance, like the Strike Rifle and Marksman's Rifle, is a mobile sharpshooter's best friend. Though it lacks the sheer raw killing potential of the Plasma Lance, it allows the sharpshooter to fire more quickly."
+TacticalText="<Bullet/><Ability:Plasma/>\n<Bullet/><Ability:DMR/>"
+AbilityDescName="marksman's rifle"
+
+;=======================================================
+; SAWs
+;=======================================================
+
+[SAW_CV X2WeaponTemplate]
+FriendlyName="SAW"
+FriendlyNamePlural="SAWs"
+BriefSummary="The Light Machine Gun (LMG for short) is adapted from our Battle Rifle platform to allow our gunners to engage the enemy at intermediate range."
+TacticalText="<Bullet/><Ability:SAW/>\n<Bullet/><Ability:Basic/>"
+AbilityDescName="cannon"
+
+[SAW_MG X2WeaponTemplate]
+FriendlyName="Mag SAW"
+FriendlyNamePlural="Mag SAWs"
+BriefSummary="The Light Machine Gun (LMG for short) is adapted from our Battle Rifle platform to allow our gunners to engage the enemy at intermediate range."
+TacticalText="<Bullet/><Ability:Magnetic/>\n<Bullet/><Ability:SAW/>"
+AbilityDescName="cannon"
+
+[SAW_LS X2WeaponTemplate]
+FriendlyName="Laser SAW"
+FriendlyNamePlural="Laser SAWs"
+BriefSummary="The Light Machine Gun (LMG for short) is adapted from our Battle Rifle platform to allow our gunners to engage the enemy at intermediate range."
+TacticalText="<Bullet/><Ability:Laser/>\n<Bullet/><Ability:SAW/>"
+AbilityDescName="cannon"
+
+[SAW_CG X2WeaponTemplate]
+FriendlyName="Coil SAW"
+FriendlyNamePlural="Coil SAWs"
+BriefSummary="The Light Machine Gun (LMG for short) is adapted from our Battle Rifle platform to allow our gunners to engage the enemy at intermediate range."
+TacticalText="<Bullet/><Ability:Coilgun/>\n<Bullet/><Ability:SAW/>"
+AbilityDescName="cannon"
+
+[SAW_BM X2WeaponTemplate]
+FriendlyName="Beam SAW"
+FriendlyNamePlural="Beam SAWs"
+BriefSummary="The Light Machine Gun (LMG for short) is adapted from our Battle Rifle platform to allow our gunners to engage the enemy at intermediate range."
+TacticalText="<Bullet/><Ability:Plasma/>\n<Bullet/><Ability:SAW/>"
+AbilityDescName="cannon"
+
+;=======================================================
+; Assault Rifles
+;=======================================================
+
+[AssaultRifle_CV X2WeaponTemplate]
+FriendlyName="Assault Rifle"
+FriendlyNamePlural="Assault Rifles"
+BriefSummary="We've managed to salvage a variety of standard infantry small arms; this is the most common variety, similar to the rifle used twenty years before. While decidedly inferior to ADVENT magnetic technology, it can at least be upgraded using additional weapons salvage once we perfect modular weapon technology."
+TacticalText="<Bullet/><Ability:Assault/>\n<Bullet/><Ability:Basic/>"
+AbilityDescName="assault rifle"
+
+[AssaultRifle_MG X2WeaponTemplate]
+FriendlyName="Magnetic Rifle"
+FriendlyNamePlural="Magnetic Rifles"
+BriefSummary="Magnetized projectile tech has enabled us to create rifle-style slugthrowers. They represent a substantial improvement in power relative to conventional assault rifles."
+TacticalText="<Bullet/><Ability:Magnetic/>\n<Bullet/><Ability:Assault/>"
+AbilityDescName="assault rifle"
+
+[AssaultRifle_LS X2WeaponTemplate]
+FriendlyName="Laser Rifle"
+FriendlyNamePlural="Laser Rifles"
+BriefSummary="The Laser Rifle emits a series of microsecond-duration blasts of light that destroy chemical bonds in targets."
+TacticalText="<Bullet/><Ability:Laser/>\n<Bullet/><Ability:Assault/>"
+AbilityDescName="assault rifle"
+
+[AssaultRifle_CG X2WeaponTemplate]
+FriendlyName="Coil Rifle"
+FriendlyNamePlural="Coil Rifles"
+BriefSummary="A powerful, mid-range coilgun that fires hypersonic tungsten slugs and lacks many of the Mag Rifle's drawbacks."
+TacticalText="<Bullet/><Ability:Coilgun/>\n<Bullet/><Ability:Assault/>"
+AbilityDescName="assault rifle"
+
+[AssaultRifle_BM X2WeaponTemplate]
+FriendlyName="Plasma Rifle"
+FriendlyNamePlural="Plasma Rifles"
+BriefSummary="Now that we've finally deciphered the aliens' devastating weapon technology and can develop beam weapons of our own, we can build rifles that will be the match of any enemy our soldiers encounter in the field."
+TacticalText="<Bullet/><Ability:Plasma/>\n<Bullet/><Ability:Assault/>"
+AbilityDescName="assault rifle"
+
+;=======================================================
+; Shotguns
+;=======================================================
+
+[Shotgun_CV X2WeaponTemplate]
+FriendlyName="Shotgun"
+FriendlyNamePlural="Shotguns"
+BriefSummary="We've managed to salvage a variety of standard infantry small arms; this is a specialized weapon for close range engagement. While decidedly inferior to ADVENT magnetic technology, it can at least be upgraded using additional weapons salvage once we perfect modular weapon technology."
+TacticalText="<Bullet/><Ability:Shotgun/>\n<Bullet/><Ability:Basic/>"
+AbilityDescName="shotgun"
+
+[Shotgun_MG X2WeaponTemplate]
+FriendlyName="Shard Gun"
+FriendlyNamePlural="Shard Guns"
+BriefSummary="Magnetic weapons technology will let us synthesize alien alloy fragments into a spray-style projectile, and our Rangers can use it to dramatic effect: the closer the better."
+TacticalText="<Bullet/><Ability:Magnetic/>\n<Bullet/><Ability:Shotgun/>"
+AbilityDescName="shotgun"
+
+[Shotgun_LS X2WeaponTemplate]
+FriendlyName="Scatterray"
+FriendlyNamePlural="Scatterray"
+BriefSummary="The Scatterray is an application of laser technology to provide shotgun-like effects; it is most effective at close range due to beam diffusion."
+TacticalText="<Bullet/><Ability:Laser/>\n<Bullet/><Ability:Shotgun/>"
+AbilityDescName="shotgun"
+
+[Shotgun_CG X2WeaponTemplate]
+FriendlyName="Scattergun"
+FriendlyNamePlural="Scatterguns"
+BriefSummary="A close-quarters coil-tech weapon that fills the shotgun role."
+TacticalText="<Bullet/><Ability:Coilgun/>\n<Bullet/><Ability:Shotgun/>"
+AbilityDescName="shotgun"
+
+[Shotgun_BM X2WeaponTemplate]
+FriendlyName="Storm Gun"
+FriendlyNamePlural="Storm Guns"
+BriefSummary="The Storm Gun fires a concentrated set of beam pulses, piercing and melting the target across a substantial surface area."
+TacticalText="<Bullet/><Ability:Plasma/>\n<Bullet/><Ability:Shotgun/>"
+AbilityDescName="shotgun"
+
+;=======================================================
+; Sniper Rifles
+;=======================================================
+
+[SniperRifle_CV X2WeaponTemplate]
+FriendlyName="Sniper Rifle"
+FriendlyNamePlural="Sniper Rifles"
+BriefSummary="We've managed to salvage a variety of standard infantry small arms; this is a specialized weapon for medium to long range engagement. While decidedly inferior to ADVENT magnetic technology, it can at least be upgraded using additional weapons salvage once we perfect modular weapon technology."
+TacticalText="<Bullet/><Ability:Sniper/>\n<Bullet/><Ability:Basic/>"
+AbilityDescName="sniper rifle"
+
+[SniperRifle_MG X2WeaponTemplate]
+FriendlyName="Gauss Rifle"
+FriendlyNamePlural="Gauss Rifles"
+BriefSummary="Magnetic weapons technology has particular utility for precision slow-fire weapons like sniper rifles. The Gauss Rifle will enable our Sharpshooters to cause greater damage at extended range."
+TacticalText="<Bullet/><Ability:Magnetic/>\n<Bullet/><Ability:Sniper/>"
+AbilityDescName="sniper rifle"
+
+[SniperRifle_LS X2WeaponTemplate]
+FriendlyName="Laser Lance"
+FriendlyNamePlural="Laser Lances"
+BriefSummary="A long rifle version of the Laser Rifle, the Laser Lance incorporates extremely high-energy flash capacitors, resulting in a high-precision long-range laser weapon."
+TacticalText="<Bullet/><Ability:Laser/>\n<Bullet/><Ability:Sniper/>"
+AbilityDescName="sniper rifle"
+
+[SniperRifle_CG X2WeaponTemplate]
+FriendlyName="Gauss Long Rifle"
+FriendlyNamePlural="Gauss Long Rifles"
+BriefSummary="An extended coil rifle that may be employed by our Sharpshooters."
+TacticalText="<Bullet/><Ability:Coilgun/>\n<Bullet/><Ability:Sniper/>"
+AbilityDescName="sniper rifle"
+
+[SniperRifle_BM X2WeaponTemplate]
+FriendlyName="Plasma Lance"
+FriendlyNamePlural="Plasma Lances"
+BriefSummary="The aliens' focused beam technology has obvious applications for improving sniper rifles. The Plasma Lance is an unmatched sniper rifle."
+TacticalText="<Bullet/><Ability:Plasma/>\n<Bullet/><Ability:Sniper/>"
+AbilityDescName="sniper rifle"
+
+;=======================================================
+; Pistols
+;=======================================================
+
+[Pistol_CV X2WeaponTemplate]
+FriendlyName="Pistol"
+FriendlyNamePlural="Pistols"
+BriefSummary="XCOM Sharpshooters carry high-caliber pistols in addition to their sniper rifles. With the proper training, Sharpshooters can pose an enormous threat at close range."
+TacticalText="<Bullet/><Ability:Pistol/>\n<Bullet/><Ability:Basic/>"
+AbilityDescName="pistol"
+
+[Pistol_MG X2WeaponTemplate]
+FriendlyName="Mag Pistol"
+FriendlyNamePlural="Mag Pistols"
+BriefSummary="Based on the advances in magnetic weapons tech we've achieved, this new pistol boasts a substantial improvement in power over our conventional pistol."
+TacticalText="<Bullet/><Ability:Magnetic/>\n<Bullet/><Ability:Pistol/>"
+AbilityDescName="pistol"
+
+[Pistol_LS X2WeaponTemplate]
+FriendlyName="Laser Pistol"
+FriendlyNamePlural="Laser Pistols"
+UnknownUtilityCategory="Pistol"
+BriefSummary="Based on the advances in beam weapons tech we've achieved, this new pistol boasts a substantial improvement in power over our conventional pistol."
+TacticalText="<Bullet/><Ability:Laser/>\n<Bullet/><Ability:Pistol/>"
+AbilityDescName="pistol"
+
+[Pistol_CG X2WeaponTemplate]
+FriendlyName="Gauss Pistol"
+FriendlyNamePlural="Gauss Pistols"
+UnknownUtilityCategory="Pistol"
+BriefSummary="A powerful, coil-tech sidearm that can punch through the opposition with its heavy rounds."
+TacticalText="<Bullet/><Ability:Coilgun/>\n<Bullet/><Ability:Pistol/>"
+AbilityDescName="pistol"
+
+[Pistol_BM X2WeaponTemplate]
+FriendlyName="Beam Pistol"
+FriendlyNamePlural="Beam Pistols"
+BriefSummary="The ultimate sidearm, this pistol integrates the aliens' beam weapons technology to powerful effect."
+TacticalText="<Bullet/><Ability:Plasma/>\n<Bullet/><Ability:Pistol/>"
+AbilityDescName="pistol"
+
+;=======================================================
+; LMGs
+;=======================================================
+
+[Cannon_CV X2WeaponTemplate]
+FriendlyName="LMG"
+FriendlyNamePlural="LMG"
+BriefSummary="The LMG, or Light Machine Gun, is an improvised light support weapon, specialized for high volume fire. While decidedly superior in damage to any other conventional weapon, the LMG is unwieldy and should be mounted to cover before being fired."
+TacticalText="<Bullet/><Ability:LMG/>\n<Bullet/><Ability:Basic/>"
+AbilityDescName="cannon"
+
+[Cannon_MG X2WeaponTemplate]
+FriendlyName="Mag LMG"
+FriendlyNamePlural="Mag LMGs"
+BriefSummary="Magnetic weapons tech will let us deploy a rapid-fire version of the cannon. Our Grenadiers will be able to lay down a much deadlier volume of fire."
+TacticalText="<Bullet/><Ability:Magnetic/>\n<Bullet/><Ability:LMG/>"
+AbilityDescName="cannon"
+
+[Cannon_LS X2WeaponTemplate]
+FriendlyName="Laser Cannon"
+FriendlyNamePlural="Laser Cannons"
+BriefSummary="Laser weapons tech combined with an improved cooling system will let us deploy a rapid-fire version of the cannon, able to lay down a much deadlier volume of fire."
+TacticalText="<Bullet/><Ability:Laser/>\n<Bullet/><Ability:LMG/>"
+AbilityDescName="cannon"
+
+[Cannon_CG X2WeaponTemplate]
+FriendlyName="Gauss Cannon"
+FriendlyNamePlural="Gauss Cannons"
+BriefSummary="A heavy duty, automatic coilgun with a huge rate of fire."
+TacticalText="<Bullet/><Ability:Coilgun/>\n<Bullet/><Ability:LMG/>"
+AbilityDescName="cannon"
+
+[Cannon_BM X2WeaponTemplate]
+FriendlyName="Plasma LMG"
+FriendlyNamePlural="Plasma LMGs"
+BriefSummary="Devising a more powerful, high-volume beam weapon for our Grenadiers required substantial effort, but the firepower it brings is unquestioned."
+TacticalText="<Bullet/><Ability:Plasma/>\n<Bullet/><Ability:LMG/>"
+AbilityDescName="cannon"
+
+;=======================================================
+; Autopistols
+;=======================================================
+
+[Sidearm_CV X2WeaponTemplate]
+FriendlyName="Autopistol"
+FriendlyNamePlural="Autopistols"
+BriefSummary="The Autopistol is a variant of the standard sidearm that has been modified to specifically enhance it's viability in close-range assaults. This straightforward design contributes to the weapon's reliability."
+TacticalText="<Bullet/><Ability:Autopistol/>\n<Bullet/><Ability:Basic/>"
+AbilityDescName="autopistol"
+
+[Sidearm_MG X2WeaponTemplate]
+FriendlyName="Mag Autopistol"
+FriendlyNamePlural="Mag Autopistols"
+BriefSummary="The introduction of a rapid accelerator into the mag pistol results in the equivalent of the conventional autopistol. This weapon should serve nicely as a close-range variant of the normal sidearm."
+TacticalText="<Bullet/><Ability:Magnetic/>\n<Bullet/><Ability:Autopistol/>"
+AbilityDescName="autopistol"
+
+[Sidearm_LS X2WeaponTemplate]
+FriendlyName="Laser Autopistol"
+FriendlyNamePlural="Laser Autopistols"
+BriefSummary="Should their power fail them for some reason, the Templars rely on a relatively conventional pistol arrangement that has been modified to specifically enhance its rate of fire and overall handling. This straightforward design contributes to the weapon's reliability in spite of the inconsistent material quality found in its construction."
+TacticalText="<Bullet/><Ability:Laser/>\n<Bullet/><Ability:Autopistol/>"
+AbilityDescName="autopistol"
+
+[Sidearm_CG X2WeaponTemplate]
+FriendlyName="Coil Autopistol"
+FriendlyNamePlural="Coil Autopistols"
+BriefSummary="Should their power fail them for some reason, the Templars rely on a relatively conventional pistol arrangement that has been modified to specifically enhance its rate of fire and overall handling. This straightforward design contributes to the weapon's reliability in spite of the inconsistent material quality found in its construction."
+TacticalText="<Bullet/><Ability:Coilgun/>\n<Bullet/><Ability:Autopistol/>"
+AbilityDescName="autopistol"
+
+[Sidearm_BM X2WeaponTemplate]
+FriendlyName="Beam Autopistol"
+FriendlyNamePlural="Beam Autopistols"
+BriefSummary="This weapon is one of the more impressive feats in our effort to reduce the size of Elerium supercyclers. The result is a stream of rapid-fire plasma bolts that the regular Beam Pistol cannot match."
+TacticalText="<Bullet/><Ability:Plasma/>\n<Bullet/><Ability:Autopistol/>"
+AbilityDescName="autopistol"
+
+;=======================================================
+; Laser Techs
+;=======================================================
+
+[LaserWeaponsTech X2TechTemplate]
+DisplayName="Laser Weapons"
+Summary="Using our new understanding of alien weapon systems, we should be able develop designs for powerful laser weaponry."
+CodeName="Linebacker"
+LongDescription="By studying the methods used by the aliens to manage energy consumption and heat dissipation in their weapons, we've built a working prototype of what we're calling a pulsed laser weapon, although some of the troops prefer to call them 'blasters' for reasons that are obscure to me. The power we are able to put through these weapons is immense, but the system cannot maintain a continuous beam of such massive energies, so it instead relies on a series of picosecond-long pulses of intense energy density to break down any chemical bonds the beam encounters. These weapons should be more accurate and do more damage, on average, than the ballistic weapons we have been using, although they don't quite match the firepower of the weaponry we have seen the aliens operating. R. Tygan."
+
+[AdvancedLaserWeaponsTech X2TechTemplate]
+DisplayName="Advanced Laser Weapons"
+Summary="With the basics of combat laser technology fully understood, we believe we can now develop specialized weapons for the troops."
+CodeName="Fulcrum"
+LongDescription="With a fuller understanding of laser weapon technology thanks to feedback from the troops and the engineering team, we were able to refine our weapon designs with a variety of changes to optics, pulse rate and capacitors to develop a series of specialty weapons usable in a variety of roles in the field. R. Tygan."
+
+;=======================================================
+; Coil Techs
+;=======================================================
+
+[CoilWeaponsTech X2TechTemplate]
+DisplayName="Coilguns"
+CodeName="Laertes"
+Summary="It is now time to move beyond reverse-engineering captured weapons to develop a new line of magnetic weaponry superior to what ADVENT utilizes."
+LongDescription="The principles of coil-type magnetic weapons have long been known, but it has taken our understanding of alien materials and energy supplies to make that a reality. And the reality is we have developed weaponry that exceed the firepower of ADVENT troops and approach that of some alien weaponry. Our coilguns fire rounds sheathed in ablative plastic that melts away as the round travels through the gun barrel at speeds even greater than those achieved by the aliens' railgun-based systems. The round itself can punch through thin armor, as well. R. Tygan."
+
+[AdvancedCoilWeaponsTech X2TechTemplate]
+DisplayName="Advanced Coilguns"
+CodeName="Firefox"
+Summary="We can now turn our attention to developing specialized coil weaponry."
+LongDescription="The challenges in adapting our new coilgun designs to fit our defined combat roles were not insigificant; the coils themselves must be precisely machined so the round doesn't lose its way in the barrel, which could have catastrophic consequences for the gun and the user. This may explain why ADVENT never adopted this style of weaponry; they are too expensive and labor-intensive to produce, not really suited for industrial-scale production for a worldwide army of poorly trained clones. They are, however, an excellent fit for a small cadre of expert soldiers. R. Tygan."
+
+;=======================================================
+; Miscellaneous
+;=======================================================
+
+[AssaultRifle_MG X2WeaponTemplate]
+FriendlyName="Mag Rifle"
+FriendlyNamePlural="Mag Rifles"
+
+[SniperRifle_MG X2WeaponTemplate]
+FriendlyName="Mag Long Rifle"
+FriendlyNamePlural="Mag Long Rifles"
+BriefSummary="Magnetic weapons technology has particular utility for precision slow-fire weapons like sniper rifles. The Mag Long Rifle will enable our Sharpshooters to cause greater damage at extended range."
+TacticalText="<Bullet/> Sniper rifles typically require both actions to fire.\n<Bullet/> They are less accurate at close range, but deadly at a distance.\n<Bullet/> Use upgrades looted from enemies to improve the Mag Long Rifle's tactical effectiveness."
+
+[GaussWeapons X2TechTemplate]
+DisplayName="Advanced Magnetic Weaponry"
+
+;=======================================================
+; Abilities
+;=======================================================
+
+[ToggleLongWatchAbility X2AbilityTemplate]
+LocFriendlyName="Long Watch"
+LocLongDescription="Allow Overwatch to trigger with Squadsight."
+LocHelpText="Fire on the first enemy that moves within your line of sight (in Squadsight range.)"
+LocLongDescriptionWhenConcealed="Fire on the first enemy that moves within your line of sight (in Squadsight range) but only if you are revealed."
+LocFlyOverText="Long Watch"
+LocFriendlyNameWhenConcealed="Long Watch (Concealed)"
+LocPromotionPopupText="<Bullet/> Like the Overwatch ability it upgrades, Long Watch suffers a base penalty to aim.<br/><Bullet/> Long Watch also suffers the Squadsight penalty to aim that increases with distance.<br/>"
+ 
+[ToggleLongWatchShotAbility X2AbilityTemplate]
+LocFriendlyName="Long Watch Shot"
+
+[MountLMGAbility X2AbilityTemplate]
+LocFriendlyName="Mount LMG"
+LocLongDescription="Mount the LMG on cover to increase accuracy and allow squad sight shots. Moving will dismount the LMG."
+LocHelpText="Mount the LMG on cover to increase accuracy and allow squad sight shots."
+LocPromotionPopupText="You shouldn't be seeing this"
+
+;=======================================================
+; Scrapped Weapons
+;=======================================================
+
+[Bullpup_LS X2WeaponTemplate]
+FriendlyName="Kal-12 Bullpup"
+FriendlyNamePlural="Kal-12 Bullpups"
+BriefSummary="The addition of an effulgence alternator to the standard bullpup design has only enhanced the Skirmishers' destructive potential."
+TacticalText="<Bullet/> Firing the Bullpup does not end the Skirmisher's turn, and it can be fired twice in a single turn.\n<Bullet/> Bullpups are extremely effective at close range, but their accuracy drops off quickly at longer range.\n<Bullet/> Use upgrades looted from enemies to improve the Bullpup's tactical effectiveness."
+AbilityDescName="bullpup"
+
+[VektorRifle_LS X2WeaponTemplate]
+FriendlyName="Energiya Rifle"
+FriendlyNamePlural="Energiya Rifles"
+BriefSummary="The Energiya Rifle is an effective and highly sought-after application of the laser technology, for the Reapers live their lives in the shadows and the light of the laser only deepens the shadows of war."
+TacticalText="<Bullet/> Firing the primary weapon always ends the soldier's turn, in the absence of special training.\n<Bullet/> The Energiya Rifle is effective at all ranges.\n<Bullet/> Use upgrades looted from enemies to improve the Energiya Rifle's tactical effectiveness."
+AbilityDescName="vektor rifle"
+
+[SparkRifle_LS X2WeaponTemplate]
+FriendlyName="Laser Heavy Autocannon"
+FriendlyNamePlural="Laser Heavy Autocannon"
+BriefSummary="A powerful but physically-heavy cannon designed specifically for use by SPARK units."
+TacticalText="<Bullet/> Firing the primary weapon ends the soldier's turn, in the absence of special training."
+AbilityDescName="heavy autocannon"
+
+[Bullpup_CG X2WeaponTemplate]
+FriendlyName="Kal-66 Bullpup"
+FriendlyNamePlural="Kal-66 Bullpups"
+BriefSummary="An intense, compact weapon that takes full advantage of the coilgun technology to give the Skirmishers a highly-powerful, armor-piercing bullpup."
+TacticalText="<Bullet/> Coil weapons automatically pierce 1 enemy armor.\n<Bullet/> Firing the Bullpup does not end the Skirmisher's turn, and it can be fired twice in a single turn.\n<Bullet/> Bullpups are extremely effective at close range, but their accuracy drops off quickly at longer range.\n<Bullet/> Use upgrades looted from enemies to improve the Bullpup's tactical effectiveness."
+AbilityDescName="bullpup"
+
+[VektorRifle_CG X2WeaponTemplate]
+FriendlyName="Silovik Rifle"
+FriendlyNamePlural="Silovik Rifles"
+BriefSummary="An elite, compact version of the Gauss Long Rifle made with the Reapers in mind."
+TacticalText="<Bullet/> Coil weapons automatically pierce 1 enemy armor.\n<Bullet/> Firing the primary weapon always ends the soldier's turn, in the absence of special training.\n<Bullet/> The Silovik Rifle is effective at all ranges.\n<Bullet/> Use upgrades looted from enemies to improve the Silovik Rifle's tactical effectiveness."
+AbilityDescName="vektor rifle"
+
+[SparkRifle_CG X2WeaponTemplate]
+FriendlyName="Coil Heavy Autocannon"
+FriendlyNamePlural="Coil Heavy Autocannon"
+BriefSummary="A powerful but physically-heavy cannon designed specifically for use by SPARK units."
+TacticalText="<Bullet/> Firing the primary weapon ends the soldier's turn, in the absence of special training."
+AbilityDescName="heavy autocannon"

@@ -1,5 +1,5 @@
 class X2Ability_LMGAbilities extends X2Ability_DefaultAbilitySet
-	dependson (XComGameStateContext_Ability) config(LongWar_WeaponPack_Abilities);
+	dependson (XComGameStateContext_Ability) config(LW_WeaponPack_Abilities);
 
 var config int LMG_Aim_Bonus_When_Mounted;
 var config string Mount_LMG_Ability_Icon;

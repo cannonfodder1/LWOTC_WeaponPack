@@ -65,7 +65,7 @@ static function X2DataTemplate CreateCoilWeaponsTemplate()
 	Template.bWeaponTech = true;
 
 	// Requirements
-	Template.Requirements.RequiredTechs.AddItem('GaussWeapons');
+	Template.Requirements.RequiredTechs.AddItem('Elerium');
 
 	CreateTemplateCost(Template, default.COIL_WEAPONS_SUPPLYCOST, default.COIL_WEAPONS_ALLOYCOST, default.COIL_WEAPONS_ELERIUMCOST);
 
