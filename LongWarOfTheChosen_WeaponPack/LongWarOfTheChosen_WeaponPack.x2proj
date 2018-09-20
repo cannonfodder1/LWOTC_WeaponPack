@@ -160,9 +160,6 @@
     <Content Include="Localization\XComGame.int">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="ModPreview.jpg">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="ReadMe.txt" />
     <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Ability_LMGAbilities.uc">
       <SubType>Content</SubType>

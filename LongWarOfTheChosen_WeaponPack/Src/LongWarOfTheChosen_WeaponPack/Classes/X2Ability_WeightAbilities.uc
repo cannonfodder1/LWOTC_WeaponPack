@@ -1,13 +1,16 @@
 class X2Ability_WeightAbilities extends X2Ability
 	dependson (XComGameStateContext_Ability) config(LW_WeaponPack_Abilities);
 
-array config name Text;
-array config int Mobility;
-array config float Detection;
+var array<name> Text;
+var config array<int> Mobility;
+var config array<float> Detection;
 
 DefaultProperties
 {
-
+	Text[0]="Ultralight Weapon" //SMG
+	Text[1]="Light Weapon" //Shotgun
+	Text[2]="Heavy Weapon" //SAW and Sniper
+	Text[3]="Superheavy Weapon" //LMG
 }
 
 static function array<X2DataTemplate> CreateTemplates()
@@ -20,7 +23,7 @@ static function array<X2DataTemplate> CreateTemplates()
 	return Templates;
 }
 
-static function X2AbilityTemplate AddMobility(x)
+static function X2AbilityTemplate AddMobility(int x)
 {
 	local X2AbilityTemplate                 Template;	
 	local X2Effect_PersistentStatChange		PersistentStatChangeEffect;

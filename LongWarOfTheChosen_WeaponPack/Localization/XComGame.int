@@ -31,9 +31,9 @@ TacticalText="<Bullet/><Ability:Coilgun/>\n<Bullet/><Ability:SMG/>"
 AbilityDescName="SMG"
 
 [SMG_BM X2WeaponTemplate]
-FriendlyName="Scramgun"
-FriendlyNamePlural="Scramguns"
-BriefSummary="The Scramgun, like the SMG and Stuttermag, is a smaller primary weapon that grants mobility and concealment bonuses, but does less damage and suffers accuracy penalties at longer ranges. Still, it is a personal weapon of significant power."
+FriendlyName="Plasma Scramgun"
+FriendlyNamePlural="Plasma Scramguns"
+BriefSummary="The Scramgun, like the SMG, is a smaller primary weapon that grants mobility and concealment bonuses, but does less damage and suffers accuracy penalties at longer ranges. Still, it is a personal weapon of significant power."
 TacticalText="<Bullet/><Ability:Plasma/>\n<Bullet/><Ability:SMG/>"
 AbilityDescName="SMG"
 

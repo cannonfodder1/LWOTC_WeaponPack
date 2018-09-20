@@ -61,8 +61,8 @@ static function Create_SAW_Template(out X2WeaponTemplate Template, int tier)
 	Template.Abilities.AddItem('OverwatchShot');
 	Template.Abilities.AddItem('Reload');
 	Template.Abilities.AddItem('HotLoadAmmo');
-	Template.Abilities.AddItem(class'X2Ability_SAWAbilities'.default.SawBonusAbility);
-	Template.SetUIStatMarkup(class'XLocalizedData'.default.MobilityLabel, eStat_Mobility, class'X2Ability_SAWAbilities'.default.SAW_Mobility_Bonus);
+	//Template.Abilities.AddItem(class'X2Ability_SAWAbilities'.default.SawBonusAbility);
+	//Template.SetUIStatMarkup(class'XLocalizedData'.default.MobilityLabel, eStat_Mobility, class'X2Ability_SAWAbilities'.default.SAW_Mobility_Bonus);
 
 	//Stats
 	Template.BaseDamage = default.SAW_Damage[tier];
