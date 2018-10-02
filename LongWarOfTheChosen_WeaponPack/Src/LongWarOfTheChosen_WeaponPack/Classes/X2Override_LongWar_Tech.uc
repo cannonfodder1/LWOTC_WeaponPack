@@ -8,17 +8,17 @@ static function UpdateBaseGameLaserAndCoilTechTemplates()
 
 	if (class'X2Item_Schematic_LongWar'.default.USE_SCHEMATICS)
 	{
-		FindTechTemplateAllDifficulties('Elerium', TechTemplates);
+		FindTechTemplateAllDifficulties('Tech_Elerium', TechTemplates);
 		foreach TechTemplates(TechTemplate)
 		{
 			TechTemplate.Requirements.RequiredTechs.Length = 0;
-			TechTemplate.Requirements.RequiredTechs[0] = 'PlatedArmor';
+			TechTemplate.Requirements.RequiredTechs.AddItem('PlatedArmor');
 			TechTemplate.Requirements.SpecialRequirementsFn = IsEleriumTechVisible_LW;
 		}
 		FindTechTemplateAllDifficulties('PlasmaRifle', TechTemplates);
 		foreach TechTemplates(TechTemplate)
 		{
-			TechTemplate.Requirements.RequiredTechs[0] = class'X2StrategyElement_LaserTechs'.default.LaserWeaponTech_Tier[1];
+			TechTemplate.Requirements.RequiredTechs.AddItem(class'X2StrategyElement_LaserTechs'.default.LaserWeaponTech_Tier[1]);
 		}
 	}
 }

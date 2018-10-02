@@ -303,19 +303,19 @@ static function bool AbilityTagExpandHandler(string InString, out string OutStri
 		return true;
 
 	case 'Assault':
-		OutString = " Assault Rifles are mid-ranged, decently powerful weapons with no major drawbacks.";
+		OutString = " Assault Rifles are mid-ranged, decently powerful weapons with no major strengths or weaknesses.";
 		return true;
 	case 'Shotgun':
-		OutString = " Shotguns are point blank range brutes that rapidly lose damage the farther away their target is.";
+		OutString = " Shotguns are point blank range brutes perfect for exploiting flanks, but rapidly lose damage the farther away their target is.";
 		return true;
 	case 'SMG':
-		OutString = " Submachine Guns are close to mid range weapons that deal low base damage, but gain power the closer they are to the enemy.";
+		OutString = " Submachine Guns are close to mid range weapons that deal low damage and are ineffective against armour, but they are extremely lightweight.";
 		return true;
 	case 'SAW':
 		OutString = " Squad Automatic Weapons are mid-ranged mainstays with good damage, but they have a small aim penalty when firing after moving.";
 		return true;
 	case 'DMR':
-		OutString = " Designated Marksman Rifles are mid to long range weapons with relatively low damage, but they can hit targets beyond visual range.";
+		OutString = " Marksman Rifles are mid to long range weapons with slightly low damage, but high critical chances and the ability to hit faraway targets.";
 		return true;
 	case 'LMG':
 		OutString = " Light Machine Guns are mid to long range powerhouses with immense damage, but must set up before firing or face a massive aim penalty.";

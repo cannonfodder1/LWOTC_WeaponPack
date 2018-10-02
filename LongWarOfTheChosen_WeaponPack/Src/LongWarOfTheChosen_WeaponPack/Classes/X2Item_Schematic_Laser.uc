@@ -4,10 +4,6 @@ var config int AssaultRifle_Laser_Schematic_SupplyCost;
 var config int AssaultRifle_Laser_Schematic_AlloyCost;
 var config int AssaultRifle_Laser_Schematic_EleriumCost;
 
-var config int BattleRifle_Laser_Schematic_SupplyCost;
-var config int BattleRifle_Laser_Schematic_AlloyCost;
-var config int BattleRifle_Laser_Schematic_EleriumCost;
-
 var config int SMG_Laser_Schematic_SupplyCost;
 var config int SMG_Laser_Schematic_AlloyCost;
 var config int SMG_Laser_Schematic_EleriumCost;
@@ -61,58 +57,40 @@ var config int SparkRifle_Laser_Schematic_AlloyCost;
 var config int SparkRifle_Laser_Schematic_EleriumCost;
 
 var name AssaultRifleLaserSchematic;
-var name BattleRifleLaserSchematic;
 var name SMGLaserSchematic;
 var name ShotgunLaserSchematic;
 var name CannonLaserSchematic;
 var name SniperRifleLaserSchematic;
 var name MarksmanRifleLaserSchematic;
-var name LMGLaserSchematic;
-var name CarbineLaserSchematic;
 var name SAWLaserSchematic;
 var name PistolLaserSchematic;
-var name BullpupLaserSchematic;
-var name VektorLaserSchematic;
 var name SidearmLaserSchematic;
-var name SparkRifleLaserSchematic;
 
 defaultproperties
 {
 	AssaultRifleLaserSchematic = "AssaultRifle_LS_Schematic"
-	BattleRifleLaserSchematic = "BattleRifle_LS_Schematic"
 	SMGLaserSchematic = "SMG_LS_Schematic"
 	ShotgunLaserSchematic = "Shotgun_LS_Schematic"
 	CannonLaserSchematic = "Cannon_LS_Schematic"
 	SniperRifleLaserSchematic = "SniperRifle_LS_Schematic"
 	MarksmanRifleLaserSchematic = "MarksmanRifle_LS_Schematic"
-	LMGLaserSchematic = "LMG_LS_Schematic"
-	CarbineLaserSchematic = "Carbine_LS_Schematic"
 	SAWLaserSchematic = "SAW_LS_Schematic"
 	PistolLaserSchematic = "Pistol_LS_Schematic"
-	BullpupLaserSchematic = "Bullpup_LS_Schematic"
-	VektorLaserSchematic = "Vektor_LS_Schematic"
 	SidearmLaserSchematic = "Sidearm_LS_Schematic"
-	SparkRifleLaserSchematic = "SparkRifle_LS_Schematic"
 }
 
 static function array<X2DataTemplate> CreateTemplates()
 {
 	local array<X2DataTemplate> Schematics;
 	Schematics.AddItem(Create_AssaultRifle_Laser_Schematic(default.AssaultRifleLaserSchematic));
-	Schematics.AddItem(Create_BattleRifle_Laser_Schematic(default.BattleRifleLaserSchematic));
 	Schematics.AddItem(Create_SMG_Laser_Schematic(default.SMGLaserSchematic));
 	Schematics.AddItem(Create_Shotgun_Laser_Schematic(default.ShotgunLaserSchematic));
 	Schematics.AddItem(Create_Cannon_Laser_Schematic(default.CannonLaserSchematic));
 	Schematics.AddItem(Create_SniperRifle_Laser_Schematic(default.SniperRifleLaserSchematic));
 	Schematics.AddItem(Create_MarksmanRifle_Laser_Schematic(default.MarksmanRifleLaserSchematic));
-	Schematics.AddItem(Create_LMG_Laser_Schematic(default.LMGLaserSchematic));
-	Schematics.AddItem(Create_Carbine_Laser_Schematic(default.CarbineLaserSchematic));
 	Schematics.AddItem(Create_SAW_Laser_Schematic(default.SAWLaserSchematic));
 	Schematics.AddItem(Create_Pistol_Laser_Schematic(default.PistolLaserSchematic));
-	Schematics.AddItem(Create_Bullpup_Laser_Schematic(default.BullpupLaserSchematic));
-	Schematics.AddItem(Create_Vektor_Laser_Schematic(default.VektorLaserSchematic));
 	Schematics.AddItem(Create_Sidearm_Laser_Schematic(default.SidearmLaserSchematic));
-	Schematics.AddItem(Create_SparkRifle_Laser_Schematic(default.SparkRifleLaserSchematic));
 	return Schematics;
 }
 
@@ -144,22 +122,6 @@ static function X2DataTemplate Create_AssaultRifle_Laser_Schematic(name Template
 	Template.HideIfPurchased = 'AssaultRifle_MG';
 
 	CreateTemplateCost(Template, default.AssaultRifle_Laser_Schematic_SupplyCost, default.AssaultRifle_Laser_Schematic_AlloyCost, default.AssaultRifle_Laser_Schematic_EleriumCost);
-	return Template;
-}
-
-static function X2DataTemplate Create_BattleRifle_Laser_Schematic(name TemplateName)
-{
-	local X2SchematicTemplate Template;
-
-	`CREATE_X2TEMPLATE(class'X2SchematicTemplate', Template, TemplateName);
-	Create_Laser_Schematic(Template, class'X2StrategyElement_LaserTechs'.default.LaserWeaponTech_Tier[0]);
-	Template.Requirements.RequiredEngineeringScore = 5;
-	Template.strImage = "img:///UILibrary_LW_LaserPack.Inv_Laser_Assault_Rifle"; 
-
-	Template.ReferenceItemTemplate = 'BattleRifle_LS';
-	Template.HideIfPurchased = 'BattleRifle_MG';
-
-	CreateTemplateCost(Template, default.BattleRifle_Laser_Schematic_SupplyCost, default.BattleRifle_Laser_Schematic_AlloyCost, default.BattleRifle_Laser_Schematic_EleriumCost);
 	return Template;
 }
 
@@ -243,38 +205,6 @@ static function X2DataTemplate Create_MarksmanRifle_Laser_Schematic(name Templat
 	return Template;
 }
 
-static function X2DataTemplate Create_Carbine_Laser_Schematic(name TemplateName)
-{
-	local X2SchematicTemplate Template;
-
-	`CREATE_X2TEMPLATE(class'X2SchematicTemplate', Template, TemplateName);
-	Create_Laser_Schematic(Template, class'X2StrategyElement_LaserTechs'.default.LaserWeaponTech_Tier[0]);
-	Template.Requirements.RequiredEngineeringScore = 5;
-	Template.strImage = "img:///UILibrary_LW_LaserPack.Inv_Laser_Assault_Rifle";
-	
-	Template.ReferenceItemTemplate = 'Carbine_LS';
-	Template.HideIfPurchased = 'Carbine_MG';
-
-	CreateTemplateCost(Template, default.Carbine_Laser_Schematic_SupplyCost, default.Carbine_Laser_Schematic_AlloyCost, default.Carbine_Laser_Schematic_EleriumCost);
-	return Template;
-}
-
-static function X2DataTemplate Create_LMG_Laser_Schematic(name TemplateName)
-{
-	local X2SchematicTemplate Template;
-
-	`CREATE_X2TEMPLATE(class'X2SchematicTemplate', Template, TemplateName);
-	Create_Laser_Schematic(Template, class'X2StrategyElement_LaserTechs'.default.LaserWeaponTech_Tier[1]);
-	Template.Requirements.RequiredEngineeringScore = 10;
-	Template.strImage = "img:///UILibrary_LW_Laserguns.InventoryArt.Inv_Laser_Cannon";
-
-	Template.ReferenceItemTemplate = 'LMG_LS';
-	Template.HideIfPurchased = 'LMG_MG';
-
-	CreateTemplateCost(Template, default.LMG_Laser_Schematic_SupplyCost, default.LMG_Laser_Schematic_AlloyCost, default.LMG_Laser_Schematic_EleriumCost);
-	return Template;
-}
-
 static function X2DataTemplate Create_SAW_Laser_Schematic(name TemplateName)
 {
 	local X2SchematicTemplate Template;
@@ -307,40 +237,6 @@ static function X2DataTemplate Create_Pistol_Laser_Schematic(name TemplateName)
 	return Template;
 }
 
-static function X2DataTemplate Create_Bullpup_Laser_Schematic(name TemplateName)
-{
-	local X2SchematicTemplate Template;
-
-	`CREATE_X2TEMPLATE(class'X2SchematicTemplate', Template, TemplateName);
-	Create_Laser_Schematic(Template, class'X2StrategyElement_LaserTechs'.default.LaserWeaponTech_Tier[0]);
-	Template.Requirements.RequiredEngineeringScore = 5;
-	Template.strImage = "img:///UILibrary_XPACK_StrategyImages.Inv_MagSMG";
-
-	Template.ReferenceItemTemplate = 'Bullpup_LS';
-	Template.HideIfPurchased = 'Bullpup_MG';
-	Template.Requirements.RequiredSoldierClass = 'Skirmisher';
-
-	CreateTemplateCost(Template, default.Bullpup_Laser_Schematic_SupplyCost, default.Bullpup_Laser_Schematic_AlloyCost, default.Bullpup_Laser_Schematic_EleriumCost);
-	return Template;
-}
-
-static function X2DataTemplate Create_Vektor_Laser_Schematic(name TemplateName)
-{
-	local X2SchematicTemplate Template;
-
-	`CREATE_X2TEMPLATE(class'X2SchematicTemplate', Template, TemplateName);
-	Create_Laser_Schematic(Template, class'X2StrategyElement_LaserTechs'.default.LaserWeaponTech_Tier[0]);
-	Template.Requirements.RequiredEngineeringScore = 5;
-	Template.strImage = "img:///UILibrary_XPACK_StrategyImages.Inv_MagVektor";
-
-	Template.ReferenceItemTemplate = 'VektorRifle_LS';
-	Template.HideIfPurchased = 'VektorRifle_MG';
-	Template.Requirements.RequiredSoldierClass = 'Reaper';
-
-	CreateTemplateCost(Template, default.Vektor_Laser_Schematic_SupplyCost, default.Vektor_Laser_Schematic_AlloyCost, default.Vektor_Laser_Schematic_EleriumCost);
-	return Template;
-}
-
 static function X2DataTemplate Create_Sidearm_Laser_Schematic(name TemplateName)
 {
 	local X2SchematicTemplate Template;
@@ -355,33 +251,5 @@ static function X2DataTemplate Create_Sidearm_Laser_Schematic(name TemplateName)
 	Template.Requirements.RequiredSoldierClass = 'Templar';
 
 	CreateTemplateCost(Template, default.Sidearm_Laser_Schematic_SupplyCost, default.Sidearm_Laser_Schematic_AlloyCost, default.Sidearm_Laser_Schematic_EleriumCost);
-	return Template;
-}
-
-static function X2DataTemplate Create_SparkRifle_Laser_Schematic(name TemplateName)
-{
-	local X2SchematicTemplate Template;
-	local StrategyRequirement AltReq;
-
-	`CREATE_X2TEMPLATE(class'X2SchematicTemplate', Template, TemplateName);
-	Create_Laser_Schematic(Template, class'X2StrategyElement_LaserTechs'.default.LaserWeaponTech_Tier[0]);
-	Template.Requirements.RequiredEngineeringScore = 5;
-	Template.strImage = "img:///UILibrary_DLC3Images.MagSparkRifle";
-
-	Template.ReferenceItemTemplate = 'SparkRifle_LS';
-	Template.HideIfPurchased = 'SparkRifle_MG';
-
-	Template.Requirements.RequiredSoldierClass = 'Spark';
-	Template.Requirements.SpecialRequirementsFn = class'X2Helpers_DLC_Day90'.static.IsLostTowersNarrativeContentComplete;
-
-	// Non-Narrative Requirements
-	AltReq.RequiredTechs.AddItem('MechanizedWarfare');
-	AltReq.RequiredTechs.AddItem(class'X2StrategyElement_LaserTechs'.default.LaserWeaponTech_Tier[0]);
-	AltReq.RequiredEngineeringScore = 10;
-	AltReq.RequiredSoldierClass = 'Spark';
-	AltReq.bVisibleIfPersonnelGatesNotMet = true;
-	Template.AlternateRequirements.AddItem(AltReq);
-
-	CreateTemplateCost(Template, default.SparkRifle_Laser_Schematic_SupplyCost, default.SparkRifle_Laser_Schematic_AlloyCost, default.SparkRifle_Laser_Schematic_EleriumCost);
 	return Template;
 }

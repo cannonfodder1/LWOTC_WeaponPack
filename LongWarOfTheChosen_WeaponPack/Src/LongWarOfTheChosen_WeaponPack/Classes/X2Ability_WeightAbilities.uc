@@ -11,19 +11,21 @@ DefaultProperties
 	Text[1]="Light Weapon" //Shotgun
 	Text[2]="Heavy Weapon" //SAW and Sniper
 	Text[3]="Superheavy Weapon" //LMG
+	Text[4]="Laser Weapon" //Laser weapons have -1 mobility
 }
 
 static function array<X2DataTemplate> CreateTemplates()
 {
 	local array<X2DataTemplate> Templates;
-	Templates.AddItem(AddMobility(1));
-	Templates.AddItem(AddMobility(2));
-	Templates.AddItem(AddMobility(3));
-	Templates.AddItem(AddMobility(4));
+	Templates.AddItem(AddMobility(1, false));
+	Templates.AddItem(AddMobility(2, false));
+	Templates.AddItem(AddMobility(3, false));
+	Templates.AddItem(AddMobility(4, false));
+	Templates.AddItem(AddMobility(5, true));
 	return Templates;
 }
 
-static function X2AbilityTemplate AddMobility(int x)
+static function X2AbilityTemplate AddMobility(int x, bool hide)
 {
 	local X2AbilityTemplate                 Template;	
 	local X2Effect_PersistentStatChange		PersistentStatChangeEffect;
@@ -35,6 +37,8 @@ static function X2AbilityTemplate AddMobility(int x)
 	Template.eAbilityIconBehaviorHUD = EAbilityIconBehavior_NeverShow;
 	Template.Hostility = eHostility_Neutral;
 	Template.bDisplayInUITacticalText = false;
+	
+	Template.bDontDisplayInAbilitySummary = hide;
 	
 	Template.AbilityToHitCalc = default.DeadEye;
 	Template.AbilityTargetStyle = default.SelfTarget;

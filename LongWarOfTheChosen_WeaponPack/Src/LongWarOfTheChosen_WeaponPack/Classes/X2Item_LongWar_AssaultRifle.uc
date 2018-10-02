@@ -104,9 +104,9 @@ static function X2DataTemplate Create_AssaultRifle_Coil(name TemplateName)
 	Template.RangeAccuracy = default.MEDIUM_COIL_RANGE;
 
 	// Model
-	Template.GameArchetype = "LWAssaultRifle_CG.Archetypes.WP_AssaultRifle_CG";
+	Template.GameArchetype = "LW_SAW.Archetypes.WP_Rifle_CG";
 	Template.AddDefaultAttachment('Mag', "LWAssaultRifle_CG.Meshes.LW_CoilRifle_MagA", , "img:///UILibrary_LW_Coilguns.InventoryArt.CoilRifle_MagA");
-	Template.AddDefaultAttachment('Stock', "LWAccessories_CG.Meshes.LW_Coil_StockA", , "img:///UILibrary_LW_Coilguns.InventoryArt.CoilRifle_StockA");
+	Template.AddDefaultAttachment('Stock', "LWAccessories_CG.Meshes.LW_Coil_StockB", , "img:///UILibrary_LW_Coilguns.InventoryArt.CoilRifle_StockA");
 	Template.AddDefaultAttachment('Reargrip', "LWAccessories_CG.Meshes.LW_Coil_ReargripA", , "img:///UILibrary_LW_Coilguns.InventoryArt.CoilRifle_ReargripA");
 	Template.AddDefaultAttachment('Light', "BeamAttachments.Meshes.BeamFlashLight"); //, , "img:///UILibrary_Common.ConvAssaultRifle.ConvAssault_LightA");  // re-use common conventional flashlight
 

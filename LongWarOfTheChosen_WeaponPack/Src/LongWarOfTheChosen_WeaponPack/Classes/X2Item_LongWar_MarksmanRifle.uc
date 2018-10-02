@@ -166,7 +166,7 @@ static function X2DataTemplate Create_MarksmanRifle_Coil(name TemplateName)
 	Template.RangeAccuracy = default.MEDLONG_COIL_RANGE;
 
 	// Model
-	Template.GameArchetype = "RM_BattleRiflePack.Archetypes.WP_BattleRifle_CG";
+	Template.GameArchetype = "LW_SAW.Archetypes.WP_BattleRifle_CG";
 	Template.AddDefaultAttachment('Mag', "LWSniperRifle_CG.Meshes.LW_CoilSniper_MagA", , "img:///UILibrary_LW_Overhaul.InventoryArt.CoilRifle_MagA");
 	Template.AddDefaultAttachment('Stock', "LWAccessories_CG.Meshes.LW_Coil_StockB", , "img:///UILibrary_LW_Overhaul.InventoryArt.CoilRifle_StockA");
 	Template.AddDefaultAttachment('Reargrip', "LWAccessories_CG.Meshes.LW_Coil_ReargripA", , "img:///UILibrary_LW_Overhaul.InventoryArt.CoilRifle_ReargripA");
