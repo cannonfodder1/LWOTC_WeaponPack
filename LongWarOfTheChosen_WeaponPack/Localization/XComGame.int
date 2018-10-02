@@ -42,36 +42,36 @@ AbilityDescName="SMG"
 ;=======================================================
 
 [MarksmanRifle_CV X2WeaponTemplate]
-FriendlyName="Marksman's Rifle"
-FriendlyNamePlural="Marksman's Rifles"
+FriendlyName="Marksman Rifle"
+FriendlyNamePlural="Marksman Rifles"
 BriefSummary="Marksman's Rifles are a lighter alternative to the Sniper Rifle - what they lack in hitting power and ammo capacity they make up for in allowing a sharpshooter to move and shoot."
 TacticalText="<Bullet/><Ability:DMR/>\n<Bullet/><Ability:Basic/>"
 AbilityDescName="marksman's rifle"
 
 [MarksmanRifle_MG X2WeaponTemplate]
-FriendlyName="Strike Rifle"
-FriendlyNamePlural="Strike Rifles"
+FriendlyName="Mag Strike Rifle"
+FriendlyNamePlural="Mag Strike Rifles"
 BriefSummary="The Strike Rifle is a lightweight version of the Gauss Rifle, lacking damage and ammo in exchange for the ability to move and shoot."
 TacticalText="<Bullet/><Ability:Magnetic/>\n<Bullet/><Ability:DMR/>"
 AbilityDescName="marksman's rifle"
 
 [MarksmanRifle_LS X2WeaponTemplate]
-FriendlyName="Laser Striker"
-FriendlyNamePlural="Laser Strikers"
+FriendlyName="Photon Striker"
+FriendlyNamePlural="Photon Strikers"
 BriefSummary="The Laser Striker utilizes a slightly modified high-energy flash capacitor from the Laser Lance, reducing its impact slightly as a trade for ease-of-use, allowing a sharpshooter to act before firing."
 TacticalText="<Bullet/><Ability:Laser/>\n<Bullet/><Ability:DMR/>"
 AbilityDescName="marksman's rifle"
 
 [MarksmanRifle_CG X2WeaponTemplate]
-FriendlyName="Gauss Striker"
-FriendlyNamePlural="Gauss Strikers"
+FriendlyName="Coil Strike Rifle"
+FriendlyNamePlural="Coil Strike Rifles"
 BriefSummary="The Gauss Striker is a lightweight alternative to the Gauss Long Rifle."
 TacticalText="<Bullet/><Ability:Coilgun/>\n<Bullet/><Ability:DMR/>"
 AbilityDescName="marksman's rifle"
 
 [MarksmanRifle_BM X2WeaponTemplate]
-FriendlyName="Strike Lance"
-FriendlyNamePlural="Strike Lances"
+FriendlyName="Plasma Striker"
+FriendlyNamePlural="Plasma Strikers"
 BriefSummary="The Strike Lance, like the Strike Rifle and Marksman's Rifle, is a mobile sharpshooter's best friend. Though it lacks the sheer raw killing potential of the Plasma Lance, it allows the sharpshooter to fire more quickly."
 TacticalText="<Bullet/><Ability:Plasma/>\n<Bullet/><Ability:DMR/>"
 AbilityDescName="marksman's rifle"
@@ -88,29 +88,29 @@ TacticalText="<Bullet/><Ability:SAW/>\n<Bullet/><Ability:Basic/>"
 AbilityDescName="cannon"
 
 [SAW_MG X2WeaponTemplate]
-FriendlyName="Mag SAW"
-FriendlyNamePlural="Mag SAWs"
+FriendlyName="Mag Autorifle"
+FriendlyNamePlural="Mag Autorifles"
 BriefSummary="The Light Machine Gun (LMG for short) is adapted from our Battle Rifle platform to allow our gunners to engage the enemy at intermediate range."
 TacticalText="<Bullet/><Ability:Magnetic/>\n<Bullet/><Ability:SAW/>"
 AbilityDescName="cannon"
 
 [SAW_LS X2WeaponTemplate]
-FriendlyName="Laser SAW"
-FriendlyNamePlural="Laser SAWs"
+FriendlyName="Laser Flashgun"
+FriendlyNamePlural="Laser Flashguns"
 BriefSummary="The Light Machine Gun (LMG for short) is adapted from our Battle Rifle platform to allow our gunners to engage the enemy at intermediate range."
 TacticalText="<Bullet/><Ability:Laser/>\n<Bullet/><Ability:SAW/>"
 AbilityDescName="cannon"
 
 [SAW_CG X2WeaponTemplate]
-FriendlyName="Coil SAW"
-FriendlyNamePlural="Coil SAWs"
+FriendlyName="Coil Autorifle"
+FriendlyNamePlural="Coil Autorifles"
 BriefSummary="The Light Machine Gun (LMG for short) is adapted from our Battle Rifle platform to allow our gunners to engage the enemy at intermediate range."
 TacticalText="<Bullet/><Ability:Coilgun/>\n<Bullet/><Ability:SAW/>"
 AbilityDescName="cannon"
 
 [SAW_BM X2WeaponTemplate]
-FriendlyName="Beam SAW"
-FriendlyNamePlural="Beam SAWs"
+FriendlyName="Beam Novagun"
+FriendlyNamePlural="Beam Novaguns"
 BriefSummary="The Light Machine Gun (LMG for short) is adapted from our Battle Rifle platform to allow our gunners to engage the enemy at intermediate range."
 TacticalText="<Bullet/><Ability:Plasma/>\n<Bullet/><Ability:SAW/>"
 AbilityDescName="cannon"
@@ -166,8 +166,8 @@ TacticalText="<Bullet/><Ability:Shotgun/>\n<Bullet/><Ability:Basic/>"
 AbilityDescName="shotgun"
 
 [Shotgun_MG X2WeaponTemplate]
-FriendlyName="Shard Gun"
-FriendlyNamePlural="Shard Guns"
+FriendlyName="Shardgun"
+FriendlyNamePlural="Shardguns"
 BriefSummary="Magnetic weapons technology will let us synthesize alien alloy fragments into a spray-style projectile, and our Rangers can use it to dramatic effect: the closer the better."
 TacticalText="<Bullet/><Ability:Magnetic/>\n<Bullet/><Ability:Shotgun/>"
 AbilityDescName="shotgun"
@@ -180,16 +180,16 @@ TacticalText="<Bullet/><Ability:Laser/>\n<Bullet/><Ability:Shotgun/>"
 AbilityDescName="shotgun"
 
 [Shotgun_CG X2WeaponTemplate]
-FriendlyName="Scattergun"
-FriendlyNamePlural="Scatterguns"
+FriendlyName="Splitshot"
+FriendlyNamePlural="Splitshots"
 BriefSummary="A close-quarters coil-tech weapon that fills the shotgun role."
 TacticalText="<Bullet/><Ability:Coilgun/>\n<Bullet/><Ability:Shotgun/>"
 AbilityDescName="shotgun"
 
 [Shotgun_BM X2WeaponTemplate]
-FriendlyName="Storm Gun"
-FriendlyNamePlural="Storm Guns"
-BriefSummary="The Storm Gun fires a concentrated set of beam pulses, piercing and melting the target across a substantial surface area."
+FriendlyName="Stormgun"
+FriendlyNamePlural="Stormguns"
+BriefSummary="The Stormgun fires a concentrated set of beam pulses, piercing and melting the target across a substantial surface area."
 TacticalText="<Bullet/><Ability:Plasma/>\n<Bullet/><Ability:Shotgun/>"
 AbilityDescName="shotgun"
 
@@ -205,8 +205,8 @@ TacticalText="<Bullet/><Ability:Sniper/>\n<Bullet/><Ability:Basic/>"
 AbilityDescName="sniper rifle"
 
 [SniperRifle_MG X2WeaponTemplate]
-FriendlyName="Gauss Rifle"
-FriendlyNamePlural="Gauss Rifles"
+FriendlyName="Mag Long Rifle"
+FriendlyNamePlural="Mag Long Rifles"
 BriefSummary="Magnetic weapons technology has particular utility for precision slow-fire weapons like sniper rifles. The Gauss Rifle will enable our Sharpshooters to cause greater damage at extended range."
 TacticalText="<Bullet/><Ability:Magnetic/>\n<Bullet/><Ability:Sniper/>"
 AbilityDescName="sniper rifle"
@@ -416,11 +416,68 @@ LocPromotionPopupText="<Bullet/> Like the Overwatch ability it upgrades, Long Wa
 [ToggleLongWatchShotAbility X2AbilityTemplate]
 LocFriendlyName="Long Watch Shot"
 
-[MountLMGAbility X2AbilityTemplate]
-LocFriendlyName="Mount LMG"
-LocLongDescription="Mount the LMG on cover to increase accuracy and allow squad sight shots. Moving will dismount the LMG."
-LocHelpText="Mount the LMG on cover to increase accuracy and allow squad sight shots."
-LocPromotionPopupText="You shouldn't be seeing this"
+[LWOTC_MountLMG X2AbilityTemplate]
+LocFriendlyName="Mount Cannon"
+LocFlyOverText="Mount Cannon"
+LocLongDescription="Mount the Cannon on cover to remove aim penalties and allow for area suppression."
+LocHelpText="Mount the Cannon on cover to remove aim penalties and allow for area suppression."
+LocPromotionPopupText="This will never show up" 
+
+[LWotC_LMG_NonMountedShot X2AbilityTemplate]
+LocFriendlyName="Spray"
+LocFlyOverText="Spray"
+LocLongDescription="Fire at an enemy. Recieves significant penalties because the cannon isnt mounted."
+LocHelpText="Fire at an enemy. Recieves significant penalties because the cannon isnt mounted."
+LocPromotionPopupText="This will never show up" 
+
+[LWotC_LMG_MountedShot X2AbilityTemplate]
+LocFriendlyName="Fire Cannon"
+LocFlyOverText="Fire Cannon"
+LocLongDescription="Fire your cannon at an enemy."
+LocHelpText="Fire your cannon at an enemy."
+LocPromotionPopupText="This will never show up" 
+
+[LWOTC_CannonAreaSuppression X2AbilityTemplate]
+LocFriendlyName="Area Suppression"
+LocFlyOverText="Area Suppression"
+LocLongDescription="Fire a barrage that pins down multiple targets within a 4-tile radius, granting reaction fire against anyone that moves and imposing a <Ability:SUPPRESSIONPENALTY/> penalty. Requires setup, and cannot be used when concealed."
+LocHelpText="Suppress multiple targets within an area of effect."
+LocPromotionPopupText="This will never show up"
+
+[LWotC_CannonFullReload X2AbilityTemplate]
+LocFriendlyName="Full Reload"
+LocFlyOverText="Full Reload"
+LocLongDescription="Spend two actions to reload the cannon's ammunition. "
+LocHelpText="Spend two actions to reload the cannon's ammunition."
+LocPromotionPopupText="This will never show up" 
+
+[LWotC_SniperRifleSnapshot X2AbilityTemplate]
+LocFriendlyName="Snapshot"
+LocFlyOverText="Snapshot"
+LocLongDescription="Fire using only one action, at a -15 aim penalty. Squadsight penalties are increased significantly. Does not trigger Double Tap, Ready for Anything or Death from Above."
+LocHelpText="Fire using only one action, at a -15 aim penalty. Does not trigger bonus action perks."
+LocPromotionPopupText="This will never show up" 
+
+[LWotC_MarksmanRiflePrecisionShot X2AbilityTemplate]
+LocFriendlyName="Precision Shot"
+LocFlyOverText="Precision Shot"
+LocLongDescription="Special shot that requires concealment or squadsight, but grants large bonuses to crit chance and crit damage."
+LocHelpText="Fire a shot with large crit bonuses. Requires concealment or squadsight."
+LocPromotionPopupText="This will never show up" 
+
+[LWotC_MarksmanRifleStandardShot X2AbilityTemplate]
+LocFriendlyName="Fire Marksman Rifle"
+LocFlyOverText="Fire Marksman Rifle"
+LocLongDescription="Fire your marksman rifle at an enemy."
+LocHelpText="Fire your marksman rifle at an enemy."
+LocPromotionPopupText="This will never show up"
+
+[LWOTC_SMG_StrafingShot X2AbilityTemplate]
+LocFriendlyName="Strafing Shot"
+LocFlyOverText="Strafing Shot"
+LocLongDescription="Gain a free move after taking a standard shot at a flanked or exposed target. If you also have Hit and Run you gain a full action instead."
+LocHelpText="Gain a free move after taking a standard shot at a flanked or exposed target. If you also have Hit and Run you gain a full action instead."
+LocPromotionPopupText="<Bullet/> Cannot be used on the same turn as Run and Gun.<br/><Bullet/> Bonus full actions from Serial and Death from Above will be awarded first.<br/><Bullet/> <Ability:HNR_USES_PER_TURN/>"
 
 ;=======================================================
 ; Scrapped Weapons
