@@ -9,4 +9,3 @@
 *.kor diff
 *.pol diff
 *.rus diff
-*.upk filter=lfs diff=lfs merge=lfs -text
