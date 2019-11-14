@@ -280,8 +280,6 @@ static function CopySchematicLoc (X2ItemTemplateManager ItemTemplateMgr, Name Ne
 // Create localization variables so I don't have to copy paste this shit into XComGame.int a million times
 static function bool AbilityTagExpandHandler(string InString, out string OutString)
 {
-	// DEPLOY THE MEMES!!!
-	
 	local name Type;
 
 	Type = name(InString);

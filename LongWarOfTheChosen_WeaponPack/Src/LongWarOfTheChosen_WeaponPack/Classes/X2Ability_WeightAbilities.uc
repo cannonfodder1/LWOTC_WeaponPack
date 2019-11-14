@@ -7,11 +7,11 @@ var config array<float> Detection;
 
 DefaultProperties
 {
-	Text[0]="Ultralight Weapon" //SMG
-	Text[1]="Light Weapon" //Shotgun
-	Text[2]="Heavy Weapon" //SAW and Sniper
-	Text[3]="Superheavy Weapon" //LMG
-	Text[4]="Laser Weapon" //Laser weapons have -1 mobility
+	Text[0]="WeightPos2" //"Ultralight Weapon" //SMG
+	Text[1]="WeightPos1" //"Light Weapon" //Shotgun
+	Text[2]="WeightNeg1" //"Heavy Weapon" //SAW and Sniper
+	Text[3]="WeightNeg2" //"Superheavy Weapon" //LMG
+	//Text[4]=//"Laser Weapon" //Laser weapons have -1 mobility
 }
 
 static function array<X2DataTemplate> CreateTemplates()
@@ -21,7 +21,7 @@ static function array<X2DataTemplate> CreateTemplates()
 	Templates.AddItem(AddMobility(2, false));
 	Templates.AddItem(AddMobility(3, false));
 	Templates.AddItem(AddMobility(4, false));
-	Templates.AddItem(AddMobility(5, true));
+	//Templates.AddItem(AddMobility(5, true));
 	return Templates;
 }
 

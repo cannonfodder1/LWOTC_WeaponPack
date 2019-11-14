@@ -45,12 +45,13 @@ static function array<X2DataTemplate> CreateTemplates()
 static function Create_BattleRifle_Template(out X2WeaponTemplate Template, int tier)
 {
 	//Default Settings
-	Template.WeaponCat = 'rifle';
+	Template.WeaponCat = 'saw';
 	Template.ItemCat = 'weapon';
 	Template.iPhysicsImpulse = 5;
 	Template.Tier = tier;
-	Template.UIArmoryCameraPointTag = 'UIPawnLocation_WeaponUpgrade_AssaultRifle';
+	Template.UIArmoryCameraPointTag = 'UIPawnLocation_WeaponUpgrade_Cannon';
 	Template.strImage = "img:///" $ default.BattleRifle_ImagePath[tier];
+	Template.bIsLargeWeapon = true;
 	Assign_Tier_Values(Template);
 
 	//Abilities
@@ -60,8 +61,8 @@ static function Create_BattleRifle_Template(out X2WeaponTemplate Template, int t
 	Template.Abilities.AddItem('OverwatchShot');
 	Template.Abilities.AddItem('Reload');
 	Template.Abilities.AddItem('HotLoadAmmo');
-	Template.Abilities.AddItem(class'X2Ability_BattleRifleAbilities'.default.BattleRifleStatBonusAbilityName);
-	Template.SetUIStatMarkup(class'XLocalizedData'.default.MobilityLabel, eStat_Mobility, class'X2Ability_BattleRifleAbilities'.default.BattleRifle_MobilityBonus);
+	//Template.Abilities.AddItem(class'X2Ability_BattleRifleAbilities'.default.BattleRifleStatBonusAbilityName);
+	//Template.SetUIStatMarkup(class'XLocalizedData'.default.MobilityLabel, eStat_Mobility, class'X2Ability_BattleRifleAbilities'.default.BattleRifle_MobilityBonus);
 
 	//Stats
 	Template.BaseDamage = default.BattleRifle_Damage[tier];
@@ -85,13 +86,15 @@ static function X2DataTemplate Create_BattleRifle_Conventional(name TemplateName
 	Template.fKnockbackDamageRadius = 0.0f;
 
 	// Model
-	Template.GameArchetype = "BRPack.Archetypes.WP_BR_CV";
-	Template.AddDefaultAttachment('Mag', "ConvSniper.Meshes.SM_ConvSniper_MagA", , "img:///UILibrary_BRPack.Attach.BR_CV_MagA");
-	Template.AddDefaultAttachment('Optic', "MagSniper.Meshes.SM_MagSniper_OpticA", , "img:///UILibrary_BRPack.Attach.BR_CV_OpticA");
-	Template.AddDefaultAttachment('Reargrip', "ConvAssaultRifle.Meshes.SM_ConvAssaultRifle_ReargripA", , "img:///UILibrary_Common.ConvAssaultRifle.ConvAssault_ReargripA");
-	Template.AddDefaultAttachment('Stock', "ConvSniper.Meshes.SM_ConvSniper_StockA", , "img:///UILibrary_BRPack.Attach.BR_CV_StockA");
-	Template.AddDefaultAttachment('Trigger', "ConvAssaultRifle.Meshes.SM_ConvAssaultRifle_TriggerA", , "img:///UILibrary_Common.ConvAssaultRifle.ConvAssault_TriggerA");
-	Template.AddDefaultAttachment('Light', "ConvAttachments.Meshes.SM_ConvFlashLight", , "img:///UILibrary_Common.ConvAssaultRifle.ConvAssault_LightA");
+	Template.GameArchetype = "LW_SAW.Archetypes.WP_SAW_CV";
+	Template.UIArmoryCameraPointTag = 'UIPawnLocation_WeaponUpgrade_AssaultRifle';
+	Template.AddDefaultAttachment('Mag', "BRMeshPack.Meshes.SM_SAW_CV_MagB", , "img:///UILibrary_BRMeshPack.Attach.SAW_CV_MagA");
+	Template.AddDefaultAttachment('Stock', "ConvAssaultRifle.Meshes.SM_ConvAssaultRifle_StockA", , "img:///UILibrary_Common.ConvAssaultRifle.ConvAssault_StockA");
+	Template.AddDefaultAttachment('Fore', "BRMeshPack.Meshes.SM_CV_Foregrip", , "img:///UILibrary_BRMeshPack.Attach.AR_CV_ForegripA");
+	Template.AddDefaultAttachment('Handle', "BRMeshPack.Meshes.SM_CV_Handle", , "img:///UILibrary_BRMeshPack.Attach.SAW_CV_Handle");
+	Template.AddDefaultAttachment('Reargrip', "ConvSniper.Meshes.SM_ConvSniper_ReargripA", , "img:///UILibrary_Common.ConvAssaultRifle.ConvAssault_ReargripA");
+	Template.AddDefaultAttachment('Trigger', "ConvSniper.Meshes.SM_ConvSniper_TriggerA", , "img:///UILibrary_Common.ConvAssaultRifle.ConvAssault_TriggerA");
+	Template.AddDefaultAttachment('Light', "ConvAttachments.Meshes.SM_ConvFlashLight", , "");
 
 	// Building info
 	Template.StartingItem = true;
@@ -108,14 +111,14 @@ static function X2DataTemplate Create_BattleRifle_Laser(name TemplateName)
 	`CREATE_X2TEMPLATE(class'X2WeaponTemplate', Template, TemplateName);
 	Create_BattleRifle_Template(Template, 1);
 	Template.RangeAccuracy = default.MEDIUM_LASER_RANGE;
-
+	
 	// Model
-	Template.GameArchetype = "LWAssaultRifle_LS.Archetype.WP_AssaultRifle_LS";
-	Template.AddDefaultAttachment('Mag', "LWAttachments_LS.Meshes.SK_Laser_Mag_A", , "img:///UILibrary_LW_LaserPack.LaserRifle_MagA");
+	Template.GameArchetype = "LW_SAW.Archetypes.WP_SAW_LS";
+	Template.UIArmoryCameraPointTag = 'UIPawnLocation_WeaponUpgrade_AssaultRifle';
+	Template.AddDefaultAttachment('Mag', "LWCannon_LS.Meshes.SK_LaserCannon_Mag_A", , "img:///UILibrary_LW_LaserPack.LaserCannon_MagA");
 	Template.AddDefaultAttachment('Stock', "LWShotgun_LS.Meshes.SK_LaserShotgun_Stock_A", , "img:///UILibrary_LW_LaserPack.LaserShotgun_StockA");
 	Template.AddDefaultAttachment('Reargrip', "LWAttachments_LS.Meshes.SK_Laser_Trigger_A", , "img:///UILibrary_LW_LaserPack.LaserRifle_TriggerA");
 	Template.AddDefaultAttachment('Foregrip', "LWAttachments_LS.Meshes.SK_Laser_Foregrip_A", , "img:///UILibrary_LW_LaserPack.LaserRifle_ForegripA");
-	Template.AddDefaultAttachment('Optic', "LWSniperRifle_LS.Meshes.SK_LaserSniper_Optic_A", , "img:///UILibrary_BRPack.Attach.BR_LS_OpticA");
 
 	// Building info
 	if (BuildWeaponSchematics(Template))
@@ -125,7 +128,7 @@ static function X2DataTemplate Create_BattleRifle_Laser(name TemplateName)
 	}
 	else
 	{
-		CreateTemplateCost(Template, default.BattleRifle_RequiredTech[Template.Tier], 
+		CreateTemplateCost(Template, default.BattleRifle_RequiredTech[Template.Tier],
 			default.BattleRifle_SupplyCost[Template.Tier], default.BattleRifle_AlloyCost[Template.Tier], 
 			default.BattleRifle_EleriumCost[Template.Tier], default.BattleRifle_Engineering[Template.Tier]);
 	}
@@ -142,14 +145,14 @@ static function X2DataTemplate Create_BattleRifle_Magnetic(name TemplateName)
 	Template.RangeAccuracy = default.MEDIUM_MAGNETIC_RANGE;
 
 	// Model
-	Template.GameArchetype = "BRPack.Archetypes.WP_BR_MG";
-	Template.AddDefaultAttachment('Mag', "MagAssaultRifle.Meshes.SM_MagAssaultRifle_MagA", , "img:///UILibrary_Common.UI_MagAssaultRifle.MagAssaultRifle_MagA");
-	Template.AddDefaultAttachment('Optic', "MagSniper.Meshes.SM_MagSniper_OpticA", , "img:///UILibrary_BRPack.Attach.BR_MG_OpticA");
+	Template.GameArchetype = "LW_SAW.WP_SAW_MG";
+	Template.UIArmoryCameraPointTag = 'UIPawnLocation_WeaponUpgrade_AssaultRifle';
+	Template.AddDefaultAttachment('Mag', "BRMeshPack.Meshes.SM_BR_MG_MagA", , "UILibrary_Common.UI_MagAssaultRifle.MagAssaultRifle_MagA");
 	Template.AddDefaultAttachment('Suppressor', "MagAssaultRifle.Meshes.SM_MagAssaultRifle_SuppressorA", , "img:///UILibrary_Common.UI_MagAssaultRifle.MagAssaultRifle_SupressorA");
 	Template.AddDefaultAttachment('Reargrip', "MagAssaultRifle.Meshes.SM_MagAssaultRifle_ReargripA", , /* included with TriggerA */);
 	Template.AddDefaultAttachment('Stock', "MagShotgun.Meshes.SM_MagShotgun_StockA", , "img:///UILibrary_BRPack.Attach.BR_MG_StockA");
 	Template.AddDefaultAttachment('Trigger', "MagAssaultRifle.Meshes.SM_MagAssaultRifle_TriggerA", , "img:///UILibrary_Common.UI_MagAssaultRifle.MagAssaultRifle_TriggerA");
-	Template.AddDefaultAttachment('Light', "ConvAttachments.Meshes.SM_ConvFlashLight");
+	Template.AddDefaultAttachment('Light', "MagAttachments.Meshes.MagFlashLight");
 
 	// Building info
 	Template.CreatorTemplateName = 'BattleRifle_MG_Schematic'; // The schematic which creates this item
@@ -170,12 +173,12 @@ static function X2DataTemplate Create_BattleRifle_Coil(name TemplateName)
 	Template.RangeAccuracy = default.MEDIUM_COIL_RANGE;
 
 	// Model
-	Template.GameArchetype = "RM_BattleRiflePack.Archetypes.WP_BattleRifle_CG";
-	Template.AddDefaultAttachment('Mag', "LWSniperRifle_CG.Meshes.LW_CoilSniper_MagA", , "img:///UILibrary_LW_Overhaul.InventoryArt.CoilRifle_MagA");
-	Template.AddDefaultAttachment('Stock', "LWAccessories_CG.Meshes.LW_Coil_StockB", , "img:///UILibrary_LW_Overhaul.InventoryArt.CoilRifle_StockA");
-	Template.AddDefaultAttachment('Reargrip', "LWAccessories_CG.Meshes.LW_Coil_ReargripA", , "img:///UILibrary_LW_Overhaul.InventoryArt.CoilRifle_ReargripA");
-	Template.AddDefaultAttachment('Light', "BeamAttachments.Meshes.BeamFlashLight"); //, , "img:///UILibrary_Common.ConvAssaultRifle.ConvAssault_LightA");  // re-use common conventional flashlight
-	Template.AddDefaultAttachment('Optic', "BeamSniper.Meshes.SM_BeamSniper_OpticA", , "img:///UILibrary_LW_Overhaul.InventoryArt.CoilSniperRifle_OpticA");
+	Template.GameArchetype = "LWAssaultRifle_CG.Archetypes.WP_AssaultRifle_CG";
+	Template.UIArmoryCameraPointTag = 'UIPawnLocation_WeaponUpgrade_AssaultRifle';
+	Template.AddDefaultAttachment('Mag', "LWAssaultRifle_CG.Meshes.LW_CoilRifle_MagB", ,  "img:///UILibrary_LW_Coilguns.InventoryArt.CoilRifle_MagA");
+	Template.AddDefaultAttachment('Stock', "LWAccessories_CG.Meshes.LW_Coil_StockB", , "img:///UILibrary_LW_Overhaul.InventoryArt.CoilRifle_StockA"); 
+	Template.AddDefaultAttachment('Reargrip', "LWAccessories_CG.Meshes.LW_Coil_ReargripA", , "img:///UILibrary_LW_Overhaul.InventoryArt.CoilRifle_ReargripA"); 
+	Template.AddDefaultAttachment('Light', "BeamAttachments.Meshes.BeamFlashLight");
 
 	// Building info
 	if (BuildWeaponSchematics(Template))
@@ -185,7 +188,7 @@ static function X2DataTemplate Create_BattleRifle_Coil(name TemplateName)
 	}
 	else
 	{
-		CreateTemplateCost(Template, default.BattleRifle_RequiredTech[Template.Tier], 
+		CreateTemplateCost(Template, default.BattleRifle_RequiredTech[Template.Tier],
 			default.BattleRifle_SupplyCost[Template.Tier], default.BattleRifle_AlloyCost[Template.Tier], 
 			default.BattleRifle_EleriumCost[Template.Tier], default.BattleRifle_Engineering[Template.Tier]);
 	}
@@ -202,14 +205,15 @@ static function X2DataTemplate Create_BattleRifle_Beam(name TemplateName)
 	Template.RangeAccuracy = default.MEDIUM_BEAM_RANGE;
 
 	// Model
-	Template.GameArchetype = "BRPack.Archetypes.WP_BR_BM";
-	Template.AddDefaultAttachment('Mag', "BeamAssaultRifle.Meshes.SM_BeamAssaultRifle_MagA", , "img:///UILibrary_Common.UI_BeamAssaultRifle.BeamAssaultRifle_MagA");
-	Template.AddDefaultAttachment('Optic', "BeamSniper.Meshes.SM_BeamSniper_OpticA", , "img:///UILibrary_BRPack.Attach.BR_BM_OpticA");
+	Template.GameArchetype = "LW_SAW.WP_SAW_BM";
+	Template.UIArmoryCameraPointTag = 'UIPawnLocation_WeaponUpgrade_AssaultRifle';
+	Template.AddDefaultAttachment('Mag', "BeamAssaultRifle.Meshes.SM_BeamAssaultRifle_MagB", , "img:///UILibrary_Common.UI_BeamAssaultRifle.BeamAssaultRifle_MagA");
 	Template.AddDefaultAttachment('Suppressor', "BeamAssaultRifle.Meshes.SM_BeamAssaultRifle_SuppressorA", , "img:///UILibrary_Common.UI_BeamAssaultRifle.BeamAssaultRifle_SupressorA");
 	Template.AddDefaultAttachment('Core', "BeamAssaultRifle.Meshes.SM_BeamAssaultRifle_CoreA", , "img:///UILibrary_Common.UI_BeamAssaultRifle.BeamAssaultRifle_CoreA");
 	Template.AddDefaultAttachment('HeatSink', "BeamAssaultRifle.Meshes.SM_BeamAssaultRifle_HeatSinkA", , "img:///UILibrary_Common.UI_BeamAssaultRifle.BeamAssaultRifle_HeatsinkA");
 	Template.AddDefaultAttachment('Light', "BeamAttachments.Meshes.BeamFlashLight");
 
+	// Building info
 	Template.CreatorTemplateName = 'BattleRifle_BM_Schematic'; // The schematic which creates this item
 	Template.BaseItem = default.BattleRifleMagnetic; // Which item this will be upgraded from
 
