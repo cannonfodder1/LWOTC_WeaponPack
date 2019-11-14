@@ -22,12 +22,6 @@
     <Content Include="Config\XComGameData.ini">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Config\XComGameData_WeaponData.ini">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Config\XComLongWar_WeaponPack_Abilities.ini">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="Config\XComLongWar_WeaponPack_BattleRifle.ini">
       <SubType>Content</SubType>
     </Content>
@@ -161,58 +155,7 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="ReadMe.txt" />
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Ability_BattleRifleAbilities.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Ability_CarbineAbilities.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Ability_LMGAbilities.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Ability_LongWatchAbilities.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Ability_MobilityPassives.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Ability_ProximityBonuses.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Ability_SAWAbilities.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Ability_ShotgunAbilities.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Ability_SMGAbilities.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Ability_SniperRifleAbilities.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Ability_StealthPassives.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Ability_WeightAbilities.uc">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2DownloadableContentInfo_LongWarOfTheChosenWeaponPack.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Effect_LW2WotC_AreaSuppression.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Effect_LW2WotC_RemoveAreaSuppressionEffect.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Effect_LWOTC_SnapShotPenalties.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Effect_LWOTC_StrafingShot.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2EventListener_LongWarOfTheChosen_WeaponPack.uc">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Item_LongWar_AssaultRifle.uc">
@@ -237,9 +180,6 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Item_LongWar_SniperRifle.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Item_LongWar_SparkRifle.uc">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Item_LongWar_Weapon.uc">
@@ -291,117 +231,6 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2StrategyElement_CoilTechs.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2TargetingMethod_LW2WotC_AreaSuppression.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBAbility.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBAbilityTrigger_EventListener.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBCondition_AbilityCost.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBCondition_AbilityHitResult.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBCondition_AbilityName.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBCondition_AbilityProperty.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBCondition_Concealed.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBCondition_CoverType.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBCondition_Dead.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBCondition_HeightAdvantage.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBCondition_MatchingWeapon.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBCondition_ReactionFire.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBCondition_SourceAbilities.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBCondition_WeaponName.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBEffectUtilities.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBEffect_AbilityCostRefund.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBEffect_AddAbility.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBEffect_AddAbilityCharges.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBEffect_AddItemCharges.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBEffect_AddUtilityItem.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBEffect_BonusDamageByDamageType.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBEffect_BonusRadius.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBEffect_ChangeHitResultForAttacker.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBEffect_ConditionalBonus.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBEffect_ConditionalStatChange.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBEffect_DoNotConsumeAllPoints.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBEffect_Extended.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBEffect_GrantReserveActionPoint.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBEffect_PermanentStatChange.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBEffect_RevealUnit.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBEffect_ToHitModifierByRange.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBTemplateUtilities.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBValue.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBValue_Distance.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBValue_UnitValue.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBValue_Visibility.uc">
       <SubType>Content</SubType>
     </Content>
   </ItemGroup>
