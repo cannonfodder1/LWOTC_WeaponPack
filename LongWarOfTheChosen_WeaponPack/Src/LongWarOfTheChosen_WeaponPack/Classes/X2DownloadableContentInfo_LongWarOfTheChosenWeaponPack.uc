@@ -203,11 +203,11 @@ static event OnPostTemplatesCreated()
 	}
 
 	class'X2Override_Attachments_SMG'.static.UpdateSMGAttachmentTemplates(ItemTemplateManager);
-	class'X2Override_Attachments_SAW'.static.UpdateSAWAttachmentTemplates(ItemTemplateManager);
+	class'X2Override_Attachments_BattleRifle'.static.UpdateBattleRifleAttachmentTemplates(ItemTemplateManager);
 	class'X2Override_Attachments_MarksmanRifle'.static.UpdateMarksmanRifleAttachmentTemplates(ItemTemplateManager);
 	class'X2Override_Attachments_Laser'.static.UpdateLaserAttachmentTemplates(ItemTemplateManager);
 	class'X2Override_Attachments_Coil'.static.UpdateCoilAttachmentTemplates(ItemTemplateManager);
-		
+	
 	class'X2Override_LongWar_Tech'.static.UpdateBaseGameLaserAndCoilTechTemplates();
 	class'X2Override_LongWar_Tech'.static.UpdateWeaponTemplates(ItemTemplateManager);
 
@@ -311,7 +311,7 @@ static function bool AbilityTagExpandHandler(string InString, out string OutStri
 	case 'SMG':
 		OutString = " Submachine Guns are close to mid range weapons that deal low damage and are ineffective against armour, but they are extremely lightweight.";
 		return true;
-	case 'SAW':
+	case 'BattleRifle':
 		OutString = " Squad Automatic Weapons are mid-ranged mainstays with good damage, but they have a small aim penalty when firing after moving.";
 		return true;
 	case 'DMR':
@@ -322,9 +322,6 @@ static function bool AbilityTagExpandHandler(string InString, out string OutStri
 		return true;
 	case 'Sniper':
 		OutString = " Sniper Rifles are long ranged precision removal tools that have innate armour piercing and unlimited range, but cannot fire after moving.";
-		return true;
-	case 'Autopistol':
-		OutString = " Autopistols are a pistol variant that are shorter ranged and have an even harder time piercing armour, but they deal much more damage.";
 		return true;
 	case 'Pistol':
 		OutString = " Pistols are backup short to mid range weapons that can be equipped in a utility slot, but they have trouble piercing armour.";

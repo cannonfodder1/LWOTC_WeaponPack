@@ -51,6 +51,7 @@ static function CreateTemplateCost(out X2WeaponTemplate Template, name requiredT
 		Resources.Quantity = eleriumCost;
 		Template.Cost.ResourceCosts.AddItem(Resources);
 	}
+
 	Template.Requirements.RequiredTechs.AddItem(requiredTech);
 	Template.Requirements.RequiredEngineeringScore = engineeringCost;
 }
@@ -104,9 +105,9 @@ static function Assign_Tier_Values(out X2WeaponTemplate Template)
 	}
 	if (Template.Tier == 3)
 	{
-		Template.WeaponTech = 'coilgun_lw';
+		Template.WeaponTech = 'magnetic';
 		Template.EquipSound = "Magnetic_Weapon_Equip";
-		Template.WeaponPanelImage = "";
+		Template.WeaponPanelImage = "_MagneticRifle";
 		Template.DamageTypeTemplateName = 'Projectile_MagXCom';
 	}
 	if (Template.Tier == 4)

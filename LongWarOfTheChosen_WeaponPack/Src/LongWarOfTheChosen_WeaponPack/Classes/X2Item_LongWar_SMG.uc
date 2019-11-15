@@ -45,7 +45,7 @@ static function array<X2DataTemplate> CreateTemplates()
 static function Create_SMG_Template(out X2WeaponTemplate Template, int tier)
 {
 	//Default Settings
-	Template.WeaponCat = 'rifle';
+	Template.WeaponCat = 'smg';
 	Template.ItemCat = 'weapon';
 	Template.iPhysicsImpulse = 5;
 	Template.Tier = tier;

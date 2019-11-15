@@ -83,7 +83,7 @@ static function X2DataTemplate Create_MarksmanRifle_Conventional(name TemplateNa
 	Template.fKnockbackDamageRadius = 0.0f;
 
 	// Model
-	Template.GameArchetype = "BRPack.Archetypes.WP_MR_CV";
+	Template.GameArchetype = "LW_DMR.Archetypes.WP_DMR_CV";
 	Template.AddDefaultAttachment('Mag', "ConvSniper.Meshes.SM_ConvSniper_MagA", , "img:///UILibrary_BRPack.Attach.BR_CV_MagA");
 	Template.AddDefaultAttachment('Optic', "MagSniper.Meshes.SM_MagSniper_OpticA", , "img:///UILibrary_BRPack.Attach.BR_CV_OpticA");
 	Template.AddDefaultAttachment('Reargrip', "ConvAssaultRifle.Meshes.SM_ConvAssaultRifle_ReargripA", , "img:///UILibrary_Common.ConvAssaultRifle.ConvAssault_ReargripA");
@@ -107,7 +107,7 @@ static function X2DataTemplate Create_MarksmanRifle_Laser(name TemplateName)
 	Template.RangeAccuracy = default.MEDLONG_LASER_RANGE;
 
 	// Model
-	Template.GameArchetype = "LWSniperRifle_LS.Archetype.WP_SniperRifle_LS";
+	Template.GameArchetype = "LW_DMR.Archetypes.WP_DMR_LS";
 	Template.AddDefaultAttachment('Mag', "LWAttachments_LS.Meshes.SK_Laser_Mag_A", , "img:///UILibrary_LW_LaserPack.LaserRifle_MagA");
 	Template.AddDefaultAttachment('Stock', "LWShotgun_LS.Meshes.SK_LaserShotgun_Stock_A", , "img:///UILibrary_LW_LaserPack.LaserShotgun_StockA");
 	Template.AddDefaultAttachment('Reargrip', "LWAttachments_LS.Meshes.SK_Laser_Trigger_A", , "img:///UILibrary_LW_LaserPack.LaserRifle_TriggerA");
@@ -139,7 +139,7 @@ static function X2DataTemplate Create_MarksmanRifle_Magnetic(name TemplateName)
 	Template.RangeAccuracy = default.MEDLONG_MAGNETIC_RANGE;
 
 	// Model
-	Template.GameArchetype = "BRPack.Archetypes.WP_MR_MG";
+	Template.GameArchetype = "LW_DMR.Archetypes.WP_DMR_MG";
 	Template.AddDefaultAttachment('Mag', "MagAssaultRifle.Meshes.SM_MagAssaultRifle_MagA", , "img:///UILibrary_Common.UI_MagAssaultRifle.MagAssaultRifle_MagA");
 	Template.AddDefaultAttachment('Optic', "MagSniper.Meshes.SM_MagSniper_OpticA", , "img:///UILibrary_BRPack.Attach.BR_MG_OpticA");
 	Template.AddDefaultAttachment('Suppressor', "MagAssaultRifle.Meshes.SM_MagAssaultRifle_SuppressorA", , "img:///UILibrary_Common.UI_MagAssaultRifle.MagAssaultRifle_SupressorA");
@@ -166,12 +166,12 @@ static function X2DataTemplate Create_MarksmanRifle_Coil(name TemplateName)
 	Template.RangeAccuracy = default.MEDLONG_COIL_RANGE;
 
 	// Model
-	Template.GameArchetype = "LW_SAW.Archetypes.WP_BattleRifle_CG";
+	Template.GameArchetype = "LW_DMR.Archetypes.WP_DMR_CG";
 	Template.AddDefaultAttachment('Mag', "LWSniperRifle_CG.Meshes.LW_CoilSniper_MagA", , "img:///UILibrary_LW_Overhaul.InventoryArt.CoilRifle_MagA");
 	Template.AddDefaultAttachment('Stock', "LWAccessories_CG.Meshes.LW_Coil_StockB", , "img:///UILibrary_LW_Overhaul.InventoryArt.CoilRifle_StockA");
 	Template.AddDefaultAttachment('Reargrip', "LWAccessories_CG.Meshes.LW_Coil_ReargripA", , "img:///UILibrary_LW_Overhaul.InventoryArt.CoilRifle_ReargripA");
 	Template.AddDefaultAttachment('Light', "BeamAttachments.Meshes.BeamFlashLight"); //, , "img:///UILibrary_Common.ConvAssaultRifle.ConvAssault_LightA");  // re-use common conventional flashlight
-	Template.AddDefaultAttachment('Optic', "BeamSniper.Meshes.SM_BeamSniper_OpticA", , "img:///UILibrary_LW_Overhaul.InventoryArt.CoilSniperRifle_OpticA");
+	Template.AddDefaultAttachment('Optic', "BeamAssaultRifle.Meshes.SM_BeamAssaultRifle_OpticC", , "img:///UILibrary_LW_Overhaul.InventoryArt.CoilSniperRifle_OpticA");
 
 	// Building info
 	if (BuildWeaponSchematics(Template))
@@ -198,7 +198,7 @@ static function X2DataTemplate Create_MarksmanRifle_Beam(name TemplateName)
 	Template.RangeAccuracy = default.MEDLONG_BEAM_RANGE;
 
 	// Model
-	Template.GameArchetype = "BRPack.Archetypes.WP_BR_BM";
+	Template.GameArchetype = "LW_DMR.Archetypes.WP_DMR_BM";
 	Template.AddDefaultAttachment('Mag', "BeamAssaultRifle.Meshes.SM_BeamAssaultRifle_MagA", , "img:///UILibrary_Common.UI_BeamAssaultRifle.BeamAssaultRifle_MagA");
 	Template.AddDefaultAttachment('Optic', "BeamSniper.Meshes.SM_BeamSniper_OpticA", , "img:///UILibrary_BRPack.Attach.BR_BM_OpticA");
 	Template.AddDefaultAttachment('Suppressor', "BeamAssaultRifle.Meshes.SM_BeamAssaultRifle_SuppressorA", , "img:///UILibrary_Common.UI_BeamAssaultRifle.BeamAssaultRifle_SupressorA");

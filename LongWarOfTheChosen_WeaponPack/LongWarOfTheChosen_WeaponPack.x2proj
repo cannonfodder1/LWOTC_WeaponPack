@@ -127,6 +127,15 @@
     <Content Include="Content\LWSniperRifle_LS.upk">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\LW_Autopistol.upk">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\LW_DMR.upk">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\LW_SAW.upk">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Content\RM_BattleRiflePack.upk">
       <SubType>Content</SubType>
     </Content>
@@ -203,9 +212,6 @@
     <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Override_Attachments_BattleRifle.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Override_Attachments_Carbine.uc">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Override_Attachments_Coil.uc">
       <SubType>Content</SubType>
     </Content>
@@ -213,9 +219,6 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Override_Attachments_MarksmanRifle.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Override_Attachments_SAW.uc">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Override_Attachments_SMG.uc">

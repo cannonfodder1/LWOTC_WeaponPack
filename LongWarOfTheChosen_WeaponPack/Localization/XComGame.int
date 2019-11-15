@@ -77,42 +77,42 @@ TacticalText="<Bullet/><Ability:Plasma/>\n<Bullet/><Ability:DMR/>"
 AbilityDescName="marksman's rifle"
 
 ;=======================================================
-; SAWs
+; Battle Rifles
 ;=======================================================
 
-[SAW_CV X2WeaponTemplate]
-FriendlyName="SAW"
-FriendlyNamePlural="SAWs"
+[BattleRifle_CV X2WeaponTemplate]
+FriendlyName="Battle Rifle"
+FriendlyNamePlural="Battle Rifles"
 BriefSummary="The Light Machine Gun (LMG for short) is adapted from our Battle Rifle platform to allow our gunners to engage the enemy at intermediate range."
-TacticalText="<Bullet/><Ability:SAW/>\n<Bullet/><Ability:Basic/>"
+TacticalText="<Bullet/><Ability:BattleRifle/>\n<Bullet/><Ability:Basic/>"
 AbilityDescName="cannon"
 
-[SAW_MG X2WeaponTemplate]
+[BattleRifle_MG X2WeaponTemplate]
 FriendlyName="Mag Autorifle"
 FriendlyNamePlural="Mag Autorifles"
 BriefSummary="The Light Machine Gun (LMG for short) is adapted from our Battle Rifle platform to allow our gunners to engage the enemy at intermediate range."
-TacticalText="<Bullet/><Ability:Magnetic/>\n<Bullet/><Ability:SAW/>"
+TacticalText="<Bullet/><Ability:Magnetic/>\n<Bullet/><Ability:BattleRifle/>"
 AbilityDescName="cannon"
 
-[SAW_LS X2WeaponTemplate]
+[BattleRifle_LS X2WeaponTemplate]
 FriendlyName="Laser Flashgun"
 FriendlyNamePlural="Laser Flashguns"
 BriefSummary="The Light Machine Gun (LMG for short) is adapted from our Battle Rifle platform to allow our gunners to engage the enemy at intermediate range."
-TacticalText="<Bullet/><Ability:Laser/>\n<Bullet/><Ability:SAW/>"
+TacticalText="<Bullet/><Ability:Laser/>\n<Bullet/><Ability:BattleRifle/>"
 AbilityDescName="cannon"
 
-[SAW_CG X2WeaponTemplate]
+[BattleRifle_CG X2WeaponTemplate]
 FriendlyName="Coil Autorifle"
 FriendlyNamePlural="Coil Autorifles"
 BriefSummary="The Light Machine Gun (LMG for short) is adapted from our Battle Rifle platform to allow our gunners to engage the enemy at intermediate range."
-TacticalText="<Bullet/><Ability:Coilgun/>\n<Bullet/><Ability:SAW/>"
+TacticalText="<Bullet/><Ability:Coilgun/>\n<Bullet/><Ability:BattleRifle/>"
 AbilityDescName="cannon"
 
-[SAW_BM X2WeaponTemplate]
+[BattleRifle_BM X2WeaponTemplate]
 FriendlyName="Beam Novagun"
 FriendlyNamePlural="Beam Novaguns"
 BriefSummary="The Light Machine Gun (LMG for short) is adapted from our Battle Rifle platform to allow our gunners to engage the enemy at intermediate range."
-TacticalText="<Bullet/><Ability:Plasma/>\n<Bullet/><Ability:SAW/>"
+TacticalText="<Bullet/><Ability:Plasma/>\n<Bullet/><Ability:BattleRifle/>"
 AbilityDescName="cannon"
 
 ;=======================================================
