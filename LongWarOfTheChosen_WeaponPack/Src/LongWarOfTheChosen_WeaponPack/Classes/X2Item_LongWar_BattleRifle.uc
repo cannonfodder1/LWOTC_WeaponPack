@@ -61,6 +61,10 @@ static function Create_BattleRifle_Template(out X2WeaponTemplate Template, int t
 	Template.Abilities.AddItem('OverwatchShot');
 	Template.Abilities.AddItem('Reload');
 	Template.Abilities.AddItem('HotLoadAmmo');
+	Template.Abilities.AddItem('WeaponMovementDebuff');
+	Template.Abilities.AddItem('WeaponReloadingDebuff');
+	Template.Abilities.AddItem('WeaponShootingDebuff');
+	Template.Abilities.AddItem('SkirmisherStrike');
 	//Template.Abilities.AddItem(class'X2Ability_BattleRifleAbilities'.default.BattleRifleStatBonusAbilityName);
 	//Template.SetUIStatMarkup(class'XLocalizedData'.default.MobilityLabel, eStat_Mobility, class'X2Ability_BattleRifleAbilities'.default.BattleRifle_MobilityBonus);
 

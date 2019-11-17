@@ -287,44 +287,44 @@ static function bool AbilityTagExpandHandler(string InString, out string OutStri
 	switch(Type)
 	{
 	case 'Basic':
-		OutString = " The troops would appreciate it if we got them better weaponry as soon as possible.";
+		OutString = "The troops would appreciate it if we got them better weaponry as soon as possible.";
 		return true;
 	case 'Magnetic':
-		OutString = " Magnetic weapons grant +10 crit and +1 crit damage, but have a -5 aim penalty.";
+		OutString = "Magnetic weapons grant +10 crit and +1 crit damage, but have a -5 aim penalty.";
 		return true;
 	case 'Coilgun':
-		OutString = " Coil weapons grant +20 crit and +1 crit damage.";
+		OutString = "Coil weapons grant +20 crit and +1 crit damage.";
 		return true;
 	case 'Laser':
-		OutString = " Laser weapons grant +5 aim and +1 pierce, but have a -1 mobility penalty.";
+		OutString = "Laser weapons grant +5 aim and +1 pierce, but have a -1 mobility penalty.";
 		return true;
 	case 'Plasma':
-		OutString = " Plasma weapons grant +10 aim and +1 pierce.";
+		OutString = "Plasma weapons grant +10 aim and +1 pierce.";
 		return true;
 
 	case 'Assault':
-		OutString = " Assault Rifles are mid-ranged, decently powerful weapons with no major strengths or weaknesses.";
+		OutString = "Assault Rifles are mid-ranged, decently powerful weapons with no major strengths or weaknesses.";
 		return true;
 	case 'Shotgun':
-		OutString = " Shotguns are point blank range brutes perfect for exploiting flanks, but rapidly lose damage the farther away their target is.";
+		OutString = "Shotguns are close range brutes perfect for exploiting flanks, but they have terrible stability and precision.";
 		return true;
 	case 'SMG':
-		OutString = " Submachine Guns are close to mid range weapons that deal low damage and are ineffective against armour, but they are extremely lightweight.";
+		OutString = "Carbines are lightweight weapons that are less damaging and weak against armor, but they have excellent handling and mobility.";
 		return true;
-	case 'BattleRifle':
-		OutString = " Squad Automatic Weapons are mid-ranged mainstays with good damage, but they have a small aim penalty when firing after moving.";
+	case 'SAW':
+		OutString = "Battle Rifles are a heavier alternative to the Assault Rifle, trading mobility and handling for damage and stability.";
 		return true;
 	case 'DMR':
-		OutString = " Marksman Rifles are mid to long range weapons with slightly low damage, but high critical chances and the ability to hit faraway targets.";
+		OutString = "Marksman Rifles are precise weapons that sacrifice the Sniper Rifle's damage in return for higher mobility, handling, and stability.";
 		return true;
 	case 'LMG':
-		OutString = " Light Machine Guns are mid to long range powerhouses with immense damage, but must set up before firing or face a massive aim penalty.";
+		OutString = "Light Machine Guns are mid to long range powerhouses with immense damage, but must set up before firing or face a massive aim penalty.";
 		return true;
 	case 'Sniper':
-		OutString = " Sniper Rifles are long ranged precision removal tools that have innate armour piercing and unlimited range, but cannot fire after moving.";
+		OutString = "Sniper Rifles are long ranged high damage weapons that have innate armour piercing and unlimited range, but terrible handling.";
 		return true;
 	case 'Pistol':
-		OutString = " Pistols are backup short to mid range weapons that can be equipped in a utility slot, but they have trouble piercing armour.";
+		OutString = "Pistols are backup short range weapons that have perfect handling and stability, but they have low damage and are weak against armor.";
 		return true;
 	}
 	return false;

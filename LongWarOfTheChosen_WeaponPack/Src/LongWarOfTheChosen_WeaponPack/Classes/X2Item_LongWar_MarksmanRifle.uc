@@ -60,6 +60,10 @@ static function Create_MarksmanRifle_Template(out X2WeaponTemplate Template, int
 	Template.Abilities.AddItem('OverwatchShot');
 	Template.Abilities.AddItem('Reload');
 	Template.Abilities.AddItem('HotLoadAmmo');
+	Template.Abilities.AddItem('WeaponMovementDebuff');
+	Template.Abilities.AddItem('WeaponReloadingDebuff');
+	Template.Abilities.AddItem('WeaponShootingDebuff');
+	Template.Abilities.AddItem('SkirmisherStrike');
 
 	//Stats
 	Template.BaseDamage = default.MarksmanRifle_Damage[tier];

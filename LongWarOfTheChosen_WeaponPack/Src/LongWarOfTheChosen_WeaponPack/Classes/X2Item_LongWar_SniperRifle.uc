@@ -52,6 +52,9 @@ static function Create_SniperRifle_Template(out X2WeaponTemplate Template, int t
 	Template.Abilities.AddItem('OverwatchShot');
 	Template.Abilities.AddItem('Reload');
 	Template.Abilities.AddItem('HotLoadAmmo');
+	Template.Abilities.AddItem('WeaponMovementDebuff');
+	Template.Abilities.AddItem('WeaponReloadingDebuff');
+	Template.Abilities.AddItem('WeaponShootingDebuff');
 
 	//Stats
 	Template.BaseDamage = default.SniperRifle_Damage[tier];
