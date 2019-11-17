@@ -142,9 +142,6 @@
     <Content Include="Content\RM_BattleRiflePack.upk">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Content\RM_ETCSAW.upk">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="Content\UILibrary_BRMeshPack.upk">
       <SubType>Content</SubType>
     </Content>

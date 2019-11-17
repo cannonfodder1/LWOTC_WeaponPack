@@ -150,7 +150,7 @@ static function X2DataTemplate Create_BattleRifle_Magnetic(name TemplateName)
 	Template.RangeAccuracy = default.MEDIUM_MAGNETIC_RANGE;
 
 	// Model
-	Template.GameArchetype = "LW_SAW.WP_SAW_MG";
+	Template.GameArchetype = "LW_SAW.Archetypes.WP_SAW_MG";
 	Template.UIArmoryCameraPointTag = 'UIPawnLocation_WeaponUpgrade_AssaultRifle';
 	Template.AddDefaultAttachment('Mag', "BRMeshPack.Meshes.SM_BR_MG_MagA", , "UILibrary_Common.UI_MagAssaultRifle.MagAssaultRifle_MagA");
 	Template.AddDefaultAttachment('Mag2', "LWCannon_LS.Meshes.SK_LaserCannon_Stock_A", , "img:///UILibrary_LW_LaserPack.LaserCannon_StockA");
@@ -180,7 +180,7 @@ static function X2DataTemplate Create_BattleRifle_Coil(name TemplateName)
 	// Model
 	Template.GameArchetype = "LWAssaultRifle_CG.Archetypes.WP_AssaultRifle_CG";
 	Template.UIArmoryCameraPointTag = 'UIPawnLocation_WeaponUpgrade_AssaultRifle';
-	Template.AddDefaultAttachment('Mag', "LWAssaultRifle_CG.Meshes.LW_CoilRifle_MagB", ,  "img:///UILibrary_LW_Coilguns.InventoryArt.CoilRifle_MagA");
+	Template.AddDefaultAttachment('Mag', "LWCannon_CG.Meshes.LW_CoilCannon_MagA", ,  "img:///UILibrary_LW_Overhaul.InventoryArt.CoilCannon_MagA");
 	Template.AddDefaultAttachment('Stock', "LWAccessories_CG.Meshes.LW_Coil_StockB", , "img:///UILibrary_LW_Overhaul.InventoryArt.CoilRifle_StockA"); 
 	Template.AddDefaultAttachment('Reargrip', "LWAccessories_CG.Meshes.LW_Coil_ReargripA", , "img:///UILibrary_LW_Overhaul.InventoryArt.CoilRifle_ReargripA"); 
 	Template.AddDefaultAttachment('Light', "BeamAttachments.Meshes.BeamFlashLight");
@@ -210,7 +210,7 @@ static function X2DataTemplate Create_BattleRifle_Beam(name TemplateName)
 	Template.RangeAccuracy = default.MEDIUM_BEAM_RANGE;
 
 	// Model
-	Template.GameArchetype = "LW_SAW.WP_SAW_BM";
+	Template.GameArchetype = "LW_SAW.Archetypes.WP_SAW_BM";
 	Template.UIArmoryCameraPointTag = 'UIPawnLocation_WeaponUpgrade_AssaultRifle';
 	Template.AddDefaultAttachment('Mag', "BeamCannon.Meshes.SM_BeamCannon_MagA", , "img:///UILibrary_Common.UI_BeamCannon.BeamCannon_MagA");
 	Template.AddDefaultAttachment('Mag2', "LWCannon_CG.Meshes.LW_CoilCannon_StockA", , "img:///UILibrary_LW_Coilguns.CoilCannon_StockA");

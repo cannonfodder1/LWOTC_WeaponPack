@@ -14,7 +14,6 @@ static function array<X2DataTemplate> CreateTemplates()
 static function X2AbilityTemplate WeaponMovementDebuff()
 {
 	local X2AbilityTemplate Template;
-	local XMBCondition_AbilityName NameCondition;
 	local XMBEffect_ConditionalBonus Effect;
 	local XMBValue_WeaponAttribute Value;
 	 
