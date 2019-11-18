@@ -14,6 +14,7 @@ var config array<int> SMG_EleriumCost;
 var config array<int> SMG_Engineering;
 var config array<name> SMG_RequiredTech;
 var config array<string> SMG_ImagePath;
+var config array<name> SMG_BaseItem;
 
 var name SMGConventional;
 var name SMGLaser;
@@ -68,6 +69,7 @@ static function Create_SMG_Template(out X2WeaponTemplate Template, int tier)
 	//Template.SetUIStatMarkup(class'XLocalizedData'.default.MobilityLabel, eStat_Mobility, class'X2Ability_SMGAbilities'.default.SMG_Mobility_Bonus);
 
 	//Stats
+	Template.RangeAccuracy = default.LW_MIDCLOSE_RANGE;
 	Template.BaseDamage = default.SMG_Damage[tier];
 	Template.Aim = default.SMG_Aim[tier];
 	Template.CritChance = default.SMG_CritChance[tier];
@@ -76,6 +78,19 @@ static function Create_SMG_Template(out X2WeaponTemplate Template, int tier)
 	Template.iEnvironmentDamage = default.SMG_EnvironmentDamage[tier];
 	Template.TradingPostValue = default.SMG_SellValue[tier];
 	Template.NumUpgradeSlots = default.SMG_UpgradeSlots[tier];
+	
+	// Building info
+	if (BuildWeaponSchematics(Template))
+	{
+		Template.CreatorTemplateName = name(string(Template.DataName) $ string('_Schematic')); // The schematic which creates this item
+		Template.BaseItem = GetBaseItem("SMG", tier); //default.SMG_BaseItem[tier]; // Which item this will be upgraded from
+	}
+	else
+	{
+		CreateTemplateCost(Template, default.SMG_RequiredTech[Template.Tier], 
+			default.SMG_SupplyCost[tier], default.SMG_AlloyCost[Template.Tier], 
+			default.SMG_EleriumCost[tier], default.SMG_Engineering[Template.Tier]);
+	}
 }
 
 static function X2DataTemplate Create_SMG_Conventional(name TemplateName)
@@ -84,7 +99,6 @@ static function X2DataTemplate Create_SMG_Conventional(name TemplateName)
 
 	`CREATE_X2TEMPLATE(class'X2WeaponTemplate', Template, TemplateName);
 	Create_SMG_Template(Template, 0);
-	Template.RangeAccuracy = default.MIDSHORT_CONVENTIONAL_RANGE;
 	Template.fKnockbackDamageAmount = 4.0f;
 	Template.fKnockbackDamageRadius = 0.0f;
 
@@ -110,7 +124,6 @@ static function X2DataTemplate Create_SMG_Laser(name TemplateName)
 
 	`CREATE_X2TEMPLATE(class'X2WeaponTemplate', Template, TemplateName);
 	Create_SMG_Template(Template, 1);
-	Template.RangeAccuracy = default.MIDSHORT_LASER_RANGE;
 
 	// Model
 	Template.GameArchetype = "LWSMG_LS.Archetype.WP_SMG_LS";
@@ -121,19 +134,6 @@ static function X2DataTemplate Create_SMG_Laser(name TemplateName)
 	//Template.AddDefaultAttachment('Optic', "LWSMG_LS.Meshes.SK_LaserSMG_Optic_A", , "img:///UILibrary_LW_LaserPack.LaserSMG__OpticA");  // no default optic
 	Template.AddDefaultAttachment('Light', "LWAttachments_LS.Meshes.SK_Laser_Flashlight", , );
 
-	// Building info
-	if (BuildWeaponSchematics(Template))
-	{
-		Template.CreatorTemplateName = 'SMG_LS_Schematic'; // The schematic which creates this item
-		Template.BaseItem = default.SMGConventional; // Which item this will be upgraded from
-	}
-	else
-	{
-		CreateTemplateCost(Template, default.SMG_RequiredTech[Template.Tier], 
-			default.SMG_SupplyCost[Template.Tier], default.SMG_AlloyCost[Template.Tier], 
-			default.SMG_EleriumCost[Template.Tier], default.SMG_Engineering[Template.Tier]);
-	}
-
 	return Template;
 }
 
@@ -143,7 +143,6 @@ static function X2DataTemplate Create_SMG_Magnetic(name TemplateName)
 
 	`CREATE_X2TEMPLATE(class'X2WeaponTemplate', Template, TemplateName);
 	Create_SMG_Template(Template, 2);
-	Template.RangeAccuracy = default.MIDSHORT_MAGNETIC_RANGE;
 
 	// Model
 	Template.GameArchetype = "LWSMG_MG.WP_SMG_MG";
@@ -157,12 +156,6 @@ static function X2DataTemplate Create_SMG_Magnetic(name TemplateName)
 	Template.AddDefaultAttachment('Trigger', "MagAssaultRifle.Meshes.SM_MagAssaultRifle_TriggerA", , "img:///UILibrary_SMG.magnetic.LWMagSMG_TriggerA");
 	Template.AddDefaultAttachment('Light', "LWSMG_MG.Meshes.SK_MagFlashLight");  // alternative -- use mag flashlight, unused in base-game, converted to skeletal mesh
 
-	Template.CreatorTemplateName = 'SMG_MG_Schematic'; // The schematic which creates this item
-	Template.BaseItem = default.SMGConventional; // Which item this will be upgraded from
-
-	Template.CanBeBuilt = false;
-	Template.bInfiniteItem = true;
-
 	return Template;
 }
 
@@ -172,7 +165,6 @@ static function X2DataTemplate Create_SMG_Coil(name TemplateName)
 
 	`CREATE_X2TEMPLATE(class'X2WeaponTemplate', Template, TemplateName);
 	Create_SMG_Template(Template, 3);
-	Template.RangeAccuracy = default.MIDSHORT_COIL_RANGE;
 
 	// Model
 	Template.GameArchetype = "LWSMG_CG.Archetypes.WP_SMG_CG";
@@ -180,19 +172,6 @@ static function X2DataTemplate Create_SMG_Coil(name TemplateName)
 	Template.AddDefaultAttachment('Stock', "LWAccessories_CG.Meshes.LW_Coil_StockA", , "img:///UILibrary_LW_Coilguns.InventoryArt.CoilSMG_StockA");
 	Template.AddDefaultAttachment('Reargrip', "LWAccessories_CG.Meshes.LW_Coil_ReargripA", , "img:///UILibrary_LW_Coilguns.InventoryArt.CoilSMG_ReargripA");
 	Template.AddDefaultAttachment('Light', "BeamAttachments.Meshes.BeamFlashLight"); //, , "img:///UILibrary_Common.ConvAssaultRifle.ConvAssault_LightA");  // re-use common conventional flashlight
-
-	// Building info
-	if (BuildWeaponSchematics(Template))
-	{
-		Template.CreatorTemplateName = 'SMG_CG_Schematic'; // The schematic which creates this item
-		Template.BaseItem = default.SMGMagnetic; // Which item this will be upgraded from
-	}
-	else
-	{
-		CreateTemplateCost(Template, default.SMG_RequiredTech[Template.Tier], 
-			default.SMG_SupplyCost[Template.Tier], default.SMG_AlloyCost[Template.Tier], 
-			default.SMG_EleriumCost[Template.Tier], default.SMG_Engineering[Template.Tier]);
-	}
 
 	return Template;
 }
@@ -203,7 +182,6 @@ static function X2DataTemplate Create_SMG_Beam(name TemplateName)
 
 	`CREATE_X2TEMPLATE(class'X2WeaponTemplate', Template, TemplateName);
 	Create_SMG_Template(Template, 4);
-	Template.RangeAccuracy = default.MIDSHORT_BEAM_RANGE;
 
 	// Model
 	Template.GameArchetype = "LWSMG_BM.WP_SMG_BM";
@@ -212,12 +190,6 @@ static function X2DataTemplate Create_SMG_Beam(name TemplateName)
 	Template.AddDefaultAttachment('Core', "LWSMG_BM.Meshes.SK_LWBeamSMG_CoreB", , "img:///UILibrary_SMG.Beam.LWBeamSMG_CoreA");
 	Template.AddDefaultAttachment('HeatSink', "LWSMG_BM.Meshes.SK_LWBeamSMG_HeatsinkA", , "img:///UILibrary_SMG.Beam.LWBeamSMG_HeatsinkA");
 	Template.AddDefaultAttachment('Light', "BeamAttachments.Meshes.BeamFlashLight");
-
-	Template.CreatorTemplateName = 'SMG_BM_Schematic'; // The schematic which creates this item
-	Template.BaseItem = default.SMGMagnetic; // Which item this will be upgraded from
-
-	Template.CanBeBuilt = false;
-	Template.bInfiniteItem = true;
 
 	return Template;
 }

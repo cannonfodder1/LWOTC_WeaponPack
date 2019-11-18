@@ -14,6 +14,7 @@ var config array<int> Pistol_EleriumCost;
 var config array<int> Pistol_Engineering;
 var config array<name> Pistol_RequiredTech;
 var config array<string> Pistol_ImagePath;
+var config array<name> Pistol_BaseItem;
 
 var name PistolLaser;
 var name PistolCoil;
@@ -65,6 +66,7 @@ static function Create_Pistol_Template(out X2WeaponTemplate Template, int tier)
 	Template.SetAnimationNameForAbility('FanFire', 'FF_FireMultiShotBeamA'); // TODO : update with new animation if necessary
 
 	//Stats
+	Template.RangeAccuracy = default.LW_MIDCLOSE_RANGE;
 	Template.BaseDamage = default.Pistol_Damage[tier];
 	Template.Aim = default.Pistol_Aim[tier];
 	Template.CritChance = default.Pistol_CritChance[tier];
@@ -73,6 +75,43 @@ static function Create_Pistol_Template(out X2WeaponTemplate Template, int tier)
 	Template.iEnvironmentDamage = default.Pistol_EnvironmentDamage[tier];
 	Template.TradingPostValue = default.Pistol_SellValue[tier];
 	Template.NumUpgradeSlots = default.Pistol_UpgradeSlots[tier];
+	
+	// Building info
+	if (BuildWeaponSchematics(Template))
+	{
+		Template.CreatorTemplateName = name(string(Template.DataName) $ string('_Schematic')); // The schematic which creates this item
+		Template.BaseItem = GetBaseItem("Pistol", tier); //default.Pistol_BaseItem[tier]; // Which item this will be upgraded from
+	}
+	else
+	{
+		CreateTemplateCost(Template, default.Pistol_RequiredTech[Template.Tier], 
+			default.Pistol_SupplyCost[tier], default.Pistol_AlloyCost[Template.Tier], 
+			default.Pistol_EleriumCost[tier], default.Pistol_Engineering[Template.Tier]);
+	}
+}
+
+static function Modify_Pistol(name TemplateName)
+{
+	local X2ItemTemplateManager ItemTemplateManager;
+	local X2WeaponTemplate Template;
+
+	ItemTemplateManager = class'X2ItemTemplateManager'.static.GetItemTemplateManager();
+
+	if (ItemTemplateManager == none) {
+		`Redscreen("LW WeaponPack : failed to retrieve ItemTemplateManager");
+		return;
+	}
+	
+	Template = X2WeaponTemplate(ItemTemplateManager.FindItemTemplate(TemplateName));
+	if(Template != none)
+	{
+		Template.Abilities.Length = 0;
+		Create_Pistol_Template(Template, 1);
+	}
+	else
+	{
+		`Redscreen("LW WeaponPack : failed to find template " $ string(TemplateName));
+	}
 }
 
 static function X2DataTemplate Create_Pistol_Laser(name TemplateName)
@@ -81,23 +120,9 @@ static function X2DataTemplate Create_Pistol_Laser(name TemplateName)
 
 	`CREATE_X2TEMPLATE(class'X2WeaponTemplate', Template, TemplateName);
 	Create_Pistol_Template(Template, 1);
-	Template.RangeAccuracy = default.SHORT_LASER_RANGE;
 
 	// Model
 	Template.GameArchetype = "LWPistol_LS.Archetype.WP_Pistol_LS";
-
-	// Building info
-	if (BuildWeaponSchematics(Template))
-	{
-		Template.CreatorTemplateName = 'Pistol_LS_Schematic'; // The schematic which creates this item
-		Template.BaseItem = 'Pistol_CV'; // Which item this will be upgraded from
-	}
-	else
-	{
-		CreateTemplateCost(Template, default.Pistol_RequiredTech[Template.Tier], 
-			default.Pistol_SupplyCost[Template.Tier], default.Pistol_AlloyCost[Template.Tier], 
-			default.Pistol_EleriumCost[Template.Tier], default.Pistol_Engineering[Template.Tier]);
-	}
 
 	return Template;
 }
@@ -108,23 +133,9 @@ static function X2DataTemplate Create_Pistol_Coil(name TemplateName)
 
 	`CREATE_X2TEMPLATE(class'X2WeaponTemplate', Template, TemplateName);
 	Create_Pistol_Template(Template, 3);
-	Template.RangeAccuracy = default.MIDSHORT_COIL_RANGE;
 
 	// Model
 	Template.GameArchetype = "LWPistol_CG.Archetypes.WP_Pistol_CG";
-
-	// Building info
-	if (BuildWeaponSchematics(Template))
-	{
-		Template.CreatorTemplateName = 'Pistol_CG_Schematic'; // The schematic which creates this item
-		Template.BaseItem = 'Pistol_MG'; // Which item this will be upgraded from
-	}
-	else
-	{
-		CreateTemplateCost(Template, default.Pistol_RequiredTech[Template.Tier], 
-			default.Pistol_SupplyCost[Template.Tier], default.Pistol_AlloyCost[Template.Tier], 
-			default.Pistol_EleriumCost[Template.Tier], default.Pistol_Engineering[Template.Tier]);
-	}
 
 	return Template;
 }

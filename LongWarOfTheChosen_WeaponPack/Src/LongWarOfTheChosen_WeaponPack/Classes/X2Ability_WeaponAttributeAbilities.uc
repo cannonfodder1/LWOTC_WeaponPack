@@ -1,4 +1,6 @@
-class X2Ability_WeaponAttributeAbilities extends XMBAbility;
+class X2Ability_WeaponAttributeAbilities extends XMBAbility config(LW_WeaponPack_Abilities);
+
+var config float MOVEMENT_MULT;
 
 static function array<X2DataTemplate> CreateTemplates()
 {
@@ -26,7 +28,7 @@ static function X2AbilityTemplate WeaponMovementDebuff()
 	Effect.AddToHitModifier(-1);
 	Effect.ScaleValue = Value;
 	Effect.ScaleBase = 0;
-	Effect.ScaleMultiplier = 0.5;
+	Effect.ScaleMultiplier = default.MOVEMENT_MULT;
 	Effect.ScaleMax = 50;
 	Effect.BuildPersistentEffect(1, false, true, false, eGameRule_PlayerTurnBegin);
 

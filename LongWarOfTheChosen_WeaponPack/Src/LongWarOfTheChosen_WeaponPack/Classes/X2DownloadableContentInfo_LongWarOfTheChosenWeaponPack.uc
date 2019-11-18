@@ -89,7 +89,7 @@ static function UpdateConventionalStorage()
 
 	//add Conventional SAW always
 	`Log("LWOTC WeaponPack : Updated Conventional SAW");
-	ItemTemplate = ItemTemplateMgr.FindItemTemplate('SAW_CV');
+	ItemTemplate = ItemTemplateMgr.FindItemTemplate('BattleRifle_CV');
 	if(ItemTemplate != none)
 	{
 		`Log("LW SAWPack : Found SAW item template");
@@ -201,6 +201,26 @@ static event OnPostTemplatesCreated()
 		`Redscreen("LW SMGPack : failed to retrieve ItemTemplateManager to configure upgrades");
 		return;
 	}
+	
+	class'X2Item_LongWar_AssaultRifle'.static.Modify_AssaultRifle('AssaultRifle_CV');
+	class'X2Item_LongWar_AssaultRifle'.static.Modify_AssaultRifle('AssaultRifle_MG');
+	class'X2Item_LongWar_AssaultRifle'.static.Modify_AssaultRifle('AssaultRifle_BM');
+	
+	class'X2Item_LongWar_SniperRifle'.static.Modify_SniperRifle('SniperRifle_CV');
+	class'X2Item_LongWar_SniperRifle'.static.Modify_SniperRifle('SniperRifle_MG');
+	class'X2Item_LongWar_SniperRifle'.static.Modify_SniperRifle('SniperRifle_BM');
+	
+	class'X2Item_LongWar_Shotgun'.static.Modify_Shotgun('Shotgun_CV');
+	class'X2Item_LongWar_Shotgun'.static.Modify_Shotgun('Shotgun_MG');
+	class'X2Item_LongWar_Shotgun'.static.Modify_Shotgun('Shotgun_BM');
+	
+	class'X2Item_LongWar_Cannon'.static.Modify_Cannon('Cannon_CV');
+	class'X2Item_LongWar_Cannon'.static.Modify_Cannon('Cannon_MG');
+	class'X2Item_LongWar_Cannon'.static.Modify_Cannon('Cannon_BM');
+	
+	class'X2Item_LongWar_Pistol'.static.Modify_Pistol('Pistol_CV');
+	class'X2Item_LongWar_Pistol'.static.Modify_Pistol('Pistol_MG');
+	class'X2Item_LongWar_Pistol'.static.Modify_Pistol('Pistol_BM');
 
 	class'X2Override_Attachments_SMG'.static.UpdateSMGAttachmentTemplates(ItemTemplateManager);
 	class'X2Override_Attachments_BattleRifle'.static.UpdateBattleRifleAttachmentTemplates(ItemTemplateManager);

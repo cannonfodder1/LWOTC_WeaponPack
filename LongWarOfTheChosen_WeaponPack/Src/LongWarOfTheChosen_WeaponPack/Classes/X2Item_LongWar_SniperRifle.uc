@@ -14,6 +14,7 @@ var config array<int> SniperRifle_EleriumCost;
 var config array<int> SniperRifle_Engineering;
 var config array<name> SniperRifle_RequiredTech;
 var config array<string> SniperRifle_ImagePath;
+var config array<name> SniperRifle_BaseItem;
 
 var name SniperRifleLaser;
 var name SniperRifleCoil;
@@ -57,6 +58,7 @@ static function Create_SniperRifle_Template(out X2WeaponTemplate Template, int t
 	Template.Abilities.AddItem('WeaponShootingDebuff');
 
 	//Stats
+	Template.RangeAccuracy = default.LW_LONG_RANGE;
 	Template.BaseDamage = default.SniperRifle_Damage[tier];
 	Template.Aim = default.SniperRifle_Aim[tier];
 	Template.CritChance = default.SniperRifle_CritChance[tier];
@@ -65,6 +67,43 @@ static function Create_SniperRifle_Template(out X2WeaponTemplate Template, int t
 	Template.iEnvironmentDamage = default.SniperRifle_EnvironmentDamage[tier];
 	Template.TradingPostValue = default.SniperRifle_SellValue[tier];
 	Template.NumUpgradeSlots = default.SniperRifle_UpgradeSlots[tier];
+	
+	// Building info
+	if (BuildWeaponSchematics(Template))
+	{
+		Template.CreatorTemplateName = name(string(Template.DataName) $ string('_Schematic')); // The schematic which creates this item
+		Template.BaseItem = GetBaseItem("SniperRifle", tier); //default.SniperRifle_BaseItem[tier]; // Which item this will be upgraded from
+	}
+	else
+	{
+		CreateTemplateCost(Template, default.SniperRifle_RequiredTech[Template.Tier], 
+			default.SniperRifle_SupplyCost[tier], default.SniperRifle_AlloyCost[Template.Tier], 
+			default.SniperRifle_EleriumCost[tier], default.SniperRifle_Engineering[Template.Tier]);
+	}
+}
+
+static function Modify_SniperRifle(name TemplateName)
+{
+	local X2ItemTemplateManager ItemTemplateManager;
+	local X2WeaponTemplate Template;
+
+	ItemTemplateManager = class'X2ItemTemplateManager'.static.GetItemTemplateManager();
+
+	if (ItemTemplateManager == none) {
+		`Redscreen("LW WeaponPack : failed to retrieve ItemTemplateManager");
+		return;
+	}
+	
+	Template = X2WeaponTemplate(ItemTemplateManager.FindItemTemplate(TemplateName));
+	if(Template != none)
+	{
+		Template.Abilities.Length = 0;
+		Create_SniperRifle_Template(Template, 1);
+	}
+	else
+	{
+		`Redscreen("LW WeaponPack : failed to find template " $ string(TemplateName));
+	}
 }
 
 static function X2DataTemplate Create_SniperRifle_Laser(name TemplateName)
@@ -73,7 +112,6 @@ static function X2DataTemplate Create_SniperRifle_Laser(name TemplateName)
 
 	`CREATE_X2TEMPLATE(class'X2WeaponTemplate', Template, TemplateName);
 	Create_SniperRifle_Template(Template, 1);
-	Template.RangeAccuracy = default.LONG_LASER_RANGE;
 
 	// Model
 	Template.GameArchetype = "LWSniperRifle_LS.Archetype.WP_SniperRifle_LS";
@@ -82,19 +120,6 @@ static function X2DataTemplate Create_SniperRifle_Laser(name TemplateName)
 	Template.AddDefaultAttachment('Reargrip', "LWAttachments_LS.Meshes.SK_Laser_Trigger_A", , "img:///UILibrary_LW_LaserPack.LaserSniper_TriggerA");
 	Template.AddDefaultAttachment('Foregrip', "LWAttachments_LS.Meshes.SK_Laser_Foregrip_A", , "img:///UILibrary_LW_LaserPack.LaserSniper_ForegripA");
 	Template.AddDefaultAttachment('Optic', "LWSniperRifle_LS.Meshes.SK_LaserSniper_Optic_A", , "img:///UILibrary_LW_LaserPack.LaserSniper_OpticA");
-
-	// Building info
-	if (BuildWeaponSchematics(Template))
-	{
-		Template.CreatorTemplateName = 'SniperRifle_LS_Schematic'; // The schematic which creates this item
-		Template.BaseItem = 'SniperRifle_CV'; // Which item this will be upgraded from
-	}
-	else
-	{
-		CreateTemplateCost(Template, default.SniperRifle_RequiredTech[Template.Tier],
-			default.SniperRifle_SupplyCost[Template.Tier], default.SniperRifle_AlloyCost[Template.Tier], 
-			default.SniperRifle_EleriumCost[Template.Tier], default.SniperRifle_Engineering[Template.Tier]);
-	}
 
 	return Template;
 }
@@ -105,7 +130,6 @@ static function X2DataTemplate Create_SniperRifle_Coil(name TemplateName)
 
 	`CREATE_X2TEMPLATE(class'X2WeaponTemplate', Template, TemplateName);
 	Create_SniperRifle_Template(Template, 3);
-	Template.RangeAccuracy = default.LONG_COIL_RANGE;
 
 	// Model
 	Template.GameArchetype = "LWSniperRifle_CG.Archetypes.WP_SniperRifle_CG";
@@ -114,19 +138,6 @@ static function X2DataTemplate Create_SniperRifle_Coil(name TemplateName)
 	Template.AddDefaultAttachment('Stock', "LWAccessories_CG.Meshes.LW_Coil_StockB", , "img:///UILibrary_LW_Coilguns.InventoryArt.CoilSniperRifle_StockB");
 	Template.AddDefaultAttachment('Reargrip', "LWAccessories_CG.Meshes.LW_Coil_ReargripA", , "img:///UILibrary_LW_Coilguns.InventoryArt.CoilSniperRifle_ReargripA");
 	Template.AddDefaultAttachment('Light', "BeamAttachments.Meshes.BeamFlashLight"); //, , "img:///UILibrary_Common.ConvAssaultRifle.ConvAssault_LightA");  // re-use common conventional flashlight
-
-	// Building info
-	if (BuildWeaponSchematics(Template))
-	{
-		Template.CreatorTemplateName = 'SniperRifle_CG_Schematic'; // The schematic which creates this item
-		Template.BaseItem = 'SniperRifle_MG'; // Which item this will be upgraded from
-	}
-	else
-	{
-		CreateTemplateCost(Template, default.SniperRifle_RequiredTech[Template.Tier],
-			default.SniperRifle_SupplyCost[Template.Tier], default.SniperRifle_AlloyCost[Template.Tier], 
-			default.SniperRifle_EleriumCost[Template.Tier], default.SniperRifle_Engineering[Template.Tier]);
-	}
 
 	return Template;
 }

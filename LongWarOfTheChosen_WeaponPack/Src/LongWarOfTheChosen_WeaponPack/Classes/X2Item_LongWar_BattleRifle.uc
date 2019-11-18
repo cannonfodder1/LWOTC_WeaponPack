@@ -14,6 +14,7 @@ var config array<int> BattleRifle_EleriumCost;
 var config array<int> BattleRifle_Engineering;
 var config array<name> BattleRifle_RequiredTech;
 var config array<string> BattleRifle_ImagePath;
+var config array<name> BattleRifle_BaseItem;
 
 var name BattleRifleConventional;
 var name BattleRifleLaser;
@@ -45,6 +46,7 @@ static function array<X2DataTemplate> CreateTemplates()
 static function Create_BattleRifle_Template(out X2WeaponTemplate Template, int tier)
 {
 	//Default Settings
+	Template.InventorySlot = eInvSlot_PrimaryWeapon;
 	Template.WeaponCat = 'saw';
 	Template.ItemCat = 'weapon';
 	Template.iPhysicsImpulse = 5;
@@ -55,7 +57,7 @@ static function Create_BattleRifle_Template(out X2WeaponTemplate Template, int t
 	Assign_Tier_Values(Template);
 
 	//Abilities
-	Template.InventorySlot = eInvSlot_PrimaryWeapon;
+	Template.RangeAccuracy = default.LW_MEDIUM_RANGE;
 	Template.Abilities.AddItem('StandardShot');
 	Template.Abilities.AddItem('Overwatch');
 	Template.Abilities.AddItem('OverwatchShot');
@@ -77,6 +79,19 @@ static function Create_BattleRifle_Template(out X2WeaponTemplate Template, int t
 	Template.iEnvironmentDamage = default.BattleRifle_EnvironmentDamage[tier];
 	Template.TradingPostValue = default.BattleRifle_SellValue[tier];
 	Template.NumUpgradeSlots = default.BattleRifle_UpgradeSlots[tier];
+	
+	// Building info
+	if (BuildWeaponSchematics(Template))
+	{
+		Template.CreatorTemplateName = name(string(Template.DataName) $ string('_Schematic')); // The schematic which creates this item
+		Template.BaseItem = GetBaseItem("BattleRifle", tier); //default.BattleRifle_BaseItem[tier]; // Which item this will be upgraded from
+	}
+	else
+	{
+		CreateTemplateCost(Template, default.BattleRifle_RequiredTech[Template.Tier], 
+			default.BattleRifle_SupplyCost[tier], default.BattleRifle_AlloyCost[Template.Tier], 
+			default.BattleRifle_EleriumCost[tier], default.BattleRifle_Engineering[Template.Tier]);
+	}
 }
 
 static function X2DataTemplate Create_BattleRifle_Conventional(name TemplateName)
@@ -85,7 +100,6 @@ static function X2DataTemplate Create_BattleRifle_Conventional(name TemplateName
 
 	`CREATE_X2TEMPLATE(class'X2WeaponTemplate', Template, TemplateName);
 	Create_BattleRifle_Template(Template, 0);
-	Template.RangeAccuracy = default.MEDIUM_CONVENTIONAL_RANGE;
 	Template.fKnockbackDamageAmount = 5.0f;
 	Template.fKnockbackDamageRadius = 0.0f;
 
@@ -114,7 +128,6 @@ static function X2DataTemplate Create_BattleRifle_Laser(name TemplateName)
 
 	`CREATE_X2TEMPLATE(class'X2WeaponTemplate', Template, TemplateName);
 	Create_BattleRifle_Template(Template, 1);
-	Template.RangeAccuracy = default.MEDIUM_LASER_RANGE;
 	
 	// Model
 	Template.GameArchetype = "LW_SAW.Archetypes.WP_SAW_LS";
@@ -125,19 +138,6 @@ static function X2DataTemplate Create_BattleRifle_Laser(name TemplateName)
 	Template.AddDefaultAttachment('Reargrip', "LWAttachments_LS.Meshes.SK_Laser_Trigger_A", , "img:///UILibrary_LW_LaserPack.LaserRifle_TriggerA");
 	Template.AddDefaultAttachment('Foregrip', "LWAttachments_LS.Meshes.SK_Laser_Foregrip_A", , "img:///UILibrary_LW_LaserPack.LaserRifle_ForegripA");
 
-	// Building info
-	if (BuildWeaponSchematics(Template))
-	{
-		Template.CreatorTemplateName = 'BattleRifle_LS_Schematic'; // The schematic which creates this item
-		Template.BaseItem = default.BattleRifleConventional; // Which item this will be upgraded from
-	}
-	else
-	{
-		CreateTemplateCost(Template, default.BattleRifle_RequiredTech[Template.Tier],
-			default.BattleRifle_SupplyCost[Template.Tier], default.BattleRifle_AlloyCost[Template.Tier], 
-			default.BattleRifle_EleriumCost[Template.Tier], default.BattleRifle_Engineering[Template.Tier]);
-	}
-
 	return Template;
 }
 
@@ -147,7 +147,6 @@ static function X2DataTemplate Create_BattleRifle_Magnetic(name TemplateName)
 
 	`CREATE_X2TEMPLATE(class'X2WeaponTemplate', Template, TemplateName);
 	Create_BattleRifle_Template(Template, 2);
-	Template.RangeAccuracy = default.MEDIUM_MAGNETIC_RANGE;
 
 	// Model
 	Template.GameArchetype = "LW_SAW.Archetypes.WP_SAW_MG";
@@ -159,13 +158,6 @@ static function X2DataTemplate Create_BattleRifle_Magnetic(name TemplateName)
 	Template.AddDefaultAttachment('Stock', "MagShotgun.Meshes.SM_MagShotgun_StockA", , "img:///UILibrary_BRPack.Attach.BR_MG_StockA");
 	Template.AddDefaultAttachment('Trigger', "MagAssaultRifle.Meshes.SM_MagAssaultRifle_TriggerA", , "img:///UILibrary_Common.UI_MagAssaultRifle.MagAssaultRifle_TriggerA");
 
-	// Building info
-	Template.CreatorTemplateName = 'BattleRifle_MG_Schematic'; // The schematic which creates this item
-	Template.BaseItem = default.BattleRifleConventional; // Which item this will be upgraded from
-
-	Template.CanBeBuilt = false;
-	Template.bInfiniteItem = true;
-
 	return Template;
 }
 
@@ -175,7 +167,6 @@ static function X2DataTemplate Create_BattleRifle_Coil(name TemplateName)
 
 	`CREATE_X2TEMPLATE(class'X2WeaponTemplate', Template, TemplateName);
 	Create_BattleRifle_Template(Template, 3);
-	Template.RangeAccuracy = default.MEDIUM_COIL_RANGE;
 
 	// Model
 	Template.GameArchetype = "LWAssaultRifle_CG.Archetypes.WP_AssaultRifle_CG";
@@ -184,19 +175,6 @@ static function X2DataTemplate Create_BattleRifle_Coil(name TemplateName)
 	Template.AddDefaultAttachment('Stock', "LWAccessories_CG.Meshes.LW_Coil_StockB", , "img:///UILibrary_LW_Overhaul.InventoryArt.CoilRifle_StockA"); 
 	Template.AddDefaultAttachment('Reargrip', "LWAccessories_CG.Meshes.LW_Coil_ReargripA", , "img:///UILibrary_LW_Overhaul.InventoryArt.CoilRifle_ReargripA"); 
 	Template.AddDefaultAttachment('Light', "BeamAttachments.Meshes.BeamFlashLight");
-
-	// Building info
-	if (BuildWeaponSchematics(Template))
-	{
-		Template.CreatorTemplateName = 'BattleRifle_CG_Schematic'; // The schematic which creates this item
-		Template.BaseItem = default.BattleRifleMagnetic; // Which item this will be upgraded from
-	}
-	else
-	{
-		CreateTemplateCost(Template, default.BattleRifle_RequiredTech[Template.Tier],
-			default.BattleRifle_SupplyCost[Template.Tier], default.BattleRifle_AlloyCost[Template.Tier], 
-			default.BattleRifle_EleriumCost[Template.Tier], default.BattleRifle_Engineering[Template.Tier]);
-	}
 
 	return Template;
 }
@@ -207,7 +185,6 @@ static function X2DataTemplate Create_BattleRifle_Beam(name TemplateName)
 
 	`CREATE_X2TEMPLATE(class'X2WeaponTemplate', Template, TemplateName);
 	Create_BattleRifle_Template(Template, 4);
-	Template.RangeAccuracy = default.MEDIUM_BEAM_RANGE;
 
 	// Model
 	Template.GameArchetype = "LW_SAW.Archetypes.WP_SAW_BM";
@@ -219,13 +196,6 @@ static function X2DataTemplate Create_BattleRifle_Beam(name TemplateName)
 	Template.AddDefaultAttachment('Core', "BeamAssaultRifle.Meshes.SM_BeamAssaultRifle_CoreA", , "img:///UILibrary_Common.UI_BeamAssaultRifle.BeamAssaultRifle_CoreA");
 	Template.AddDefaultAttachment('HeatSink', "BeamAssaultRifle.Meshes.SM_BeamAssaultRifle_HeatSinkA", , "img:///UILibrary_Common.UI_BeamAssaultRifle.BeamAssaultRifle_HeatsinkA");
 	Template.AddDefaultAttachment('Light', "BeamAttachments.Meshes.BeamFlashLight");
-
-	// Building info
-	Template.CreatorTemplateName = 'BattleRifle_BM_Schematic'; // The schematic which creates this item
-	Template.BaseItem = default.BattleRifleMagnetic; // Which item this will be upgraded from
-
-	Template.CanBeBuilt = false;
-	Template.bInfiniteItem = true;
 
 	return Template;
 }

@@ -14,6 +14,7 @@ var config array<int> Cannon_EleriumCost;
 var config array<int> Cannon_Engineering;
 var config array<name> Cannon_RequiredTech;
 var config array<string> Cannon_ImagePath;
+var config array<name> Cannon_BaseItem;
 
 var name CannonLaser;
 var name CannonCoil;
@@ -58,6 +59,7 @@ static function Create_Cannon_Template(out X2WeaponTemplate Template, int tier)
 	Template.Abilities.AddItem('SkirmisherStrike');
 
 	//Stats
+	Template.RangeAccuracy = default.LW_MIDLONG_RANGE;
 	Template.BaseDamage = default.Cannon_Damage[tier];
 	Template.Aim = default.Cannon_Aim[tier];
 	Template.CritChance = default.Cannon_CritChance[tier];
@@ -66,6 +68,43 @@ static function Create_Cannon_Template(out X2WeaponTemplate Template, int tier)
 	Template.iEnvironmentDamage = default.Cannon_EnvironmentDamage[tier];
 	Template.TradingPostValue = default.Cannon_SellValue[tier];
 	Template.NumUpgradeSlots = default.Cannon_UpgradeSlots[tier];
+	
+	// Building info
+	if (BuildWeaponSchematics(Template))
+	{
+		Template.CreatorTemplateName = name(string(Template.DataName) $ string('_Schematic')); // The schematic which creates this item
+		Template.BaseItem = GetBaseItem("Cannon", tier); //default.Cannon_BaseItem[tier]; // Which item this will be upgraded from
+	}
+	else
+	{
+		CreateTemplateCost(Template, default.Cannon_RequiredTech[Template.Tier], 
+			default.Cannon_SupplyCost[tier], default.Cannon_AlloyCost[Template.Tier], 
+			default.Cannon_EleriumCost[tier], default.Cannon_Engineering[Template.Tier]);
+	}
+}
+
+static function Modify_Cannon(name TemplateName)
+{
+	local X2ItemTemplateManager ItemTemplateManager;
+	local X2WeaponTemplate Template;
+
+	ItemTemplateManager = class'X2ItemTemplateManager'.static.GetItemTemplateManager();
+
+	if (ItemTemplateManager == none) {
+		`Redscreen("LW WeaponPack : failed to retrieve ItemTemplateManager");
+		return;
+	}
+	
+	Template = X2WeaponTemplate(ItemTemplateManager.FindItemTemplate(TemplateName));
+	if(Template != none)
+	{
+		Template.Abilities.Length = 0;
+		Create_Cannon_Template(Template, 1);
+	}
+	else
+	{
+		`Redscreen("LW WeaponPack : failed to find template " $ string(TemplateName));
+	}
 }
 
 static function X2DataTemplate Create_Cannon_Laser(name TemplateName)
@@ -74,7 +113,6 @@ static function X2DataTemplate Create_Cannon_Laser(name TemplateName)
 
 	`CREATE_X2TEMPLATE(class'X2WeaponTemplate', Template, TemplateName);
 	Create_Cannon_Template(Template, 1);
-	Template.RangeAccuracy = default.MEDIUM_LASER_RANGE;
 
 	// Model
 	Template.GameArchetype = "LWCannon_LS.Archetype.WP_Cannon_LS";
@@ -82,19 +120,6 @@ static function X2DataTemplate Create_Cannon_Laser(name TemplateName)
 	Template.AddDefaultAttachment('Stock', "LWCannon_LS.Meshes.SK_LaserCannon_Stock_A", , "img:///UILibrary_LW_LaserPack.LaserCannon_StockA");
 	Template.AddDefaultAttachment('Reargrip', "LWCannon_LS.Meshes.SK_LaserCannon_Trigger_A", , "img:///UILibrary_LW_LaserPack.LaserCannon_TriggerA");
 	Template.AddDefaultAttachment('Light', "LWAttachments_LS.Meshes.SK_Laser_Flashlight", , );
-
-	// Building info
-	if (BuildWeaponSchematics(Template))
-	{
-		Template.CreatorTemplateName = 'Cannon_LS_Schematic'; // The schematic which creates this item
-		Template.BaseItem = 'Cannon_CV'; // Which item this will be upgraded from
-	}
-	else
-	{
-		CreateTemplateCost(Template, default.Cannon_RequiredTech[Template.Tier],
-			default.Cannon_SupplyCost[Template.Tier], default.Cannon_AlloyCost[Template.Tier], 
-			default.Cannon_EleriumCost[Template.Tier], default.Cannon_Engineering[Template.Tier]);
-	}
 
 	return Template;
 }
@@ -105,7 +130,6 @@ static function X2DataTemplate Create_Cannon_Coil(name TemplateName)
 
 	`CREATE_X2TEMPLATE(class'X2WeaponTemplate', Template, TemplateName);
 	Create_Cannon_Template(Template, 3);
-	Template.RangeAccuracy = default.MEDIUM_COIL_RANGE;
 
 	// Model
 	Template.GameArchetype = "LWCannon_CG.Archetypes.WP_Cannon_CG";
@@ -114,19 +138,6 @@ static function X2DataTemplate Create_Cannon_Coil(name TemplateName)
 	Template.AddDefaultAttachment('StockSupport', "LWCannon_CG.Meshes.LW_CoilCannon_StockSupportA");
 	Template.AddDefaultAttachment('Reargrip', "LWCannon_CG.Meshes.LW_CoilCannon_ReargripA", , "img:///UILibrary_LW_Coilguns.InventoryArt.CoilCannon_ReargripA");
 	Template.AddDefaultAttachment('Light', "BeamAttachments.Meshes.BeamFlashLight"); //, , "img:///UILibrary_Common.ConvAssaultRifle.ConvAssault_LightA");  // re-use common conventional flashlight
-
-	// Building info
-	if (BuildWeaponSchematics(Template))
-	{
-		Template.CreatorTemplateName = 'Cannon_CG_Schematic'; // The schematic which creates this item
-		Template.BaseItem = 'Cannon_MG'; // Which item this will be upgraded from
-	}
-	else
-	{
-		CreateTemplateCost(Template, default.Cannon_RequiredTech[Template.Tier],
-			default.Cannon_SupplyCost[Template.Tier], default.Cannon_AlloyCost[Template.Tier], 
-			default.Cannon_EleriumCost[Template.Tier], default.Cannon_Engineering[Template.Tier]);
-	}
 
 	return Template;
 }

@@ -405,22 +405,22 @@ DisplayName="Advanced Magnetic Weaponry"
 ;=======================================================
 
 [WeaponMovementDebuff X2AbilityTemplate]
-LocFriendlyName="Moved"
-LocFlyOverText="Moved"
+LocFriendlyName="Handling"
+LocFlyOverText="Handling"
 LocHelpText="This soldier has moved this turn, and is strugging to bring their weapons to bear."
-LocLongDescription="Confers <Ability:+ToHit/> aim until the beginning of next turn."
+LocLongDescription="This soldier has already fired their <Ability:WeaponName/> this turn, gaining a penalty to aim until the beginning of next turn."
 
 [WeaponReloadingDebuff X2AbilityTemplate]
-LocFriendlyName="Reloaded"
-LocFlyOverText="Reloaded"
+LocFriendlyName="Handling"
+LocFlyOverText="Handling"
 LocHelpText="This soldier has reloaded their <Ability:WeaponName/> this turn."
-LocLongDescription="Confers <Ability:+ToHit/> aim until the beginning of next turn."
+LocLongDescription="This soldier has already fired their <Ability:WeaponName/> this turn, gaining a penalty to aim until the beginning of next turn."
 
 [WeaponShootingDebuff X2AbilityTemplate]
-LocFriendlyName="Fired"
-LocFlyOverText="Fired"
-LocHelpText="This soldier has reloaded their <Ability:WeaponName/> this turn."
-LocLongDescription="Confers <Ability:+ToHit/> aim until the beginning of next turn."
+LocFriendlyName="Stability"
+LocFlyOverText="Stability"
+LocHelpText="This soldier has already fired their <Ability:WeaponName/> this turn."
+LocLongDescription="This soldier has already fired their <Ability:WeaponName/> this turn, gaining a penalty to aim until the beginning of next turn."
 
 [ToggleLongWatchAbility X2AbilityTemplate]
 LocFriendlyName="Long Watch"

@@ -1,31 +1,10 @@
 class X2Item_LongWar_Weapon extends X2Item config(LongWar_WeaponPack_Range);
 
-var config array<int> SHORT_LASER_RANGE;
-var config array<int> SHORT_COIL_RANGE;
-
-var config array<int> MIDSHORT_CONVENTIONAL_RANGE;
-var config array<int> MIDSHORT_LASER_RANGE;
-var config array<int> MIDSHORT_MAGNETIC_RANGE;
-var config array<int> MIDSHORT_COIL_RANGE;
-var config array<int> MIDSHORT_BEAM_RANGE;
-
-var config array<int> MEDIUM_CONVENTIONAL_RANGE;
-var config array<int> MEDIUM_LASER_RANGE;
-var config array<int> MEDIUM_MAGNETIC_RANGE;
-var config array<int> MEDIUM_COIL_RANGE;
-var config array<int> MEDIUM_BEAM_RANGE;
-
-var config array<int> MEDLONG_CONVENTIONAL_RANGE;
-var config array<int> MEDLONG_LASER_RANGE;
-var config array<int> MEDLONG_MAGNETIC_RANGE;
-var config array<int> MEDLONG_COIL_RANGE;
-var config array<int> MEDLONG_BEAM_RANGE;
-
-var config array<int> LONG_LASER_RANGE;
-var config array<int> LONG_COIL_RANGE;
-
-var config array<int> VEKTOR_LASER_RANGE;
-var config array<int> VEKTOR_COIL_RANGE;
+var config array<int> LW_CLOSE_RANGE;
+var config array<int> LW_MIDCLOSE_RANGE;
+var config array<int> LW_MEDIUM_RANGE;
+var config array<int> LW_MIDLONG_RANGE;
+var config array<int> LW_LONG_RANGE;
 
 static function CreateTemplateCost(out X2WeaponTemplate Template, name requiredTech, int supplyCost, int alloyCost, int eleriumCost, int engineeringCost)
 {
@@ -60,20 +39,7 @@ static function bool BuildWeaponSchematics(out X2WeaponTemplate Template)
 {
 	local bool UseSchematics;
 
-	if (Template.Tier == 1)
-	{
-		UseSchematics = class'X2Item_Schematic_LongWar'.default.USE_SCHEMATICS;
-
-	}
-	else if (Template.Tier == 3)
-	{
-		UseSchematics = class'X2Item_Schematic_LongWar'.default.USE_SCHEMATICS;
-	}
-	else
-	{
-		// Bail out if not a custom tier for some reason
-		return false;
-	}
+	UseSchematics = class'X2Item_Schematic_LongWar'.default.USE_SCHEMATICS;
 
 	Template.CanBeBuilt = !UseSchematics;
 	Template.bInfiniteItem = UseSchematics;
@@ -117,4 +83,27 @@ static function Assign_Tier_Values(out X2WeaponTemplate Template)
 		Template.DamageTypeTemplateName = 'Projectile_BeamXCom';
 		Template.WeaponPanelImage = "_BeamRifle";
 	}
+}
+
+static function name GetBaseItem(string WeaponType, int Tier)
+{
+	local string TierStr;
+
+	switch(Tier)
+	{
+		case 0:
+			return '';
+		case 1:
+			TierStr = "_CV";
+		case 2:
+			TierStr = "_CV";
+		case 3:
+			TierStr = "_MG";
+		case 4:
+			TierStr = "_LS";
+		default:
+			return '';
+	}
+
+	return name(WeaponType $ TierStr);
 }

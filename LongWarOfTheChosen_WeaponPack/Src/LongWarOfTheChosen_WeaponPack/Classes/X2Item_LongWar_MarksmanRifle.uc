@@ -14,6 +14,7 @@ var config array<int> MarksmanRifle_EleriumCost;
 var config array<int> MarksmanRifle_Engineering;
 var config array<name> MarksmanRifle_RequiredTech;
 var config array<string> MarksmanRifle_ImagePath;
+var config array<name> MarksmanRifle_BaseItem;
 
 var name MarksmanRifleConventional;
 var name MarksmanRifleLaser;
@@ -66,6 +67,7 @@ static function Create_MarksmanRifle_Template(out X2WeaponTemplate Template, int
 	Template.Abilities.AddItem('SkirmisherStrike');
 
 	//Stats
+	Template.RangeAccuracy = default.LW_MIDLONG_RANGE;
 	Template.BaseDamage = default.MarksmanRifle_Damage[tier];
 	Template.Aim = default.MarksmanRifle_Aim[tier];
 	Template.CritChance = default.MarksmanRifle_CritChance[tier];
@@ -74,6 +76,19 @@ static function Create_MarksmanRifle_Template(out X2WeaponTemplate Template, int
 	Template.iEnvironmentDamage = default.MarksmanRifle_EnvironmentDamage[tier];
 	Template.TradingPostValue = default.MarksmanRifle_SellValue[tier];
 	Template.NumUpgradeSlots = default.MarksmanRifle_UpgradeSlots[tier];
+	
+	// Building info
+	if (BuildWeaponSchematics(Template))
+	{
+		Template.CreatorTemplateName = name(string(Template.DataName) $ string('_Schematic')); // The schematic which creates this item
+		Template.BaseItem = GetBaseItem("MarksmanRifle", tier); //default.MarksmanRifle_BaseItem[tier]; // Which item this will be upgraded from
+	}
+	else
+	{
+		CreateTemplateCost(Template, default.MarksmanRifle_RequiredTech[Template.Tier], 
+			default.MarksmanRifle_SupplyCost[tier], default.MarksmanRifle_AlloyCost[Template.Tier], 
+			default.MarksmanRifle_EleriumCost[tier], default.MarksmanRifle_Engineering[Template.Tier]);
+	}
 }
 
 static function X2DataTemplate Create_MarksmanRifle_Conventional(name TemplateName)
@@ -82,7 +97,6 @@ static function X2DataTemplate Create_MarksmanRifle_Conventional(name TemplateNa
 
 	`CREATE_X2TEMPLATE(class'X2WeaponTemplate', Template, TemplateName);
 	Create_MarksmanRifle_Template(Template, 0);
-	Template.RangeAccuracy = default.MEDLONG_CONVENTIONAL_RANGE;
 	Template.fKnockbackDamageAmount = 5.0f;
 	Template.fKnockbackDamageRadius = 0.0f;
 
@@ -108,7 +122,6 @@ static function X2DataTemplate Create_MarksmanRifle_Laser(name TemplateName)
 
 	`CREATE_X2TEMPLATE(class'X2WeaponTemplate', Template, TemplateName);
 	Create_MarksmanRifle_Template(Template, 1);
-	Template.RangeAccuracy = default.MEDLONG_LASER_RANGE;
 
 	// Model
 	Template.GameArchetype = "LW_DMR.Archetypes.WP_DMR_LS";
@@ -117,19 +130,6 @@ static function X2DataTemplate Create_MarksmanRifle_Laser(name TemplateName)
 	Template.AddDefaultAttachment('Reargrip', "LWAttachments_LS.Meshes.SK_Laser_Trigger_A", , "img:///UILibrary_LW_LaserPack.LaserRifle_TriggerA");
 	Template.AddDefaultAttachment('Foregrip', "LWAttachments_LS.Meshes.SK_Laser_Foregrip_A", , "img:///UILibrary_LW_LaserPack.LaserRifle_ForegripA");
 	Template.AddDefaultAttachment('Optic', "LWSniperRifle_LS.Meshes.SK_LaserSniper_Optic_A", , "img:///UILibrary_BRPack.Attach.BR_LS_OpticA");
-
-	// Building info
-	if (BuildWeaponSchematics(Template))
-	{
-		Template.CreatorTemplateName = 'MarksmanRifle_LS_Schematic'; // The schematic which creates this item
-		Template.BaseItem = default.MarksmanRifleConventional; // Which item this will be upgraded from
-	}
-	else
-	{
-		CreateTemplateCost(Template, default.MarksmanRifle_RequiredTech[Template.Tier],
-			default.MarksmanRifle_SupplyCost[Template.Tier], default.MarksmanRifle_AlloyCost[Template.Tier], 
-			default.MarksmanRifle_EleriumCost[Template.Tier], default.MarksmanRifle_Engineering[Template.Tier]);
-	}
 
 	return Template;
 }
@@ -140,7 +140,6 @@ static function X2DataTemplate Create_MarksmanRifle_Magnetic(name TemplateName)
 
 	`CREATE_X2TEMPLATE(class'X2WeaponTemplate', Template, TemplateName);
 	Create_MarksmanRifle_Template(Template, 2);
-	Template.RangeAccuracy = default.MEDLONG_MAGNETIC_RANGE;
 
 	// Model
 	Template.GameArchetype = "LW_DMR.Archetypes.WP_DMR_MG";
@@ -152,12 +151,6 @@ static function X2DataTemplate Create_MarksmanRifle_Magnetic(name TemplateName)
 	Template.AddDefaultAttachment('Trigger', "MagAssaultRifle.Meshes.SM_MagAssaultRifle_TriggerA", , "img:///UILibrary_Common.UI_MagAssaultRifle.MagAssaultRifle_TriggerA");
 	Template.AddDefaultAttachment('Light', "ConvAttachments.Meshes.SM_ConvFlashLight");
 
-	Template.CreatorTemplateName = 'MarksmanRifle_MG_Schematic'; // The schematic which creates this item
-	Template.BaseItem = default.MarksmanRifleConventional; // Which item this will be upgraded from
-
-	Template.CanBeBuilt = false;
-	Template.bInfiniteItem = true;
-
 	return Template;
 }
 
@@ -167,7 +160,6 @@ static function X2DataTemplate Create_MarksmanRifle_Coil(name TemplateName)
 
 	`CREATE_X2TEMPLATE(class'X2WeaponTemplate', Template, TemplateName);
 	Create_MarksmanRifle_Template(Template, 3);
-	Template.RangeAccuracy = default.MEDLONG_COIL_RANGE;
 
 	// Model
 	Template.GameArchetype = "LW_DMR.Archetypes.WP_DMR_CG";
@@ -176,19 +168,6 @@ static function X2DataTemplate Create_MarksmanRifle_Coil(name TemplateName)
 	Template.AddDefaultAttachment('Reargrip', "LWAccessories_CG.Meshes.LW_Coil_ReargripA", , "img:///UILibrary_LW_Overhaul.InventoryArt.CoilRifle_ReargripA");
 	Template.AddDefaultAttachment('Light', "BeamAttachments.Meshes.BeamFlashLight"); //, , "img:///UILibrary_Common.ConvAssaultRifle.ConvAssault_LightA");  // re-use common conventional flashlight
 	Template.AddDefaultAttachment('Optic', "BeamAssaultRifle.Meshes.SM_BeamAssaultRifle_OpticC", , "img:///UILibrary_LW_Overhaul.InventoryArt.CoilSniperRifle_OpticA");
-
-	// Building info
-	if (BuildWeaponSchematics(Template))
-	{
-		Template.CreatorTemplateName = 'MarksmanRifle_CG_Schematic'; // The schematic which creates this item
-		Template.BaseItem = default.MarksmanRifleMagnetic; // Which item this will be upgraded from
-	}
-	else
-	{
-		CreateTemplateCost(Template, default.MarksmanRifle_RequiredTech[Template.Tier],
-			default.MarksmanRifle_SupplyCost[Template.Tier], default.MarksmanRifle_AlloyCost[Template.Tier], 
-			default.MarksmanRifle_EleriumCost[Template.Tier], default.MarksmanRifle_Engineering[Template.Tier]);
-	}
 
 	return Template;
 }
@@ -199,7 +178,6 @@ static function X2DataTemplate Create_MarksmanRifle_Beam(name TemplateName)
 
 	`CREATE_X2TEMPLATE(class'X2WeaponTemplate', Template, TemplateName);
 	Create_MarksmanRifle_Template(Template, 4);
-	Template.RangeAccuracy = default.MEDLONG_BEAM_RANGE;
 
 	// Model
 	Template.GameArchetype = "LW_DMR.Archetypes.WP_DMR_BM";
@@ -209,12 +187,6 @@ static function X2DataTemplate Create_MarksmanRifle_Beam(name TemplateName)
 	Template.AddDefaultAttachment('Core', "BeamAssaultRifle.Meshes.SM_BeamAssaultRifle_CoreA", , "img:///UILibrary_Common.UI_BeamAssaultRifle.BeamAssaultRifle_CoreA");
 	Template.AddDefaultAttachment('HeatSink', "BeamSniper.Meshes.SM_BeamSniper_HeatSinkA", , "img:///UILibrary_Common.UI_BeamSniper.BeamSniper_HeatSinkA");
 	Template.AddDefaultAttachment('Light', "BeamAttachments.Meshes.BeamFlashLight");
-
-	Template.CreatorTemplateName = 'MarksmanRifle_BM_Schematic'; // The schematic which creates this item
-	Template.BaseItem = default.MarksmanRifleMagnetic; // Which item this will be upgraded from
-
-	Template.CanBeBuilt = false;
-	Template.bInfiniteItem = true;
 
 	return Template;
 }

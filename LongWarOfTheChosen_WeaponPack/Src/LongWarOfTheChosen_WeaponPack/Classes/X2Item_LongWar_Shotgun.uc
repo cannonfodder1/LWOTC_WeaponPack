@@ -14,6 +14,7 @@ var config array<int> Shotgun_EleriumCost;
 var config array<int> Shotgun_Engineering;
 var config array<name> Shotgun_RequiredTech;
 var config array<string> Shotgun_ImagePath;
+var config array<name> Shotgun_BaseItem;
 
 var name ShotgunLaser;
 var name ShotgunCoil;
@@ -57,6 +58,7 @@ static function Create_Shotgun_Template(out X2WeaponTemplate Template, int tier)
 	Template.Abilities.AddItem('SkirmisherStrike');
 
 	//Stats
+	Template.RangeAccuracy = default.LW_CLOSE_RANGE;
 	Template.BaseDamage = default.Shotgun_Damage[tier];
 	Template.Aim = default.Shotgun_Aim[tier];
 	Template.CritChance = default.Shotgun_CritChance[tier];
@@ -65,6 +67,43 @@ static function Create_Shotgun_Template(out X2WeaponTemplate Template, int tier)
 	Template.iEnvironmentDamage = default.Shotgun_EnvironmentDamage[tier];
 	Template.TradingPostValue = default.Shotgun_SellValue[tier];
 	Template.NumUpgradeSlots = default.Shotgun_UpgradeSlots[tier];
+	
+	// Building info
+	if (BuildWeaponSchematics(Template))
+	{
+		Template.CreatorTemplateName = name(string(Template.DataName) $ string('_Schematic')); // The schematic which creates this item
+		Template.BaseItem = GetBaseItem("Shotgun", tier); //default.Shotgun_BaseItem[tier]; // Which item this will be upgraded from
+	}
+	else
+	{
+		CreateTemplateCost(Template, default.Shotgun_RequiredTech[Template.Tier], 
+			default.Shotgun_SupplyCost[tier], default.Shotgun_AlloyCost[Template.Tier], 
+			default.Shotgun_EleriumCost[tier], default.Shotgun_Engineering[Template.Tier]);
+	}
+}
+
+static function Modify_Shotgun(name TemplateName)
+{
+	local X2ItemTemplateManager ItemTemplateManager;
+	local X2WeaponTemplate Template;
+
+	ItemTemplateManager = class'X2ItemTemplateManager'.static.GetItemTemplateManager();
+
+	if (ItemTemplateManager == none) {
+		`Redscreen("LW WeaponPack : failed to retrieve ItemTemplateManager");
+		return;
+	}
+	
+	Template = X2WeaponTemplate(ItemTemplateManager.FindItemTemplate(TemplateName));
+	if(Template != none)
+	{
+		Template.Abilities.Length = 0;
+		Create_Shotgun_Template(Template, 1);
+	}
+	else
+	{
+		`Redscreen("LW WeaponPack : failed to find template " $ string(TemplateName));
+	}
 }
 
 static function X2DataTemplate Create_Shotgun_Laser(name TemplateName)
@@ -73,7 +112,6 @@ static function X2DataTemplate Create_Shotgun_Laser(name TemplateName)
 
 	`CREATE_X2TEMPLATE(class'X2WeaponTemplate', Template, TemplateName);
 	Create_Shotgun_Template(Template, 1);
-	Template.RangeAccuracy = default.SHORT_LASER_RANGE;
 
 	// Model
 	Template.GameArchetype = "LWShotgun_LS.Archetype.WP_Shotgun_LS";
@@ -81,19 +119,6 @@ static function X2DataTemplate Create_Shotgun_Laser(name TemplateName)
 	Template.AddDefaultAttachment('Stock', "LWShotgun_LS.Meshes.SK_LaserShotgun_Stock_A", , "img:///UILibrary_LW_LaserPack.LaserShotgun_StockA");
 	Template.AddDefaultAttachment('Reargrip', "LWAttachments_LS.Meshes.SK_Laser_Trigger_A", , "img:///UILibrary_LW_LaserPack.LaserShotgun_TriggerA");
 	Template.AddDefaultAttachment('Foregrip', "LWAttachments_LS.Meshes.SK_Laser_Foregrip_A", , "img:///UILibrary_LW_LaserPack.LaserShotgun_ForegripA");
-
-	// Building info
-	if (BuildWeaponSchematics(Template))
-	{
-		Template.CreatorTemplateName = 'Shotgun_LS_Schematic'; // The schematic which creates this item
-		Template.BaseItem = 'Shotgun_CV'; // Which item this will be upgraded from
-	}
-	else
-	{
-		CreateTemplateCost(Template, default.Shotgun_RequiredTech[Template.Tier],
-			default.Shotgun_SupplyCost[Template.Tier], default.Shotgun_AlloyCost[Template.Tier], 
-			default.Shotgun_EleriumCost[Template.Tier], default.Shotgun_Engineering[Template.Tier]);
-	}
 
 	return Template;
 }
@@ -104,26 +129,12 @@ static function X2DataTemplate Create_Shotgun_Coil(name TemplateName)
 
 	`CREATE_X2TEMPLATE(class'X2WeaponTemplate', Template, TemplateName);
 	Create_Shotgun_Template(Template, 1);
-	Template.RangeAccuracy = default.SHORT_COIL_RANGE;
 
 	// Model
 	Template.GameArchetype = "LWShotgun_CG.Archetypes.WP_Shotgun_CG";
 	Template.AddDefaultAttachment('Stock', "LWAccessories_CG.Meshes.LW_Coil_StockA", , "img:///UILibrary_LW_Coilguns.InventoryArt.CoilShotgun_StockA");
 	Template.AddDefaultAttachment('Reargrip', "LWAccessories_CG.Meshes.LW_Coil_ReargripA", , "img:///UILibrary_LW_Coilguns.InventoryArt.CoilShotgun_ReargripA");
 	Template.AddDefaultAttachment('Light', "BeamAttachments.Meshes.BeamFlashLight"); //, , "img:///UILibrary_Common.ConvAssaultRifle.ConvAssault_LightA");  // re-use common conventional flashlight
-
-	// Building info
-	if (BuildWeaponSchematics(Template))
-	{
-		Template.CreatorTemplateName = 'Shotgun_CG_Schematic'; // The schematic which creates this item
-		Template.BaseItem = 'Shotgun_MG'; // Which item this will be upgraded from
-	}
-	else
-	{
-		CreateTemplateCost(Template, default.Shotgun_RequiredTech[Template.Tier],
-			default.Shotgun_SupplyCost[Template.Tier], default.Shotgun_AlloyCost[Template.Tier], 
-			default.Shotgun_EleriumCost[Template.Tier], default.Shotgun_Engineering[Template.Tier]);
-	}
 
 	return Template;
 }

@@ -46,31 +46,25 @@ static function UpdateWeaponTemplates(X2ItemTemplateManager ItemTemplateManager)
 	{
 		//update Plasma templates so they upgrade from Lasers
 		SetWeaponBaseItem(ItemTemplateManager, 'AssaultRifle_BM', 'AssaultRifle_LS');
-		SetWeaponBaseItem(ItemTemplateManager, 'Bullpup_BM', 'Bullpup_LS');
 		SetWeaponBaseItem(ItemTemplateManager, 'Cannon_BM', 'Cannon_LS');
 		SetWeaponBaseItem(ItemTemplateManager, 'MarksmanRifle_BM', 'MarksmanRifle_LS');
-		SetWeaponBaseItem(ItemTemplateManager, 'Sidearm_BM', 'Sidearm_LS');
 		SetWeaponBaseItem(ItemTemplateManager, 'Pistol_BM', 'Pistol_LS');
 		SetWeaponBaseItem(ItemTemplateManager, 'SAW_BM', 'SAW_LS');
 		SetWeaponBaseItem(ItemTemplateManager, 'Shotgun_BM', 'Shotgun_LS');
 		SetWeaponBaseItem(ItemTemplateManager, 'SMG_BM', 'SMG_LS');
 		SetWeaponBaseItem(ItemTemplateManager, 'SniperRifle_BM', 'SniperRifle_LS');
 		SetWeaponBaseItem(ItemTemplateManager, 'SparkRifle_BM', 'SparkRifle_LS');
-		SetWeaponBaseItem(ItemTemplateManager, 'VektorRifle_BM', 'VektorRifle_LS');
 
 		//update Mag schematics so they are hidden if Coil tier is purchased
 		SetSchematicOverriddenBy(ItemTemplateManager, 'AssaultRifle_MG_Schematic', 'AssaultRifle_CG');
-		SetSchematicOverriddenBy(ItemTemplateManager, 'Bullpup_MG_Schematic', 'Bullpup_CG');
 		SetSchematicOverriddenBy(ItemTemplateManager, 'Cannon_MG_Schematic', 'Cannon_CG');
 		SetSchematicOverriddenBy(ItemTemplateManager, 'MarksmanRifle_MG_Schematic', 'MarksmanRifle_CG');
-		SetSchematicOverriddenBy(ItemTemplateManager, 'Sidearm_MG_Schematic', 'Sidearm_CG');
 		SetSchematicOverriddenBy(ItemTemplateManager, 'Pistol_MG_Schematic', 'Pistol_CG');
 		SetSchematicOverriddenBy(ItemTemplateManager, 'SAW_MG_Schematic', 'SAW_CG');
 		SetSchematicOverriddenBy(ItemTemplateManager, 'Shotgun_MG_Schematic', 'Shotgun_CG');
 		SetSchematicOverriddenBy(ItemTemplateManager, 'SMG_MG_Schematic', 'SMG_CG');
 		SetSchematicOverriddenBy(ItemTemplateManager, 'SniperRifle_MG_Schematic', 'SniperRifle_CG');
 		SetSchematicOverriddenBy(ItemTemplateManager, 'SparkRifle_MG_Schematic', 'SparkRifle_CG');
-		SetSchematicOverriddenBy(ItemTemplateManager, 'VektorRifle_MG_Schematic', 'VektorRifle_CG');
 	}
 }
 
