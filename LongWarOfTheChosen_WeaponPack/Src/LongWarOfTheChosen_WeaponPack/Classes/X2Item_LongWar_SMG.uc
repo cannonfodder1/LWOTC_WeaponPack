@@ -56,20 +56,17 @@ static function Create_SMG_Template(out X2WeaponTemplate Template, int tier)
 
 	//Abilities
 	Template.InventorySlot = eInvSlot_PrimaryWeapon;
-	Template.Abilities.AddItem('StandardShot');
+	Template.Abilities.AddItem('CarbineShot');
 	Template.Abilities.AddItem('Overwatch');
 	Template.Abilities.AddItem('OverwatchShot');
 	Template.Abilities.AddItem('Reload');
 	Template.Abilities.AddItem('HotLoadAmmo');
-	Template.Abilities.AddItem('WeaponMovementDebuff');
 	Template.Abilities.AddItem('WeaponReloadingDebuff');
-	Template.Abilities.AddItem('WeaponShootingDebuff');
-	Template.Abilities.AddItem('SkirmisherStrike');
 	//Template.Abilities.AddItem(class'X2Ability_SMGAbilities'.default.SMGBonusAbility);
 	//Template.SetUIStatMarkup(class'XLocalizedData'.default.MobilityLabel, eStat_Mobility, class'X2Ability_SMGAbilities'.default.SMG_Mobility_Bonus);
 
 	//Stats
-	Template.RangeAccuracy = default.LW_MIDCLOSE_RANGE;
+	Template.RangeAccuracy = default.LW_CLOSE_RANGE;
 	Template.BaseDamage = default.SMG_Damage[tier];
 	Template.Aim = default.SMG_Aim[tier];
 	Template.CritChance = default.SMG_CritChance[tier];

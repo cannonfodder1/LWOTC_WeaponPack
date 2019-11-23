@@ -56,15 +56,14 @@ static function Create_MarksmanRifle_Template(out X2WeaponTemplate Template, int
 
 	//Abilities
 	Template.InventorySlot = eInvSlot_PrimaryWeapon;
-	Template.Abilities.AddItem('StandardShot');
-	Template.Abilities.AddItem('Overwatch');	
+	Template.iTypicalActionCost = 2;
+	Template.Abilities.AddItem('SniperStandardFire');
+	Template.Abilities.AddItem('SniperRifleOverwatch');
 	Template.Abilities.AddItem('OverwatchShot');
 	Template.Abilities.AddItem('Reload');
 	Template.Abilities.AddItem('HotLoadAmmo');
-	Template.Abilities.AddItem('WeaponMovementDebuff');
 	Template.Abilities.AddItem('WeaponReloadingDebuff');
-	Template.Abilities.AddItem('WeaponShootingDebuff');
-	Template.Abilities.AddItem('SkirmisherStrike');
+	Template.Abilities.AddItem('StrikeRifleMove');
 
 	//Stats
 	Template.RangeAccuracy = default.LW_MIDLONG_RANGE;

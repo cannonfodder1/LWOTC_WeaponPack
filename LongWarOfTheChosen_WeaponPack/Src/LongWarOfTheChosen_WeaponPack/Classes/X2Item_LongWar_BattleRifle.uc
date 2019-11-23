@@ -57,18 +57,14 @@ static function Create_BattleRifle_Template(out X2WeaponTemplate Template, int t
 	Assign_Tier_Values(Template);
 
 	//Abilities
-	Template.RangeAccuracy = default.LW_MEDIUM_RANGE;
+	Template.RangeAccuracy = default.LW_FLAT_RANGE;
 	Template.Abilities.AddItem('StandardShot');
 	Template.Abilities.AddItem('Overwatch');
 	Template.Abilities.AddItem('OverwatchShot');
 	Template.Abilities.AddItem('Reload');
 	Template.Abilities.AddItem('HotLoadAmmo');
-	Template.Abilities.AddItem('WeaponMovementDebuff');
 	Template.Abilities.AddItem('WeaponReloadingDebuff');
-	Template.Abilities.AddItem('WeaponShootingDebuff');
-	Template.Abilities.AddItem('SkirmisherStrike');
-	//Template.Abilities.AddItem(class'X2Ability_BattleRifleAbilities'.default.BattleRifleStatBonusAbilityName);
-	//Template.SetUIStatMarkup(class'XLocalizedData'.default.MobilityLabel, eStat_Mobility, class'X2Ability_BattleRifleAbilities'.default.BattleRifle_MobilityBonus);
+	Template.Abilities.AddItem('BattleRifleSteady');
 
 	//Stats
 	Template.BaseDamage = default.BattleRifle_Damage[tier];

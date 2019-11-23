@@ -5,6 +5,7 @@ var config array<int> LW_MIDCLOSE_RANGE;
 var config array<int> LW_MEDIUM_RANGE;
 var config array<int> LW_MIDLONG_RANGE;
 var config array<int> LW_LONG_RANGE;
+var config array<int> LW_FLAT_RANGE;
 
 static function CreateTemplateCost(out X2WeaponTemplate Template, name requiredTech, int supplyCost, int alloyCost, int eleriumCost, int engineeringCost)
 {

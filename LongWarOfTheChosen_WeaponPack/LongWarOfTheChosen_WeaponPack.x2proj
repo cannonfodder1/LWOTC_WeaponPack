@@ -58,9 +58,6 @@
     <Content Include="Config\XComLW_WeaponPack.ini">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Config\XComLW_WeaponPack_Attributes.ini">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="Config\XComStrategyTuning.ini">
       <SubType>Content</SubType>
     </Content>
@@ -164,13 +161,16 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="ReadMe.txt" />
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Ability_WeaponAttributeAbilities.uc">
+    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Ability_WeaponAbilities.uc">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2DownloadableContentInfo_LongWarOfTheChosenWeaponPack.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Effect_WeaponAttributeStatChange.uc">
+    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Effect_DamageModifierCoverType.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Effect_DamageModifierRange.uc">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2Item_LongWar_AssaultRifle.uc">
@@ -240,9 +240,6 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2StrategyElement_CoilTechs.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\X2WeaponAttributeManager.uc">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBAbility.uc">
@@ -344,6 +341,9 @@
     <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBValue.uc">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBValue_ActionPoints.uc">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBValue_Distance.uc">
       <SubType>Content</SubType>
     </Content>
@@ -351,9 +351,6 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBValue_Visibility.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\LongWarOfTheChosen_WeaponPack\Classes\XMBValue_WeaponAttribute.uc">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\LW_Tuple\Classes\LWTuple.uc">

@@ -25,7 +25,7 @@ AbilityDescName="SMG"
 
 [SMG_CG X2WeaponTemplate]
 FriendlyName="Subcoiler"
-FriendlyNamePlural="Subcoiler"
+FriendlyNamePlural="Subcoilers"
 BriefSummary="A lightweight version of the coil rifle that fills the role of SMG, less destructive but granting its user more mobility on the battlefield."
 TacticalText="<Bullet/> <Ability:Coilgun/>\n<Bullet/> <Ability:SMG/>"
 AbilityDescName="SMG"
@@ -404,23 +404,59 @@ DisplayName="Advanced Magnetic Weaponry"
 ; Abilities
 ;=======================================================
 
-[WeaponMovementDebuff X2AbilityTemplate]
-LocFriendlyName="Handling"
-LocFlyOverText="Handling"
-LocHelpText="This soldier has moved this turn, and is strugging to bring their weapons to bear."
-LocLongDescription="This soldier has already fired their <Ability:WeaponName/> this turn, gaining a penalty to aim until the beginning of next turn."
-
 [WeaponReloadingDebuff X2AbilityTemplate]
-LocFriendlyName="Handling"
-LocFlyOverText="Handling"
-LocHelpText="This soldier has reloaded their <Ability:WeaponName/> this turn."
-LocLongDescription="This soldier has already fired their <Ability:WeaponName/> this turn, gaining a penalty to aim until the beginning of next turn."
+LocFriendlyName="Reloaded"
+LocFlyOverText="Reloaded"
+LocHelpText="This soldier has reloaded their <Ability:WeaponName/> this turn, losing aim until the beginning of next turn."
+LocLongDescription="This soldier has reloaded their <Ability:WeaponName/> this turn, which grants a penalty to aim until the beginning of next turn."
 
-[WeaponShootingDebuff X2AbilityTemplate]
-LocFriendlyName="Stability"
-LocFlyOverText="Stability"
-LocHelpText="This soldier has already fired their <Ability:WeaponName/> this turn."
-LocLongDescription="This soldier has already fired their <Ability:WeaponName/> this turn, gaining a penalty to aim until the beginning of next turn."
+[BattleRifleSteady X2AbilityTemplate]
+LocFriendlyName="Steadied Fire"
+LocFlyOverText="Steadied Fire"
+LocHelpText="When firing the <Ability:WeaponName/>, surplus action points are converted into extra aim."
+LocLongDescription="When firing the <Ability:WeaponName/>, surplus action points are converted into extra aim. Standard actions grant +10 aim and movement actions grant +5 aim."
+
+[StrikeRifleMove X2AbilityTemplate]
+LocFriendlyName="Shifting Fire"
+LocFlyOverText="Shifting Fire"
+LocHelpText="After firing the <Ability:WeaponName/>, gain a movement action point."
+LocLongDescription="After firing the <Ability:WeaponName/>, gain a movement action point which can only be used to reposition."
+
+[CarbineShot X2AbilityTemplate]
+LocFriendlyName="Hip Fire"
+LocFlyOverText="Hip Fire"
+LocHelpText="Firing the <Ability:WeaponName/> does not end the soldier's turn, but can only be done once per turn."
+LocLongDescription="Firing the <Ability:WeaponName/> does not end the turn, but can only be done once per turn. Marauder removes the cooldown."
+
+[ShotgunRangeModifier X2AbilityTemplate]
+LocFriendlyName="Target Range"
+LocFlyOverText="Target Range"
+LocHelpText="The <Ability:WeaponName/>'s damage changes at different ranges."
+LocLongDescription="The <Ability:WeaponName/>'s damage changes at different ranges."
+
+[ShotgunCoverModifier X2AbilityTemplate]
+LocFriendlyName="Target Cover"
+LocFlyOverText="Target Cover"
+LocHelpText="The <Ability:WeaponName/> deals reduced damage against targets behind cover."
+LocLongDescription="The <Ability:WeaponName/> deals reduced damage against targets behind cover."
+
+[CannonSpinupShot X2AbilityTemplate]
+LocFriendlyName="Spinup Shot"
+LocFlyOverText="Spinup Shot"
+LocHelpText="The <Ability:WeaponName/> costs two actions to fire, but grants an extra action that can be used to fire again."
+LocLongDescription="The <Ability:WeaponName/> costs two actions to fire, but grants an extra action that can be used to fire again."
+
+[CannonRotaryShot X2AbilityTemplate]
+LocFriendlyName="Sustain Shot"
+LocFlyOverText="Sustain Shot"
+LocHelpText="Continue the <Ability:WeaponName/> barrage."
+LocLongDescription="Continue the <Ability:WeaponName/> barrage."
+
+;[ X2AbilityTemplate]
+;LocFriendlyName=""
+;LocFlyOverText=""
+;LocHelpText=""
+;LocLongDescription=""
 
 [ToggleLongWatchAbility X2AbilityTemplate]
 LocFriendlyName="Long Watch"
@@ -496,49 +532,3 @@ LocFlyOverText="Strafing Shot"
 LocLongDescription="Gain a free move after taking a standard shot at a flanked or exposed target. If you also have Hit and Run you gain a full action instead."
 LocHelpText="Gain a free move after taking a standard shot at a flanked or exposed target. If you also have Hit and Run you gain a full action instead."
 LocPromotionPopupText="<Bullet/> Cannot be used on the same turn as Run and Gun.<br/><Bullet/> Bonus full actions from Serial and Death from Above will be awarded first.<br/><Bullet/> <Ability:HNR_USES_PER_TURN/>"
-
-;=======================================================
-; Scrapped Weapons
-;=======================================================
-
-[Bullpup_LS X2WeaponTemplate]
-FriendlyName="Kal-12 Bullpup"
-FriendlyNamePlural="Kal-12 Bullpups"
-BriefSummary="The addition of an effulgence alternator to the standard bullpup design has only enhanced the Skirmishers' destructive potential."
-TacticalText="<Bullet/> Firing the Bullpup does not end the Skirmisher's turn, and it can be fired twice in a single turn.\n<Bullet/> Bullpups are extremely effective at close range, but their accuracy drops off quickly at longer range.\n<Bullet/> Use upgrades looted from enemies to improve the Bullpup's tactical effectiveness."
-AbilityDescName="bullpup"
-
-[VektorRifle_LS X2WeaponTemplate]
-FriendlyName="Energiya Rifle"
-FriendlyNamePlural="Energiya Rifles"
-BriefSummary="The Energiya Rifle is an effective and highly sought-after application of the laser technology, for the Reapers live their lives in the shadows and the light of the laser only deepens the shadows of war."
-TacticalText="<Bullet/> Firing the primary weapon always ends the soldier's turn, in the absence of special training.\n<Bullet/> The Energiya Rifle is effective at all ranges.\n<Bullet/> Use upgrades looted from enemies to improve the Energiya Rifle's tactical effectiveness."
-AbilityDescName="vektor rifle"
-
-[SparkRifle_LS X2WeaponTemplate]
-FriendlyName="Laser Heavy Autocannon"
-FriendlyNamePlural="Laser Heavy Autocannon"
-BriefSummary="A powerful but physically-heavy cannon designed specifically for use by SPARK units."
-TacticalText="<Bullet/> Firing the primary weapon ends the soldier's turn, in the absence of special training."
-AbilityDescName="heavy autocannon"
-
-[Bullpup_CG X2WeaponTemplate]
-FriendlyName="Kal-66 Bullpup"
-FriendlyNamePlural="Kal-66 Bullpups"
-BriefSummary="An intense, compact weapon that takes full advantage of the coilgun technology to give the Skirmishers a highly-powerful, armor-piercing bullpup."
-TacticalText="<Bullet/> Coil weapons automatically pierce 1 enemy armor.\n<Bullet/> Firing the Bullpup does not end the Skirmisher's turn, and it can be fired twice in a single turn.\n<Bullet/> Bullpups are extremely effective at close range, but their accuracy drops off quickly at longer range.\n<Bullet/> Use upgrades looted from enemies to improve the Bullpup's tactical effectiveness."
-AbilityDescName="bullpup"
-
-[VektorRifle_CG X2WeaponTemplate]
-FriendlyName="Silovik Rifle"
-FriendlyNamePlural="Silovik Rifles"
-BriefSummary="An elite, compact version of the Gauss Long Rifle made with the Reapers in mind."
-TacticalText="<Bullet/> Coil weapons automatically pierce 1 enemy armor.\n<Bullet/> Firing the primary weapon always ends the soldier's turn, in the absence of special training.\n<Bullet/> The Silovik Rifle is effective at all ranges.\n<Bullet/> Use upgrades looted from enemies to improve the Silovik Rifle's tactical effectiveness."
-AbilityDescName="vektor rifle"
-
-[SparkRifle_CG X2WeaponTemplate]
-FriendlyName="Coil Heavy Autocannon"
-FriendlyNamePlural="Coil Heavy Autocannon"
-BriefSummary="A powerful but physically-heavy cannon designed specifically for use by SPARK units."
-TacticalText="<Bullet/> Firing the primary weapon ends the soldier's turn, in the absence of special training."
-AbilityDescName="heavy autocannon"

@@ -52,13 +52,10 @@ static function Create_AssaultRifle_Template(out X2WeaponTemplate Template, int 
 	Template.Abilities.AddItem('OverwatchShot');
 	Template.Abilities.AddItem('Reload');
 	Template.Abilities.AddItem('HotLoadAmmo');
-	Template.Abilities.AddItem('WeaponMovementDebuff');
 	Template.Abilities.AddItem('WeaponReloadingDebuff');
-	Template.Abilities.AddItem('WeaponShootingDebuff');
-	Template.Abilities.AddItem('SkirmisherStrike');
 
 	//Stats
-	Template.RangeAccuracy = default.LW_MEDIUM_RANGE;
+	Template.RangeAccuracy = default.LW_MIDCLOSE_RANGE;
 	Template.BaseDamage = default.AssaultRifle_Damage[tier];
 	Template.Aim = default.AssaultRifle_Aim[tier];
 	Template.CritChance = default.AssaultRifle_CritChance[tier];
@@ -82,7 +79,7 @@ static function Create_AssaultRifle_Template(out X2WeaponTemplate Template, int 
 	}
 }
 
-static function Modify_AssaultRifle(name TemplateName)
+static function Modify_AssaultRifle(name TemplateName, int Tier)
 {
 	local X2ItemTemplateManager ItemTemplateManager;
 	local X2WeaponTemplate Template;
@@ -98,7 +95,7 @@ static function Modify_AssaultRifle(name TemplateName)
 	if(Template != none)
 	{
 		Template.Abilities.Length = 0;
-		Create_AssaultRifle_Template(Template, 1);
+		Create_AssaultRifle_Template(Template, Tier);
 	}
 	else
 	{

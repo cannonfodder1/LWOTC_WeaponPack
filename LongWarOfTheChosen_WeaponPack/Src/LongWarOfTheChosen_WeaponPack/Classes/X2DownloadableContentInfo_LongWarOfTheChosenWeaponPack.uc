@@ -202,25 +202,25 @@ static event OnPostTemplatesCreated()
 		return;
 	}
 	
-	class'X2Item_LongWar_AssaultRifle'.static.Modify_AssaultRifle('AssaultRifle_CV');
-	class'X2Item_LongWar_AssaultRifle'.static.Modify_AssaultRifle('AssaultRifle_MG');
-	class'X2Item_LongWar_AssaultRifle'.static.Modify_AssaultRifle('AssaultRifle_BM');
+	class'X2Item_LongWar_AssaultRifle'.static.Modify_AssaultRifle('AssaultRifle_CV', 0);
+	class'X2Item_LongWar_AssaultRifle'.static.Modify_AssaultRifle('AssaultRifle_MG', 2);
+	class'X2Item_LongWar_AssaultRifle'.static.Modify_AssaultRifle('AssaultRifle_BM', 4);
 	
-	class'X2Item_LongWar_SniperRifle'.static.Modify_SniperRifle('SniperRifle_CV');
-	class'X2Item_LongWar_SniperRifle'.static.Modify_SniperRifle('SniperRifle_MG');
-	class'X2Item_LongWar_SniperRifle'.static.Modify_SniperRifle('SniperRifle_BM');
+	class'X2Item_LongWar_SniperRifle'.static.Modify_SniperRifle('SniperRifle_CV', 0);
+	class'X2Item_LongWar_SniperRifle'.static.Modify_SniperRifle('SniperRifle_MG', 2);
+	class'X2Item_LongWar_SniperRifle'.static.Modify_SniperRifle('SniperRifle_BM', 4);
 	
-	class'X2Item_LongWar_Shotgun'.static.Modify_Shotgun('Shotgun_CV');
-	class'X2Item_LongWar_Shotgun'.static.Modify_Shotgun('Shotgun_MG');
-	class'X2Item_LongWar_Shotgun'.static.Modify_Shotgun('Shotgun_BM');
+	class'X2Item_LongWar_Shotgun'.static.Modify_Shotgun('Shotgun_CV', 0);
+	class'X2Item_LongWar_Shotgun'.static.Modify_Shotgun('Shotgun_MG', 2);
+	class'X2Item_LongWar_Shotgun'.static.Modify_Shotgun('Shotgun_BM', 4);
 	
-	class'X2Item_LongWar_Cannon'.static.Modify_Cannon('Cannon_CV');
-	class'X2Item_LongWar_Cannon'.static.Modify_Cannon('Cannon_MG');
-	class'X2Item_LongWar_Cannon'.static.Modify_Cannon('Cannon_BM');
+	class'X2Item_LongWar_Cannon'.static.Modify_Cannon('Cannon_CV', 0);
+	class'X2Item_LongWar_Cannon'.static.Modify_Cannon('Cannon_MG', 2);
+	class'X2Item_LongWar_Cannon'.static.Modify_Cannon('Cannon_BM', 4);
 	
-	class'X2Item_LongWar_Pistol'.static.Modify_Pistol('Pistol_CV');
-	class'X2Item_LongWar_Pistol'.static.Modify_Pistol('Pistol_MG');
-	class'X2Item_LongWar_Pistol'.static.Modify_Pistol('Pistol_BM');
+	class'X2Item_LongWar_Pistol'.static.Modify_Pistol('Pistol_CV', 0);
+	class'X2Item_LongWar_Pistol'.static.Modify_Pistol('Pistol_MG', 2);
+	class'X2Item_LongWar_Pistol'.static.Modify_Pistol('Pistol_BM', 4);
 
 	class'X2Override_Attachments_SMG'.static.UpdateSMGAttachmentTemplates(ItemTemplateManager);
 	class'X2Override_Attachments_BattleRifle'.static.UpdateBattleRifleAttachmentTemplates(ItemTemplateManager);
@@ -232,6 +232,7 @@ static event OnPostTemplatesCreated()
 	class'X2Override_LongWar_Tech'.static.UpdateWeaponTemplates(ItemTemplateManager);
 
 	AddSchematicLoc (ItemTemplateManager);
+	AddAbilitiesToActionPoints();
 }
 
 // This adds the soldier class to the schematic string [SHARPSHOOTER UPGRADE] draws from vanilla so we don't have to rewrite a ton of loc
@@ -294,6 +295,39 @@ static function CopySchematicLoc (X2ItemTemplateManager ItemTemplateMgr, Name Ne
 	else
 	{
 		`REDSCREEN ("Missing something from" @ NewItem @ BaseItem);
+	}
+}
+
+static function AddAbilitiesToActionPoints()
+{
+	local name AbilityName;
+
+	foreach class'X2Ability_WeaponAbilities'.default.SPINUP_VALID_ABILITIES(AbilityName)
+	{
+		AddActionPointType(AbilityName, class'X2Ability_WeaponAbilities'.default.SpinupActionPoint);
+	}
+}
+
+static function AddActionPointType(name AbilityName, name ActionPointType)
+{
+	local X2AbilityTemplateManager				AbilityTemplateMgr;
+	local array<X2AbilityTemplate>				AbilityTemplateArray;
+	local X2AbilityTemplate						AbilityTemplate;
+	local X2AbilityCost_ActionPoints			ActionPointCost;
+    local X2AbilityCost							Cost;
+
+	AbilityTemplateMgr = class'X2AbilityTemplateManager'.static.GetAbilityTemplateManager();
+	AbilityTemplateMgr.FindAbilityTemplateAllDifficulties(AbilityName, AbilityTemplateArray);
+	foreach AbilityTemplateArray(AbilityTemplate)
+	{
+		foreach AbilityTemplate.AbilityCosts(Cost)
+		{
+			ActionPointCost = X2AbilityCost_ActionPoints(Cost);
+			if (ActionPointCost != none)
+			{
+				ActionPointCost.AllowedTypes.AddItem(ActionPointType);
+			}
+		}
 	}
 }
 

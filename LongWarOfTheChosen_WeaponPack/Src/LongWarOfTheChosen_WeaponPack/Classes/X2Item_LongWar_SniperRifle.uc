@@ -44,18 +44,16 @@ static function Create_SniperRifle_Template(out X2WeaponTemplate Template, int t
 	Template.UIArmoryCameraPointTag = 'UIPawnLocation_WeaponUpgrade_Sniper';
 	Template.strImage = "img:///" $ default.SniperRifle_ImagePath[tier];
 	Assign_Tier_Values(Template);
-	Template.iTypicalActionCost = 2;
 
 	//Abilities
 	Template.InventorySlot = eInvSlot_PrimaryWeapon;
+	Template.iTypicalActionCost = 2;
 	Template.Abilities.AddItem('SniperStandardFire');
 	Template.Abilities.AddItem('SniperRifleOverwatch');
 	Template.Abilities.AddItem('OverwatchShot');
 	Template.Abilities.AddItem('Reload');
 	Template.Abilities.AddItem('HotLoadAmmo');
-	Template.Abilities.AddItem('WeaponMovementDebuff');
 	Template.Abilities.AddItem('WeaponReloadingDebuff');
-	Template.Abilities.AddItem('WeaponShootingDebuff');
 
 	//Stats
 	Template.RangeAccuracy = default.LW_LONG_RANGE;
@@ -82,7 +80,7 @@ static function Create_SniperRifle_Template(out X2WeaponTemplate Template, int t
 	}
 }
 
-static function Modify_SniperRifle(name TemplateName)
+static function Modify_SniperRifle(name TemplateName, int Tier)
 {
 	local X2ItemTemplateManager ItemTemplateManager;
 	local X2WeaponTemplate Template;
@@ -98,7 +96,7 @@ static function Modify_SniperRifle(name TemplateName)
 	if(Template != none)
 	{
 		Template.Abilities.Length = 0;
-		Create_SniperRifle_Template(Template, 1);
+		Create_SniperRifle_Template(Template, Tier);
 	}
 	else
 	{

@@ -48,18 +48,18 @@ static function Create_Cannon_Template(out X2WeaponTemplate Template, int tier)
 
 	//Abilities
 	Template.InventorySlot = eInvSlot_PrimaryWeapon;
-	Template.Abilities.AddItem('StandardShot');
-	Template.Abilities.AddItem('Overwatch');
+	Template.iTypicalActionCost = 2;
+	Template.Abilities.AddItem('CannonSpinupShot');
+	Template.Abilities.AddItem('CannonSpinupAction');
+	Template.Abilities.AddItem('CannonRotaryShot');
+	Template.Abilities.AddItem('SniperRifleOverwatch');
 	Template.Abilities.AddItem('OverwatchShot');
-	Template.Abilities.AddItem('Reload');
+	Template.Abilities.AddItem('HeavyReload');
 	Template.Abilities.AddItem('HotLoadAmmo');
-	Template.Abilities.AddItem('WeaponMovementDebuff');
 	Template.Abilities.AddItem('WeaponReloadingDebuff');
-	Template.Abilities.AddItem('WeaponShootingDebuff');
-	Template.Abilities.AddItem('SkirmisherStrike');
 
 	//Stats
-	Template.RangeAccuracy = default.LW_MIDLONG_RANGE;
+	Template.RangeAccuracy = default.LW_MEDIUM_RANGE;
 	Template.BaseDamage = default.Cannon_Damage[tier];
 	Template.Aim = default.Cannon_Aim[tier];
 	Template.CritChance = default.Cannon_CritChance[tier];
@@ -83,7 +83,7 @@ static function Create_Cannon_Template(out X2WeaponTemplate Template, int tier)
 	}
 }
 
-static function Modify_Cannon(name TemplateName)
+static function Modify_Cannon(name TemplateName, int Tier)
 {
 	local X2ItemTemplateManager ItemTemplateManager;
 	local X2WeaponTemplate Template;
@@ -99,7 +99,7 @@ static function Modify_Cannon(name TemplateName)
 	if(Template != none)
 	{
 		Template.Abilities.Length = 0;
-		Create_Cannon_Template(Template, 1);
+		Create_Cannon_Template(Template, Tier);
 	}
 	else
 	{

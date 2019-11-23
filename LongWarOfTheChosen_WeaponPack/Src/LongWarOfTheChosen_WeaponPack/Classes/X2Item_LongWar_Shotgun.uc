@@ -52,13 +52,12 @@ static function Create_Shotgun_Template(out X2WeaponTemplate Template, int tier)
 	Template.Abilities.AddItem('OverwatchShot');
 	Template.Abilities.AddItem('Reload');
 	Template.Abilities.AddItem('HotLoadAmmo');
-	Template.Abilities.AddItem('WeaponMovementDebuff');
 	Template.Abilities.AddItem('WeaponReloadingDebuff');
-	Template.Abilities.AddItem('WeaponShootingDebuff');
-	Template.Abilities.AddItem('SkirmisherStrike');
+	Template.Abilities.AddItem('ShotgunRangeModifier');
+	Template.Abilities.AddItem('ShotgunCoverModifier');
 
 	//Stats
-	Template.RangeAccuracy = default.LW_CLOSE_RANGE;
+	Template.RangeAccuracy = default.LW_FLAT_RANGE;
 	Template.BaseDamage = default.Shotgun_Damage[tier];
 	Template.Aim = default.Shotgun_Aim[tier];
 	Template.CritChance = default.Shotgun_CritChance[tier];
@@ -82,7 +81,7 @@ static function Create_Shotgun_Template(out X2WeaponTemplate Template, int tier)
 	}
 }
 
-static function Modify_Shotgun(name TemplateName)
+static function Modify_Shotgun(name TemplateName, int Tier)
 {
 	local X2ItemTemplateManager ItemTemplateManager;
 	local X2WeaponTemplate Template;
@@ -98,7 +97,7 @@ static function Modify_Shotgun(name TemplateName)
 	if(Template != none)
 	{
 		Template.Abilities.Length = 0;
-		Create_Shotgun_Template(Template, 1);
+		Create_Shotgun_Template(Template, Tier);
 	}
 	else
 	{

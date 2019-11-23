@@ -58,15 +58,11 @@ static function Create_Pistol_Template(out X2WeaponTemplate Template, int tier)
 	Template.Abilities.AddItem('PistolReturnFire');
 	Template.Abilities.AddItem('HotLoadAmmo');
 	Template.Abilities.AddItem('Reload');
-	Template.Abilities.AddItem('WeaponMovementDebuff');
-	Template.Abilities.AddItem('WeaponReloadingDebuff');
-	Template.Abilities.AddItem('WeaponShootingDebuff');
-	Template.Abilities.AddItem('Quickdraw');
 
 	Template.SetAnimationNameForAbility('FanFire', 'FF_FireMultiShotBeamA'); // TODO : update with new animation if necessary
 
 	//Stats
-	Template.RangeAccuracy = default.LW_MIDCLOSE_RANGE;
+	Template.RangeAccuracy = default.LW_CLOSE_RANGE;
 	Template.BaseDamage = default.Pistol_Damage[tier];
 	Template.Aim = default.Pistol_Aim[tier];
 	Template.CritChance = default.Pistol_CritChance[tier];
@@ -90,7 +86,7 @@ static function Create_Pistol_Template(out X2WeaponTemplate Template, int tier)
 	}
 }
 
-static function Modify_Pistol(name TemplateName)
+static function Modify_Pistol(name TemplateName, int Tier)
 {
 	local X2ItemTemplateManager ItemTemplateManager;
 	local X2WeaponTemplate Template;
@@ -106,7 +102,7 @@ static function Modify_Pistol(name TemplateName)
 	if(Template != none)
 	{
 		Template.Abilities.Length = 0;
-		Create_Pistol_Template(Template, 1);
+		Create_Pistol_Template(Template, Tier);
 	}
 	else
 	{
