@@ -157,6 +157,9 @@
     <Content Include="Content\UILibrary_SMG.upk">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\UILibrary_WeaponPerkIcons.upk">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Localization\XComGame.int">
       <SubType>Content</SubType>
     </Content>

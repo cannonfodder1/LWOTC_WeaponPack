@@ -60,10 +60,10 @@ static function Create_MarksmanRifle_Template(out X2WeaponTemplate Template, int
 	Template.Abilities.AddItem('SniperStandardFire');
 	Template.Abilities.AddItem('SniperRifleOverwatch');
 	Template.Abilities.AddItem('OverwatchShot');
-	Template.Abilities.AddItem('Reload');
 	Template.Abilities.AddItem('HotLoadAmmo');
 	Template.Abilities.AddItem('WeaponReloadingDebuff');
 	Template.Abilities.AddItem('StrikeRifleMove');
+	Template.Abilities.AddItem('WeaponTypeStrike');
 
 	//Stats
 	Template.RangeAccuracy = default.LW_MIDLONG_RANGE;

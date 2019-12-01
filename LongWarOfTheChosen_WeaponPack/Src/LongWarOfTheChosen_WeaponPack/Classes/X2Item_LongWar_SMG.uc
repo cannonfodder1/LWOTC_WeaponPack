@@ -59,11 +59,9 @@ static function Create_SMG_Template(out X2WeaponTemplate Template, int tier)
 	Template.Abilities.AddItem('CarbineShot');
 	Template.Abilities.AddItem('Overwatch');
 	Template.Abilities.AddItem('OverwatchShot');
-	Template.Abilities.AddItem('Reload');
 	Template.Abilities.AddItem('HotLoadAmmo');
 	Template.Abilities.AddItem('WeaponReloadingDebuff');
-	//Template.Abilities.AddItem(class'X2Ability_SMGAbilities'.default.SMGBonusAbility);
-	//Template.SetUIStatMarkup(class'XLocalizedData'.default.MobilityLabel, eStat_Mobility, class'X2Ability_SMGAbilities'.default.SMG_Mobility_Bonus);
+	Template.Abilities.AddItem('WeaponTypeCarbine');
 
 	//Stats
 	Template.RangeAccuracy = default.LW_CLOSE_RANGE;

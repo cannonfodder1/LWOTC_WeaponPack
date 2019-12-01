@@ -406,9 +406,27 @@ DisplayName="Advanced Magnetic Weaponry"
 
 [WeaponReloadingDebuff X2AbilityTemplate]
 LocFriendlyName="Reloaded"
-LocFlyOverText="Reloaded"
-LocHelpText="This soldier has reloaded their <Ability:WeaponName/> this turn, losing aim until the beginning of next turn."
+LocFlyOverText="Reloaded Weapon"
+LocHelpText="This soldier has reloaded their <Ability:WeaponName/> this turn, making subsequent shots less accurate."
 LocLongDescription="This soldier has reloaded their <Ability:WeaponName/> this turn, which grants a penalty to aim until the beginning of next turn."
+
+[HeavyReload X2AbilityTemplate]
+LocFriendlyName="Heavy Reload"
+LocFlyOverText="Heavy Reload"
+LocHelpText="The <Ability:WeaponName/> is a cumbersome weapon, and reloading it will end this soldier's turn."
+LocLongDescription="The <Ability:WeaponName/> is a cumbersome weapon, and reloading it will end this soldier's turn."
+
+[HeatDissipation X2AbilityTemplate]
+LocFriendlyName="Heat Dissipation"
+LocFlyOverText="Heat Dissipation"
+LocHelpText="The <Ability:WeaponName/> dissipates some built-up heat each turn, allowing more shots to be taken before overheat."
+LocLongDescription="The <Ability:WeaponName/> dissipates some built-up heat each turn, allowing more shots to be taken before overheat."
+
+[ExchangeHeatsink X2AbilityTemplate]
+LocFriendlyName="Exchange Heatsink"
+LocFlyOverText="Exchange Heatsink"
+LocHelpText="Swap out the <Ability:WeaponName/>'s heatsink for a fresh one, resetting the number of effective shots before overheat."
+LocLongDescription="Swap out the <Ability:WeaponName/>'s heatsink for a fresh one, resetting the number of effective shots before overheat."
 
 [BattleRifleSteady X2AbilityTemplate]
 LocFriendlyName="Steadied Fire"
@@ -452,83 +470,80 @@ LocFlyOverText="Sustain Shot"
 LocHelpText="Continue the <Ability:WeaponName/> barrage."
 LocLongDescription="Continue the <Ability:WeaponName/> barrage."
 
+[WeaponTypeAssault X2AbilityTemplate]
+LocFriendlyName="Type: Assault"
+LocFlyOverText="Type: Assault"
+LocHelpText="Assault Rifles have average damage and mobility, allowing them to effectively flank and damage enemy targets."
+LocLongDescription="Assault Rifles have average damage and mobility, allowing them to effectively flank and damage enemy targets."
+
+[WeaponTypeShotgun X2AbilityTemplate]
+LocFriendlyName="Type: Shotgun"
+LocFlyOverText="Type: Shotgun"
+LocHelpText="Shotguns fire spreads of projectiles, which means their damage is dependent on how close the shooter is to their target."
+LocLongDescription="Shotguns fire spreads of projectiles, which means their damage is dependent on how close the shooter is to their target."
+
+[WeaponTypeCannon X2AbilityTemplate]
+LocFriendlyName="Type: Cannon"
+LocFlyOverText="Type: Cannon"
+LocHelpText="Cannons are slow but powerful. Although they cannot fire on the move, Cannons can be spun up to fire or suppress twice a turn."
+LocLongDescription="Cannons are slow but powerful. Although they cannot fire on the move, Cannons can be spun up to fire or suppress twice a turn."
+
+[WeaponTypeSniper X2AbilityTemplate]
+LocFriendlyName="Type: Sniper"
+LocFlyOverText="Type: Sniper"
+LocHelpText="Sniper Rifles can deal heavy damage from beyond visual range and are deadly against armoured targets, but cannot fire on the move."
+LocLongDescription="Sniper Rifles can deal heavy damage from beyond visual range and are deadly against armoured targets, but cannot fire on the move."
+
+[WeaponTypeCarbine X2AbilityTemplate]
+LocFriendlyName="Type: Carbine"
+LocFlyOverText="Type: Carbine"
+LocHelpText="Carbines are lightweight firearms that can shoot without ending the turn. However, without special training, they cannot be fired twice a turn."
+LocLongDescription="Carbines are lightweight firearms that can shoot without ending the turn. However, without special training, they cannot be fired twice a turn."
+
+[WeaponTypeBattle X2AbilityTemplate]
+LocFriendlyName="Type: Battle"
+LocFlyOverText="Type: Battle"
+LocHelpText="Battle Rifles are accurate and strong mid-range weapons. They do not gain close range bonuses but are more accurate when fired as a first action."
+LocLongDescription="Battle Rifles are accurate and strong mid-range weapons. They do not gain close range bonuses but are more accurate when fired as a first action."
+
+[WeaponTypeStrike X2AbilityTemplate]
+LocFriendlyName="Type: Strike"
+LocFlyOverText="Type: Strike"
+LocHelpText="Strike Rifles have lower damage than Sniper Rifles, but can be used at non-squadsight ranges after taking a costly action."
+LocLongDescription="Strike Rifles have lower damage than Sniper Rifles, but can be used at non-squadsight ranges after taking a costly action."
+
+[WeaponTechKinetic X2AbilityTemplate]
+LocFriendlyName="Tech: Kinetic"
+LocFlyOverText="Tech: Kinetic"
+LocHelpText="Kinetic weapons are loaded using packages of ammunition. Reloading takes one action, and reloading a heavy weapon ends the turn."
+LocLongDescription="Kinetic weapons are loaded using packages of ammunition. Reloading takes one action, and reloading a heavy weapon ends the turn."
+
+[WeaponTechEnergy X2AbilityTemplate]
+LocFriendlyName="Tech: Energy"
+LocFlyOverText="Tech: Energy"
+LocHelpText="Energy weapons build up heat when firing, but dissipate it each turn. Swapping the heatsink to get rid of all heat takes two actions."
+LocLongDescription="Energy weapons build up heat when firing, but dissipate it each turn. Swapping the heatsink to get rid of all heat takes two actions."
+
 ;[ X2AbilityTemplate]
 ;LocFriendlyName=""
 ;LocFlyOverText=""
 ;LocHelpText=""
 ;LocLongDescription=""
 
-[ToggleLongWatchAbility X2AbilityTemplate]
-LocFriendlyName="Long Watch"
-LocLongDescription="Allow Overwatch to trigger with Squadsight."
-LocHelpText="Fire on the first enemy that moves within your line of sight (in Squadsight range.)"
-LocLongDescriptionWhenConcealed="Fire on the first enemy that moves within your line of sight (in Squadsight range) but only if you are revealed."
-LocFlyOverText="Long Watch"
-LocFriendlyNameWhenConcealed="Long Watch (Concealed)"
-LocPromotionPopupText="<Bullet/> Like the Overwatch ability it upgrades, Long Watch suffers a base penalty to aim.<br/><Bullet/> Long Watch also suffers the Squadsight penalty to aim that increases with distance.<br/>"
- 
-[ToggleLongWatchShotAbility X2AbilityTemplate]
-LocFriendlyName="Long Watch Shot"
-
-[LWOTC_MountLMG X2AbilityTemplate]
-LocFriendlyName="Mount Cannon"
-LocFlyOverText="Mount Cannon"
-LocLongDescription="Mount the Cannon on cover to remove aim penalties and allow for area suppression."
-LocHelpText="Mount the Cannon on cover to remove aim penalties and allow for area suppression."
-LocPromotionPopupText="This will never show up" 
-
-[LWotC_LMG_NonMountedShot X2AbilityTemplate]
-LocFriendlyName="Spray"
-LocFlyOverText="Spray"
-LocLongDescription="Fire at an enemy. Recieves significant penalties because the cannon isnt mounted."
-LocHelpText="Fire at an enemy. Recieves significant penalties because the cannon isnt mounted."
-LocPromotionPopupText="This will never show up" 
-
-[LWotC_LMG_MountedShot X2AbilityTemplate]
-LocFriendlyName="Fire Cannon"
-LocFlyOverText="Fire Cannon"
-LocLongDescription="Fire your cannon at an enemy."
-LocHelpText="Fire your cannon at an enemy."
-LocPromotionPopupText="This will never show up" 
-
-[LWOTC_CannonAreaSuppression X2AbilityTemplate]
-LocFriendlyName="Area Suppression"
-LocFlyOverText="Area Suppression"
-LocLongDescription="Fire a barrage that pins down multiple targets within a 4-tile radius, granting reaction fire against anyone that moves and imposing a <Ability:SUPPRESSIONPENALTY/> penalty. Requires setup, and cannot be used when concealed."
-LocHelpText="Suppress multiple targets within an area of effect."
-LocPromotionPopupText="This will never show up"
-
-[LWotC_CannonFullReload X2AbilityTemplate]
-LocFriendlyName="Full Reload"
-LocFlyOverText="Full Reload"
-LocLongDescription="Spend two actions to reload the cannon's ammunition. "
-LocHelpText="Spend two actions to reload the cannon's ammunition."
-LocPromotionPopupText="This will never show up" 
-
-[LWotC_SniperRifleSnapshot X2AbilityTemplate]
-LocFriendlyName="Snapshot"
-LocFlyOverText="Snapshot"
-LocLongDescription="Fire using only one action, at a -15 aim penalty. Squadsight penalties are increased significantly. Does not trigger Double Tap, Ready for Anything or Death from Above."
-LocHelpText="Fire using only one action, at a -15 aim penalty. Does not trigger bonus action perks."
-LocPromotionPopupText="This will never show up" 
-
-[LWotC_MarksmanRiflePrecisionShot X2AbilityTemplate]
-LocFriendlyName="Precision Shot"
-LocFlyOverText="Precision Shot"
-LocLongDescription="Special shot that requires concealment or squadsight, but grants large bonuses to crit chance and crit damage."
-LocHelpText="Fire a shot with large crit bonuses. Requires concealment or squadsight."
-LocPromotionPopupText="This will never show up" 
-
-[LWotC_MarksmanRifleStandardShot X2AbilityTemplate]
-LocFriendlyName="Fire Marksman Rifle"
-LocFlyOverText="Fire Marksman Rifle"
-LocLongDescription="Fire your marksman rifle at an enemy."
-LocHelpText="Fire your marksman rifle at an enemy."
-LocPromotionPopupText="This will never show up"
-
-[LWOTC_SMG_StrafingShot X2AbilityTemplate]
-LocFriendlyName="Strafing Shot"
-LocFlyOverText="Strafing Shot"
-LocLongDescription="Gain a free move after taking a standard shot at a flanked or exposed target. If you also have Hit and Run you gain a full action instead."
-LocHelpText="Gain a free move after taking a standard shot at a flanked or exposed target. If you also have Hit and Run you gain a full action instead."
-LocPromotionPopupText="<Bullet/> Cannot be used on the same turn as Run and Gun.<br/><Bullet/> Bonus full actions from Serial and Death from Above will be awarded first.<br/><Bullet/> <Ability:HNR_USES_PER_TURN/>"
+; MASTER TODO LIST:
+; all the UI images are fucked
+; coil saw autoloader is screwed
+; laser saw extension animation is gigafucked
+; need to reduce size of coil dmr model
+; modify weapon upgrade bonuses
+; theorize crit chances and damages
+; create tech branch bonuses
+; full localization pass
+; Add lost headshot validity for new shots
+; convert BR ability to shot
+; create perk icon for snapshot
+; ===Proficiency===
+; Figure out how Brace is going to work, always active or nah?
+; OPTC snapshot to get it onto strike rifles as well
+; Swap out Light Em Up in the tree for Burst Fire
+; Change weapon categories and classes, delete bullpup/vektor

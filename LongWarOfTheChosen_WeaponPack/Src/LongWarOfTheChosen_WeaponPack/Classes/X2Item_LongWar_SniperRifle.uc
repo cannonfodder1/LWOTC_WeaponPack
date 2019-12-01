@@ -51,9 +51,9 @@ static function Create_SniperRifle_Template(out X2WeaponTemplate Template, int t
 	Template.Abilities.AddItem('SniperStandardFire');
 	Template.Abilities.AddItem('SniperRifleOverwatch');
 	Template.Abilities.AddItem('OverwatchShot');
-	Template.Abilities.AddItem('Reload');
 	Template.Abilities.AddItem('HotLoadAmmo');
 	Template.Abilities.AddItem('WeaponReloadingDebuff');
+	Template.Abilities.AddItem('WeaponTypeSniper');
 
 	//Stats
 	Template.RangeAccuracy = default.LW_LONG_RANGE;

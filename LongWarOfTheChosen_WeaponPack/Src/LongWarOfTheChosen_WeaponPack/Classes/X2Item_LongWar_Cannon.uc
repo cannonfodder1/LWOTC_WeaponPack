@@ -54,9 +54,9 @@ static function Create_Cannon_Template(out X2WeaponTemplate Template, int tier)
 	Template.Abilities.AddItem('CannonRotaryShot');
 	Template.Abilities.AddItem('SniperRifleOverwatch');
 	Template.Abilities.AddItem('OverwatchShot');
-	Template.Abilities.AddItem('HeavyReload');
 	Template.Abilities.AddItem('HotLoadAmmo');
 	Template.Abilities.AddItem('WeaponReloadingDebuff');
+	Template.Abilities.AddItem('WeaponTypeCannon');
 
 	//Stats
 	Template.RangeAccuracy = default.LW_MEDIUM_RANGE;

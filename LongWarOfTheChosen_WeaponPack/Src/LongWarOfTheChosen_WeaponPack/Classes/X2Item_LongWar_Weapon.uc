@@ -55,6 +55,16 @@ static function Assign_Tier_Values(out X2WeaponTemplate Template)
 		Template.EquipSound = "Conventional_Weapon_Equip";
 		Template.DamageTypeTemplateName = 'Projectile_Conventional';
 		Template.WeaponPanelImage = "_ConventionalRifle";
+		// Kinetic Tier
+		Template.Abilities.AddItem('WeaponTechKinetic');
+		if(Template.WeaponCat == 'cannon')
+		{
+			Template.Abilities.AddItem('HeavyReload');
+		}
+		else
+		{
+			Template.Abilities.AddItem('Reload');
+		}
 	}
 	if (Template.Tier == 1)
 	{
@@ -62,6 +72,10 @@ static function Assign_Tier_Values(out X2WeaponTemplate Template)
 		Template.EquipSound = "Beam_Weapon_Equip";
 		Template.DamageTypeTemplateName = 'Projectile_BeamXCom';  // TODO : update with new damage type
 		Template.WeaponPanelImage = "_BeamRifle"; // used by the UI. Probably determines iconview of the weapon.
+		// Energy Tier
+		Template.Abilities.AddItem('WeaponTechEnergy');
+		Template.Abilities.AddItem('HeatDissipation');
+		Template.Abilities.AddItem('ExchangeHeatsink');
 	}
 	if (Template.Tier == 2)
 	{
@@ -69,6 +83,16 @@ static function Assign_Tier_Values(out X2WeaponTemplate Template)
 		Template.EquipSound = "Magnetic_Weapon_Equip";
 		Template.DamageTypeTemplateName = 'Projectile_MagXCom';
 		Template.WeaponPanelImage = "_MagneticRifle";
+		// Kinetic Tier
+		Template.Abilities.AddItem('WeaponTechKinetic');
+		if(Template.WeaponCat == 'cannon')
+		{
+			Template.Abilities.AddItem('HeavyReload');
+		}
+		else
+		{
+			Template.Abilities.AddItem('Reload');
+		}
 	}
 	if (Template.Tier == 3)
 	{
@@ -76,6 +100,16 @@ static function Assign_Tier_Values(out X2WeaponTemplate Template)
 		Template.EquipSound = "Magnetic_Weapon_Equip";
 		Template.WeaponPanelImage = "_MagneticRifle";
 		Template.DamageTypeTemplateName = 'Projectile_MagXCom';
+		// Kinetic Tier
+		Template.Abilities.AddItem('WeaponTechKinetic');
+		if(Template.WeaponCat == 'cannon')
+		{
+			Template.Abilities.AddItem('HeavyReload');
+		}
+		else
+		{
+			Template.Abilities.AddItem('Reload');
+		}
 	}
 	if (Template.Tier == 4)
 	{
@@ -83,6 +117,10 @@ static function Assign_Tier_Values(out X2WeaponTemplate Template)
 		Template.EquipSound = "Beam_Weapon_Equip";
 		Template.DamageTypeTemplateName = 'Projectile_BeamXCom';
 		Template.WeaponPanelImage = "_BeamRifle";
+		// Energy Tier
+		Template.Abilities.AddItem('WeaponTechEnergy');
+		Template.Abilities.AddItem('HeatDissipation');
+		Template.Abilities.AddItem('ExchangeHeatsink');
 	}
 }
 

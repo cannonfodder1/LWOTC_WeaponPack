@@ -57,7 +57,7 @@ static function Create_Pistol_Template(out X2WeaponTemplate Template, int tier)
 	Template.Abilities.AddItem('PistolOverwatchShot');
 	Template.Abilities.AddItem('PistolReturnFire');
 	Template.Abilities.AddItem('HotLoadAmmo');
-	Template.Abilities.AddItem('Reload');
+	
 
 	Template.SetAnimationNameForAbility('FanFire', 'FF_FireMultiShotBeamA'); // TODO : update with new animation if necessary
 
